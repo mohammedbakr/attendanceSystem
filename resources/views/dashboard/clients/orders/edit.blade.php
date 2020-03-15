@@ -47,7 +47,7 @@
 
                                             <div class="panel-body">
 
-                                                @if ($stage->products->count() > 0)
+                                                @if ($stage->schools->count() > 0)
 
                                                     <table class="table table-hover">
                                                         <tr>
@@ -57,18 +57,18 @@
                                                             <th>@lang('site.add')</th>
                                                         </tr>
 
-                                                        @foreach ($stage->products as $product)
+                                                        @foreach ($stage->schools as $school)
                                                             <tr>
-                                                                <td>{{ $product->name }}</td>
-                                                                <td>{{ $product->stock }}</td>
-                                                                <td>{{ $product->sale_price }}</td>
+                                                                <td>{{ $school->name }}</td>
+                                                                <td>{{ $school->stock }}</td>
+                                                                <td>{{ $school->sale_price }}</td>
                                                                 <td>
                                                                     <a href=""
-                                                                       id="product-{{ $product->id }}"
-                                                                       data-name="{{ $product->name }}"
-                                                                       data-id="{{ $product->id }}"
-                                                                       data-price="{{ $product->sale_price }}"
-                                                                       class="btn {{ in_array($product->id, $order->products->pluck('id')->toArray()) ? 'btn-default disabled' : 'btn-success add-product-btn' }} btn-sm">
+                                                                       id="school-{{ $school->id }}"
+                                                                       data-name="{{ $school->name }}"
+                                                                       data-id="{{ $school->id }}"
+                                                                       data-price="{{ $school->sale_price }}"
+                                                                       class="btn {{ in_array($school->id, $order->schools->pluck('id')->toArray()) ? 'btn-default disabled' : 'btn-success add-school-btn' }} btn-sm">
                                                                         <i class="fa fa-plus"></i>
                                                                     </a>
                                                                 </td>
@@ -119,7 +119,7 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th>@lang('site.product')</th>
+                                        <th>@lang('site.school')</th>
                                         <th>@lang('site.quantity')</th>
                                         <th>@lang('site.price')</th>
                                     </tr>
@@ -127,13 +127,13 @@
 
                                     <tbody class="order-list">
 
-                                    @foreach ($order->products as $product)
+                                    @foreach ($order->schools as $school)
                                         <tr>
-                                            <td>{{ $product->name }}</td>
-                                            <td><input type="number" name="products[{{ $product->id }}][quantity]" data-price="{{ number_format($product->sale_price, 2) }}" class="form-control input-sm product-quantity" min="1" value="{{ $product->pivot->quantity }}"></td>
-                                            <td class="product-price">{{ number_format($product->sale_price * $product->pivot->quantity, 2) }}</td>
+                                            <td>{{ $school->name }}</td>
+                                            <td><input type="number" name="schools[{{ $school->id }}][quantity]" data-price="{{ number_format($school->sale_price, 2) }}" class="form-control input-sm school-quantity" min="1" value="{{ $school->pivot->quantity }}"></td>
+                                            <td class="school-price">{{ number_format($school->sale_price * $school->pivot->quantity, 2) }}</td>
                                             <td>
-                                                <button class="btn btn-danger btn-sm remove-product-btn" data-id="{{ $product->id }}"><span class="fa fa-trash"></span></button>
+                                                <button class="btn btn-danger btn-sm remove-school-btn" data-id="{{ $school->id }}"><span class="fa fa-trash"></span></button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -183,8 +183,8 @@
                                                 <div class="panel-body">
 
                                                     <ul class="list-group">
-                                                        @foreach ($order->products as $product)
-                                                            <li class="list-group-item">{{ $product->name }}</li>
+                                                        @foreach ($order->schools as $school)
+                                                            <li class="list-group-item">{{ $school->name }}</li>
                                                         @endforeach
                                                     </ul>
 

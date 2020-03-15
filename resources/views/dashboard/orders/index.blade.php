@@ -76,8 +76,8 @@
                                             {{--</td>--}}
                                             <td>{{ $order->created_at->toFormattedDateString() }}</td>
                                             <td>
-                                                <button class="btn btn-primary btn-sm order-products"
-                                                        data-url="{{ route('dashboard.orders.products', $order->id) }}"
+                                                <button class="btn btn-primary btn-sm order-schools"
+                                                        data-url="{{ route('dashboard.orders.schools', $order->id) }}"
                                                         data-method="get"
                                                 >
                                                     <i class="fa fa-list"></i>
@@ -129,7 +129,7 @@
                     <div class="box box-primary">
 
                         <div class="box-header">
-                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.show_products')</h3>
+                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.show_schools')</h3>
                         </div><!-- end of box header -->
 
                         <div class="box-body">
@@ -139,9 +139,9 @@
                                 <p style="margin-top: 10px">@lang('site.loading')</p>
                             </div>
 
-                            <div id="order-product-list">
+                            <div id="order-school-list">
 
-                            </div><!-- end of order product list -->
+                            </div><!-- end of order school list -->
 
                         </div><!-- end of box body -->
 

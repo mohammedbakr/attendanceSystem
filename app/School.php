@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class School extends Model
 {
     use \Dimsav\Translatable\Translatable;
 
@@ -16,7 +16,7 @@ class Product extends Model
 
     public function getImagePathAttribute()
     {
-        return asset('uploads/product_images/' . $this->image);
+        return asset('uploads/school_images/' . $this->image);
 
     }//end of image path attribute
 
@@ -36,7 +36,7 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class, 'product_order');
+        return $this->belongsToMany(Order::class, 'school_order');
 
     }//end of orders
 

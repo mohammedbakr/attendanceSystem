@@ -11,10 +11,10 @@ class Stage extends Model
     protected $guarded = [];
     public $translatedAttributes = ['name'];
 
-    public function products()
+    public function schools()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(School::class);
 
-    }//end of products
+    }//end of schools
 
 }//end of model

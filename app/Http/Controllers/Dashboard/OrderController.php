@@ -20,19 +20,19 @@ class OrderController extends Controller
 
     }//end of index
 
-    public function products(Order $order)
+    public function schools(Order $order)
     {
-        $products = $order->products;
-        return view('dashboard.orders._products', compact('order', 'products'));
+        $schools = $order->schools;
+        return view('dashboard.orders._schools', compact('order', 'schools'));
 
-    }//end of products
+    }//end of schools
     
     public function destroy(Order $order)
     {
-        foreach ($order->products as $product) {
+        foreach ($order->schools as $school) {
 
-            $product->update([
-                'stock' => $product->stock + $product->pivot->quantity
+            $school->update([
+                'stock' => $school->stock + $school->pivot->quantity
             ]);
 
         }//end of for each

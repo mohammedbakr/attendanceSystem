@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Stage;
 use App\Client;
 use App\Order;
-use App\Product;
+use App\school;
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +15,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $stages_count = Stage::count();
-        $products_count = Product::count();
+        $schools_count = school::count();
         $clients_count = Client::count();
         $users_count = User::whereRoleIs('admin')->count();
 
@@ -26,7 +25,7 @@ class WelcomeController extends Controller
             DB::raw('SUM(total_price) as sum')
         )->groupBy('month')->get();
 
-        return view('dashboard.welcome', compact('stages_count', 'products_count', 'clients_count', 'users_count', 'sales_data'));
+        return view('dashboard.welcome', compact('stages_count', 'schools_count', 'clients_count', 'users_count', 'sales_data'));
     
     }//end of index
     

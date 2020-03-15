@@ -19,8 +19,8 @@
                 <li><a href="{{ route('dashboard.stages.index') }}"><i class="fa fa-th"></i><span>@lang('site.stages')</span></a></li>
             @endif
 
-            @if (auth()->user()->hasPermission('read_products'))
-                <li><a href="{{ route('dashboard.products.index') }}"><i class="fa fa-th"></i><span>@lang('site.products')</span></a></li>
+            @if (auth()->user()->hasPermission('read_schools'))
+                <li><a href="{{ route('dashboard.schools.index') }}"><i class="fa fa-th"></i><span>@lang('site.schools')</span></a></li>
             @endif
 
             @if (auth()->user()->hasPermission('read_clients'))

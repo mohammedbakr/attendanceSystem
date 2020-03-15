@@ -10,8 +10,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             //stage routes
             Route::resource('stages', 'StageController')->except(['show']);
 
-            //product routes
-            Route::resource('products', 'ProductController')->except(['show']);
+            //school routes
+            Route::resource('schools', 'schoolController')->except(['show']);
 
             //client routes
             Route::resource('clients', 'ClientController')->except(['show']);
@@ -19,7 +19,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
             //order routes
             Route::resource('orders', 'OrderController');
-            Route::get('/orders/{order}/products', 'OrderController@products')->name('orders.products');
+            Route::get('/orders/{order}/schools', 'OrderController@schools')->name('orders.schools');
 
 
             //user routes

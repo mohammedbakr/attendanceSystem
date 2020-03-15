@@ -14,10 +14,10 @@ class Order extends Model
 
     }//end of user
 
-    public function products()
+    public function schools()
     {
-        return $this->belongsToMany(Product::class, 'product_order')->withPivot('quantity');
+        return $this->belongsToMany(School::class, 'school_order')->withPivot('quantity');
 
-    }//end of products
+    }//end of schools
 
 }//end of model

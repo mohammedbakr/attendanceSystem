@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard\Client;
 use App\Stage;
 use App\Client;
 use App\Order;
-use App\Product;
+use App\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,8 +13,8 @@ class OrderController extends Controller
 {
     public function create(Client $client)
     {
-        $stages = stage::with('products')->get();
-        $orders = $client->orders()->with('products')->paginate(5);
+        $stages = Stage::with('schools')->get();
+        $orders = $client->orders()->with('schools')->paginate(5);
         return view('dashboard.clients.orders.create', compact( 'client', 'stages', 'orders'));
 
     }//end of create
@@ -22,7 +22,7 @@ class OrderController extends Controller
     public function store(Request $request, Client $client)
     {
         $request->validate([
-            'products' => 'required|array',
+            'schools' => 'required|array',
         ]);
 
         $this->attach_order($request, $client);
@@ -34,8 +34,8 @@ class OrderController extends Controller
 
     public function edit(Client $client, Order $order)
     {
-        $stages = stage::with('products')->get();
-        $orders = $client->orders()->with('products')->paginate(5);
+        $stages = Stage::with('schools')->get();
+        $orders = $client->orders()->with('schools')->paginate(5);
         return view('dashboard.clients.orders.edit', compact('client', 'order', 'stages', 'orders'));
 
     }//end of edit
@@ -43,7 +43,7 @@ class OrderController extends Controller
     public function update(Request $request, Client $client, Order $order)
     {
         $request->validate([
-            'products' => 'required|array',
+            'schools' => 'required|array',
         ]);
 
         $this->detach_order($order);
@@ -59,17 +59,17 @@ class OrderController extends Controller
     {
         $order = $client->orders()->create([]);
 
-        $order->products()->attach($request->products);
+        $order->schools()->attach($request->schools);
 
         $total_price = 0;
 
-        foreach ($request->products as $id => $quantity) {
+        foreach ($request->schools as $id => $quantity) {
 
-            $product = Product::FindOrFail($id);
-            $total_price += $product->sale_price * $quantity['quantity'];
+            $school = School::FindOrFail($id);
+            $total_price += $school->sale_price * $quantity['quantity'];
 
-            $product->update([
-                'stock' => $product->stock - $quantity['quantity']
+            $school->update([
+                'stock' => $school->stock - $quantity['quantity']
             ]);
 
         }//end of foreach
@@ -82,10 +82,10 @@ class OrderController extends Controller
 
     private function detach_order($order)
     {
-        foreach ($order->products as $product) {
+        foreach ($order->schools as $school) {
 
-            $product->update([
-                'stock' => $product->stock + $product->pivot->quantity
+            $school->update([
+                'stock' => $school->stock + $school->pivot->quantity
             ]);
 
         }//end of for each

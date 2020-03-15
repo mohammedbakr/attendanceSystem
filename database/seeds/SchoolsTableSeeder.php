@@ -1,9 +1,9 @@
 <?php
 
-use App\Product;
+use App\School;
 use Illuminate\Database\Seeder;
 
-class ProductsTableSeeder extends Seeder
+class SchoolsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,14 +12,14 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $products = ['pro one', 'pro two'];
+        $schools = ['pro one', 'pro two'];
 
-        foreach ($products as $product) {
+        foreach ($schools as $school) {
 
-            Product::create([
+            School::create([
                 'stage_id' => 1,
-                'ar' => ['name' => $product, 'description' => $product . ' desc'],
-                'en' => ['name' => $product, 'description' => $product . ' desc'],
+                'ar' => ['name' => $school, 'description' => $school . ' desc'],
+                'en' => ['name' => $school, 'description' => $school . ' desc'],
                 'purchase_price' => 100,
                 'sale_price' => 150,
                 'stock' => 100,

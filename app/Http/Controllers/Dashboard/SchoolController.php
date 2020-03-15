@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Stage;
-use App\Product;
+use App\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 
-class ProductController extends Controller
+class SchoolController extends Controller
 {
     public function index(Request $request)
     {
         $stages = Stage::all();
 
-        $products = Product::when($request->search, function ($q) use ($request) {
+        $schools = school::when($request->search, function ($q) use ($request) {
 
             return $q->whereTranslationLike('name', '%' . $request->search . '%');
 
@@ -26,14 +26,14 @@ class ProductController extends Controller
 
         })->latest()->paginate(5);
 
-        return view('dashboard.products.index', compact('stages', 'products'));
+        return view('dashboard.schools.index', compact('stages', 'schools'));
 
     }//end of index
 
     public function create()
     {
         $stages = Stage::all();
-        return view('dashboard.products.create', compact('stages'));
+        return view('dashboard.schools.create', compact('stages'));
 
     }//end of create
 
@@ -45,7 +45,7 @@ class ProductController extends Controller
 
         foreach (config('translatable.locales') as $locale) {
 
-            $rules += [$locale . '.name' => 'required|unique:product_translations,name'];
+            $rules += [$locale . '.name' => 'required|unique:school_translations,name'];
             $rules += [$locale . '.description' => 'required'];
 
         }//end of  for each
@@ -66,26 +66,26 @@ class ProductController extends Controller
                 ->resize(300, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })
-                ->save(public_path('uploads/product_images/' . $request->image->hashName()));
+                ->save(public_path('uploads/school_images/' . $request->image->hashName()));
 
             $request_data['image'] = $request->image->hashName();
 
         }//end of if
 
-        Product::create($request_data);
+        School::create($request_data);
         session()->flash('success', __('site.added_successfully'));
-        return redirect()->route('dashboard.products.index');
+        return redirect()->route('dashboard.schools.index');
 
     }//end of store
 
-    public function edit(Product $product)
+    public function edit(school $school)
     {
         $stages = Stage::all();
-        return view('dashboard.products.edit', compact('stages', 'product'));
+        return view('dashboard.schools.edit', compact('stages', 'school'));
 
     }//end of edit
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, school $school)
     {
         $rules = [
             'stage_id' => 'required'
@@ -93,7 +93,7 @@ class ProductController extends Controller
 
         foreach (config('translatable.locales') as $locale) {
 
-            $rules += [$locale . '.name' => ['required', Rule::unique('product_translations', 'name')->ignore($product->id, 'product_id')]];
+            $rules += [$locale . '.name' => ['required', Rule::unique('school_translations', 'name')->ignore($school->id, 'school_id')]];
             $rules += [$locale . '.description' => 'required'];
 
         }//end of  for each
@@ -110,9 +110,9 @@ class ProductController extends Controller
 
         if ($request->image) {
 
-            if ($product->image != 'default.png') {
+            if ($school->image != 'default.png') {
 
-                Storage::disk('public_uploads')->delete('/product_images/' . $product->image);
+                Storage::disk('public_uploads')->delete('/school_images/' . $school->image);
                     
             }//end of if
 
@@ -120,29 +120,29 @@ class ProductController extends Controller
                 ->resize(300, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })
-                ->save(public_path('uploads/product_images/' . $request->image->hashName()));
+                ->save(public_path('uploads/school_images/' . $request->image->hashName()));
 
             $request_data['image'] = $request->image->hashName();
 
         }//end of if
         
-        $product->update($request_data);
+        $school->update($request_data);
         session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.products.index');
+        return redirect()->route('dashboard.schools.index');
 
     }//end of update
 
-    public function destroy(Product $product)
+    public function destroy(school $school)
     {
-        if ($product->image != 'default.png') {
+        if ($school->image != 'default.png') {
 
-            Storage::disk('public_uploads')->delete('/product_images/' . $product->image);
+            Storage::disk('public_uploads')->delete('/school_images/' . $school->image);
 
         }//end of if
 
-        $product->delete();
+        $school->delete();
         session()->flash('success', __('site.deleted_successfully'));
-        return redirect()->route('dashboard.products.index');
+        return redirect()->route('dashboard.schools.index');
 
     }//end of destroy
 

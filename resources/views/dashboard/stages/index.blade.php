@@ -54,8 +54,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
-                                <th>@lang('site.products_count')</th>
-                                <th>@lang('site.related_products')</th>
+                                <th>@lang('site.schools_count')</th>
+                                <th>@lang('site.related_schools')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -65,8 +65,8 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $stage->name }}</td>
-                                    <td>{{ $stage->products->count() }}</td>
-                                    <td><a href="{{ route('dashboard.products.index', ['stage_id' => $stage->id]) }}" class="btn btn-info btn-sm">@lang('site.related_products')</a></td>
+                                    <td>{{ $stage->schools->count() }}</td>
+                                    <td><a href="{{ route('dashboard.schools.index', ['stage_id' => $stage->id]) }}" class="btn btn-info btn-sm">@lang('site.related_schools')</a></td>
                                     <td>
                                         @if (auth()->user()->hasPermission('update_stages'))
                                             <a href="{{ route('dashboard.stages.edit', $stage->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>

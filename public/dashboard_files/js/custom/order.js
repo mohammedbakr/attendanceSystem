@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
-    //add product btn
-    $('.add-product-btn').on('click', function (e) {
+    //add school btn
+    $('.add-school-btn').on('click', function (e) {
 
         e.preventDefault();
         var name = $(this).data('name');
@@ -13,9 +13,9 @@ $(document).ready(function () {
         var html =
             `<tr>
                 <td>${name}</td>
-                <td><input type="number" name="products[${id}][quantity]" data-price="${price}" class="form-control input-sm product-quantity" min="1" value="1"></td>
-                <td class="product-price">${price}</td>               
-                <td><button class="btn btn-danger btn-sm remove-product-btn" data-id="${id}"><span class="fa fa-trash"></span></button></td>
+                <td><input type="number" name="schools[${id}][quantity]" data-price="${price}" class="form-control input-sm school-quantity" min="1" value="1"></td>
+                <td class="school-price">${price}</td>               
+                <td><button class="btn btn-danger btn-sm remove-school-btn" data-id="${id}"><span class="fa fa-trash"></span></button></td>
             </tr>`;
 
         $('.order-list').append(html);
@@ -31,33 +31,33 @@ $(document).ready(function () {
 
     });//end of disabled
 
-    //remove product btn
-    $('body').on('click', '.remove-product-btn', function(e) {
+    //remove school btn
+    $('body').on('click', '.remove-school-btn', function(e) {
 
         e.preventDefault();
         var id = $(this).data('id');
 
         $(this).closest('tr').remove();
-        $('#product-' + id).removeClass('btn-default disabled').addClass('btn-success');
+        $('#school-' + id).removeClass('btn-default disabled').addClass('btn-success');
 
         //to calculate total price
         calculateTotal();
 
-    });//end of remove product btn
+    });//end of remove school btn
 
-    //change product quantity
-    $('body').on('keyup change', '.product-quantity', function() {
+    //change school quantity
+    $('body').on('keyup change', '.school-quantity', function() {
 
         var quantity = Number($(this).val()); //2
         var unitPrice = parseFloat($(this).data('price').replace(/,/g, '')); //150
         console.log(unitPrice);
-        $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
+        $(this).closest('tr').find('.school-price').html($.number(quantity * unitPrice, 2));
         calculateTotal();
 
-    });//end of product quantity change
+    });//end of school quantity change
 
-    //list all order products
-    $('.order-products').on('click', function(e) {
+    //list all order schools
+    $('.order-schools').on('click', function(e) {
 
         e.preventDefault();
 
@@ -71,13 +71,13 @@ $(document).ready(function () {
             success: function(data) {
 
                 $('#loading').css('display', 'none');
-                $('#order-product-list').empty();
-                $('#order-product-list').append(data);
+                $('#order-school-list').empty();
+                $('#order-school-list').append(data);
 
             }
         })
 
-    });//end of order products click
+    });//end of order schools click
 
     //print order
     $(document).on('click', '.print-btn', function() {
@@ -93,11 +93,11 @@ function calculateTotal() {
 
     var price = 0;
 
-    $('.order-list .product-price').each(function(index) {
+    $('.order-list .school-price').each(function(index) {
         
         price += parseFloat($(this).html().replace(/,/g, ''));
 
-    });//end of product price
+    });//end of school price
 
     $('.total-price').html($.number(price, 2));
 

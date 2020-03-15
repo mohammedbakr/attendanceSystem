@@ -47,7 +47,7 @@
 
                                             <div class="panel-body">
 
-                                                @if ($stage->products->count() > 0)
+                                                @if ($stage->schools->count() > 0)
 
                                                     <table class="table table-hover">
                                                         <tr>
@@ -57,18 +57,18 @@
                                                             <th>@lang('site.add')</th>
                                                         </tr>
 
-                                                        @foreach ($stage->products as $product)
+                                                        @foreach ($stage->schools as $school)
                                                             <tr>
-                                                                <td>{{ $product->name }}</td>
-                                                                <td>{{ $product->stock }}</td>
-                                                                <td>{{ number_format($product->sale_price, 2) }}</td>
+                                                                <td>{{ $school->name }}</td>
+                                                                <td>{{ $school->stock }}</td>
+                                                                <td>{{ number_format($school->sale_price, 2) }}</td>
                                                                 <td>
                                                                     <a href=""
-                                                                       id="product-{{ $product->id }}"
-                                                                       data-name="{{ $product->name }}"
-                                                                       data-id="{{ $product->id }}"
-                                                                       data-price="{{ $product->sale_price }}"
-                                                                       class="btn btn-success btn-sm add-product-btn">
+                                                                       id="school-{{ $school->id }}"
+                                                                       data-name="{{ $school->name }}"
+                                                                       data-id="{{ $school->id }}"
+                                                                       data-price="{{ $school->sale_price }}"
+                                                                       class="btn btn-success btn-sm add-school-btn">
                                                                         <i class="fa fa-plus"></i>
                                                                     </a>
                                                                 </td>
@@ -119,7 +119,7 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th>@lang('site.product')</th>
+                                        <th>@lang('site.school')</th>
                                         <th>@lang('site.quantity')</th>
                                         <th>@lang('site.price')</th>
                                     </tr>
@@ -173,8 +173,8 @@
                                                 <div class="panel-body">
 
                                                     <ul class="list-group">
-                                                        @foreach ($order->products as $product)
-                                                            <li class="list-group-item">{{ $product->name }}</li>
+                                                        @foreach ($order->schools as $school)
+                                                            <li class="list-group-item">{{ $school->name }}</li>
                                                         @endforeach
                                                     </ul>
 

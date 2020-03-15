@@ -4,11 +4,11 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>@lang('site.products')</h1>
+            <h1>@lang('site.schools')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.products.index') }}"> @lang('site.products')</a></li>
+                <li><a href="{{ route('dashboard.schools.index') }}"> @lang('site.schools')</a></li>
                 <li class="active">@lang('site.edit')</li>
             </ol>
         </section>
@@ -24,7 +24,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.products.update', $product->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.schools.update', $school->id) }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('put') }}
@@ -34,7 +34,7 @@
                             <select name="stage_id" class="form-control">
                                 <option value="">@lang('site.all_stages')</option>
                                 @foreach ($stages as $stage)
-                                    <option value="{{ $stage->id }}" {{ $product->stage_id == $stage->id ? 'selected' : '' }}>{{ $stage->name }}</option>
+                                    <option value="{{ $stage->id }}" {{ $school->stage_id == $stage->id ? 'selected' : '' }}>{{ $stage->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -42,12 +42,12 @@
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.name')</label>
-                                <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ $product->name }}">
+                                <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ $school->name }}">
                             </div>
 
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.description')</label>
-                                <textarea name="{{ $locale }}[description]" class="form-control ckeditor">{{ $product->description }}</textarea>
+                                <textarea name="{{ $locale }}[description]" class="form-control ckeditor">{{ $school->description }}</textarea>
                             </div>
 
                         @endforeach
@@ -58,22 +58,22 @@
                         </div>
 
                         <div class="form-group">
-                            <img src="{{ $product->image_path }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            <img src="{{ $school->image_path }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
                         </div>
 
                         <div class="form-group">
                             <label>@lang('site.purchase_price')</label>
-                            <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{ $product->purchase_price }}">
+                            <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{ $school->purchase_price }}">
                         </div>
 
                         <div class="form-group">
                             <label>@lang('site.sale_price')</label>
-                            <input type="number" name="sale_price" step="0.01" class="form-control" value="{{ $product->sale_price }}">
+                            <input type="number" name="sale_price" step="0.01" class="form-control" value="{{ $school->sale_price }}">
                         </div>
 
                         <div class="form-group">
                             <label>@lang('site.stock')</label>
-                            <input type="number" name="stock" class="form-control" value="{{ $product->stock}}">
+                            <input type="number" name="stock" class="form-control" value="{{ $school->stock}}">
                         </div>
 
                         <div class="form-group">

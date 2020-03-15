@@ -4,7 +4,7 @@ return [
     'role_structure' => [
         'super_admin' => [
             'stages' => 'c,r,u,d',
-            'products' => 'c,r,u,d',
+            'schools' => 'c,r,u,d',
             'clients' => 'c,r,u,d',
             'orders' => 'c,r,u,d',
             'users' => 'c,r,u,d',

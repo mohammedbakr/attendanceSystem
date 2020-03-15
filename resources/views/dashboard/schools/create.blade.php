@@ -4,11 +4,11 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>@lang('site.products')</h1>
+            <h1>@lang('site.schools')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.products.index') }}"> @lang('site.products')</a></li>
+                <li><a href="{{ route('dashboard.schools.index') }}"> @lang('site.schools')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>
         </section>
@@ -24,7 +24,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.products.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.schools.store') }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group">
-                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            <img src="{{ asset('uploads/school_images/default.png') }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
                         </div>
 
                         <div class="form-group">
