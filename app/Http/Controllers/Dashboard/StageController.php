@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Category;
+use App\Stage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 
-class CategoryController extends Controller
+class stageController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Category::when($request->search, function ($q) use ($request) {
+        $stages = Stage::when($request->search, function ($q) use ($request) {
 
             return $q->whereTranslationLike('name', '%' . $request->search . '%');
 
         })->latest()->paginate(5);
 
-        return view('dashboard.categories.index', compact('categories'));
+        return view('dashboard.stages.index', compact('stages'));
 
     }//end of index
 
     public function create()
     {
-        return view('dashboard.categories.create');
+        return view('dashboard.stages.create');
 
     }//end of create
 
@@ -33,47 +33,47 @@ class CategoryController extends Controller
 
         foreach (config('translatable.locales') as $locale) {
 
-            $rules += [$locale . '.name' => ['required', Rule::unique('category_translations', 'name')]];
+            $rules += [$locale . '.name' => ['required', Rule::unique('stage_translations', 'name')]];
 
         }//end of for each
 
         $request->validate($rules);
 
-        Category::create($request->all());
+        Stage::create($request->all());
         session()->flash('success', __('site.added_successfully'));
-        return redirect()->route('dashboard.categories.index');
+        return redirect()->route('dashboard.stages.index');
 
     }//end of store
 
-    public function edit(Category $category)
+    public function edit(stage $stage)
     {
-        return view('dashboard.categories.edit', compact('category'));
+        return view('dashboard.stages.edit', compact('stage'));
 
     }//end of edit
 
-    public function update(Request $request, Category $category)
+    public function update(Request $request, stage $stage)
     {
         $rules = [];
 
         foreach (config('translatable.locales') as $locale) {
 
-            $rules += [$locale . '.name' => ['required', Rule::unique('category_translations', 'name')->ignore($category->id, 'category_id')]];
+            $rules += [$locale . '.name' => ['required', Rule::unique('stage_translations', 'name')->ignore($stage->id, 'stage_id')]];
 
         }//end of for each
 
         $request->validate($rules);
 
-        $category->update($request->all());
+        $stage->update($request->all());
         session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.categories.index');
+        return redirect()->route('dashboard.stages.index');
 
     }//end of update
 
-    public function destroy(Category $category)
+    public function destroy(stage $stage)
     {
-        $category->delete();
+        $stage->delete();
         session()->flash('success', __('site.deleted_successfully'));
-        return redirect()->route('dashboard.categories.index');
+        return redirect()->route('dashboard.stages.index');
 
     }//end of destroy
 

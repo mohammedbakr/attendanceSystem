@@ -30,11 +30,11 @@
                         {{ method_field('post') }}
 
                         <div class="form-group">
-                            <label>@lang('site.categories')</label>
-                            <select name="category_id" class="form-control">
-                                <option value="">@lang('site.all_categories')</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                            <label>@lang('site.stages')</label>
+                            <select name="stage_id" class="form-control">
+                                <option value="">@lang('site.all_stages')</option>
+                                @foreach ($stages as $stage)
+                                    <option value="{{ $stage->id }}" {{ old('stage_id') == $stage->id ? 'selected' : '' }}>{{ $stage->name }}</option>
                                 @endforeach
                             </select>
                         </div>

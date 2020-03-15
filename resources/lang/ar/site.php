@@ -49,13 +49,13 @@ return [
 
     'permissions' => 'الصلاحيات',
 
-    'categories' => 'الاقسام',
-    'all_categories' => 'كل الاقسام',
+    'stages' => 'الاقسام',
+    'all_stages' => 'كل الاقسام',
     'name' => 'الاسم',
     'description' => 'الوصف',
     'products_count' => 'عدد الامنتجات',
     'related_products' => 'المنتجات المرتبطه',
-    'category' => 'القسم',
+    'stage' => 'القسم',
     'show_products' => 'عرض المنتجات',
     'created_at' => 'تم اضافته',
 

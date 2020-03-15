@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Category;
+use App\Stage;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,33 +14,33 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Category::all();
+        $stages = Stage::all();
 
         $products = Product::when($request->search, function ($q) use ($request) {
 
             return $q->whereTranslationLike('name', '%' . $request->search . '%');
 
-        })->when($request->category_id, function ($q) use ($request) {
+        })->when($request->stage_id, function ($q) use ($request) {
 
-            return $q->where('category_id', $request->category_id);
+            return $q->where('stage_id', $request->stage_id);
 
         })->latest()->paginate(5);
 
-        return view('dashboard.products.index', compact('categories', 'products'));
+        return view('dashboard.products.index', compact('stages', 'products'));
 
     }//end of index
 
     public function create()
     {
-        $categories = Category::all();
-        return view('dashboard.products.create', compact('categories'));
+        $stages = Stage::all();
+        return view('dashboard.products.create', compact('stages'));
 
     }//end of create
 
     public function store(Request $request)
     {
         $rules = [
-            'category_id' => 'required'
+            'stage_id' => 'required'
         ];
 
         foreach (config('translatable.locales') as $locale) {
@@ -80,15 +80,15 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories = Category::all();
-        return view('dashboard.products.edit', compact('categories', 'product'));
+        $stages = Stage::all();
+        return view('dashboard.products.edit', compact('stages', 'product'));
 
     }//end of edit
 
     public function update(Request $request, Product $product)
     {
         $rules = [
-            'category_id' => 'required'
+            'stage_id' => 'required'
         ];
 
         foreach (config('translatable.locales') as $locale) {

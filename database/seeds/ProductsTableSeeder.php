@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Database\Seeder;
 
 class ProductsTableSeeder extends Seeder
@@ -15,8 +16,8 @@ class ProductsTableSeeder extends Seeder
 
         foreach ($products as $product) {
 
-            \App\Product::create([
-                'category_id' => 1,
+            Product::create([
+                'stage_id' => 1,
                 'ar' => ['name' => $product, 'description' => $product . ' desc'],
                 'en' => ['name' => $product, 'description' => $product . ' desc'],
                 'purchase_price' => 100,

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard\Client;
 
-use App\Category;
+use App\Stage;
 use App\Client;
 use App\Order;
 use App\Product;
-use function foo\func;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,9 +13,9 @@ class OrderController extends Controller
 {
     public function create(Client $client)
     {
-        $categories = Category::with('products')->get();
+        $stages = stage::with('products')->get();
         $orders = $client->orders()->with('products')->paginate(5);
-        return view('dashboard.clients.orders.create', compact( 'client', 'categories', 'orders'));
+        return view('dashboard.clients.orders.create', compact( 'client', 'stages', 'orders'));
 
     }//end of create
 
@@ -35,9 +34,9 @@ class OrderController extends Controller
 
     public function edit(Client $client, Order $order)
     {
-        $categories = Category::with('products')->get();
+        $stages = stage::with('products')->get();
         $orders = $client->orders()->with('products')->paginate(5);
-        return view('dashboard.clients.orders.edit', compact('client', 'order', 'categories', 'orders'));
+        return view('dashboard.clients.orders.edit', compact('client', 'order', 'stages', 'orders'));
 
     }//end of edit
 

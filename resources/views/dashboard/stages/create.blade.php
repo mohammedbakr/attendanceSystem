@@ -4,11 +4,11 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>@lang('site.categories')</h1>
+            <h1>@lang('site.stages')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.categories.index') }}"> @lang('site.categories')</a></li>
+                <li><a href="{{ route('dashboard.stages.index') }}"> @lang('site.stages')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>
         </section>
@@ -24,7 +24,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.categories.store') }}" method="post">
+                    <form action="{{ route('dashboard.stages.store') }}" method="post">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}

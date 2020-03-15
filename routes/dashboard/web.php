@@ -7,8 +7,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
             Route::get('/', 'WelcomeController@index')->name('welcome');
 
-            //category routes
-            Route::resource('categories', 'CategoryController')->except(['show']);
+            //stage routes
+            Route::resource('stages', 'StageController')->except(['show']);
 
             //product routes
             Route::resource('products', 'ProductController')->except(['show']);

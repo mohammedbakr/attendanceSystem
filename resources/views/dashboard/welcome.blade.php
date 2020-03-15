@@ -17,18 +17,18 @@
 
             <div class="row">
 
-                {{-- categories--}}
+                {{-- stages--}}
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>{{ $categories_count }}</h3>
+                            <h3>{{ $stages_count }}</h3>
 
-                            <p>@lang('site.categories')</p>
+                            <p>@lang('site.stages')</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="{{ route('dashboard.categories.index') }}" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('dashboard.stages.index') }}" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 

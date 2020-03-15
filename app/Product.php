@@ -28,11 +28,11 @@ class Product extends Model
 
     }//end of get profit attribute
 
-    public function category()
+    public function stage()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Stage::class);
 
-    }//end fo category
+    }//end fo stage
 
     public function orders()
     {

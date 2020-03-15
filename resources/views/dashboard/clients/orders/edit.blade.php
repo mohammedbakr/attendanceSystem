@@ -25,13 +25,13 @@
 
                         <div class="box-header">
 
-                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.categories')</h3>
+                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.stages')</h3>
 
                         </div><!-- end of box header -->
 
                         <div class="box-body">
 
-                            @foreach ($categories as $category)
+                            @foreach ($stages as $stage)
 
                                 <div class="panel-group">
 
@@ -39,15 +39,15 @@
 
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#{{ str_replace(' ', '-', $category->name) }}">{{ $category->name }}</a>
+                                                <a data-toggle="collapse" href="#{{ str_replace(' ', '-', $stage->name) }}">{{ $stage->name }}</a>
                                             </h4>
                                         </div>
 
-                                        <div id="{{ str_replace(' ', '-', $category->name) }}" class="panel-collapse collapse">
+                                        <div id="{{ str_replace(' ', '-', $stage->name) }}" class="panel-collapse collapse">
 
                                             <div class="panel-body">
 
-                                                @if ($category->products->count() > 0)
+                                                @if ($stage->products->count() > 0)
 
                                                     <table class="table table-hover">
                                                         <tr>
@@ -57,7 +57,7 @@
                                                             <th>@lang('site.add')</th>
                                                         </tr>
 
-                                                        @foreach ($category->products as $product)
+                                                        @foreach ($stage->products as $product)
                                                             <tr>
                                                                 <td>{{ $product->name }}</td>
                                                                 <td>{{ $product->stock }}</td>

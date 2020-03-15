@@ -159,7 +159,7 @@ return [
             'description' => 'الوصف بالغه الانجليزيه',
         ],
 
-        'category_id' => 'القسم',
+        'stage_id' => 'القسم',
         'purchase_price' => 'سعر الشرلء',
         'sale_price' => 'سعر البيع',
         'stock' => 'مخزن',

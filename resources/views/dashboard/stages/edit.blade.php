@@ -6,11 +6,11 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.categories')</h1>
+            <h1>@lang('site.stages')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.categories.index') }}"> @lang('site.categories')</a></li>
+                <li><a href="{{ route('dashboard.stages.index') }}"> @lang('site.stages')</a></li>
                 <li class="active">@lang('site.edit')</li>
             </ol>
         </section>
@@ -27,7 +27,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post">
+                    <form action="{{ route('dashboard.stages.update', $stage->id) }}" method="post">
 
                         {{ csrf_field() }}
                         {{ method_field('put') }}
@@ -35,7 +35,7 @@
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.name')</label>
-                                <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ $category->translate($locale)->name }}">
+                                <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ $stage->translate($locale)->name }}">
                             </div>
                         @endforeach
 
