@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dashboard' => 'الرئيسيه',
+    'dashboard' => 'الرئيسية',
     'logout' => 'تسجيل الخروج',
 
     'add' => 'اضف',
