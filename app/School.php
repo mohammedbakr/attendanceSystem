@@ -6,38 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
-    use \Dimsav\Translatable\Translatable;
 
-    protected $guarded = ['id'];
+    protected $guarded = [];
 
-    public $translatedAttributes = ['name', 'description'];
-    protected $appends = ['image_path', 'profit_percent'];
+    public function user(){
+
+        return $this->belongsTo(User::class);
+    }
+
+    public function students(){
+
+        return $this->hasMany(Student::class);
+    }
 
 
-    public function getImagePathAttribute()
-    {
-        return asset('uploads/school_images/' . $this->image);
-
-    }//end of image path attribute
-
-    public function getProfitPercentAttribute()
-    {
-        $profit = $this->sale_price - $this->purchase_price;
-        $profit_percent = $profit * 100 / $this->purchase_price;
-        return number_format($profit_percent, 2);
-
-    }//end of get profit attribute
-
-    public function stage()
-    {
-        return $this->belongsTo(Stage::class);
-
-    }//end fo stage
-
-    public function orders()
-    {
-        return $this->belongsToMany(Order::class, 'school_order');
-
-    }//end of orders
+  
 
 }//end of model

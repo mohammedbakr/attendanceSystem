@@ -18,36 +18,34 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'image'
+        'name', 'email', 'password','type'
     ];
 
-    protected $appends = ['image_path'];
 
     /**
      * The attributes that should be hidden for arrays.
-     *
      * @var array
      */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    public function getFirstNameAttribute($value)
+    public function getNameAttribute($value)
     {
         return ucfirst($value);
 
     }//end of get first name
 
-    public function getLastNameAttribute($value)
-    {
-        return ucfirst($value);
+    public function schools(){
 
-    }//end of get last name
+        return $this->hasMany(School::class);
+    }
 
-    public function getImagePathAttribute()
-    {
-        return asset('uploads/user_images/' . $this->image);
+    public function students(){
 
-    }//end of get image path
+        return $this->belongsToMany(Student::class,'student_user')->withPivot('grades');
+    }
 
+
+   
 }//end of model

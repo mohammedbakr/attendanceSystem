@@ -12,43 +12,45 @@
             </div>
         </div>
 
+
+    
+
         <ul class="sidebar-menu" data-widget="tree">
             <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-th"></i><span>@lang('site.dashboard')</span></a></li>
 
-            @if (auth()->user()->hasPermission('read_stages'))
-                <li><a href="{{ route('dashboard.stages.index') }}"><i class="fa fa-th"></i><span>@lang('site.stages')</span></a></li>
-            @endif
+                
+          @if (auth()->user()->hasPermission('read_users'))
+                <li><a href="{{ route('dashboard.users.index') }}"><i class="fa fa-th"></i><span>@lang('site.users')</span></a></li>
+          @endif
+  
+         
 
             @if (auth()->user()->hasPermission('read_schools'))
                 <li><a href="{{ route('dashboard.schools.index') }}"><i class="fa fa-th"></i><span>@lang('site.schools')</span></a></li>
             @endif
 
-            @if (auth()->user()->hasPermission('read_clients'))
+            {{-- @if (auth()->user()->hasPermission('read_clients'))
                 <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa fa-th"></i><span>@lang('site.clients')</span></a></li>
             @endif
 
             @if (auth()->user()->hasPermission('read_orders'))
                 <li><a href="{{ route('dashboard.orders.index') }}"><i class="fa fa-th"></i><span>@lang('site.orders')</span></a></li>
-            @endif
-
-            @if (auth()->user()->hasPermission('read_users'))
-                <li><a href="{{ route('dashboard.users.index') }}"><i class="fa fa-th"></i><span>@lang('site.users')</span></a></li>
-            @endif
+            @endif --}}
 
             {{--<li><a href="{{ route('dashboard.stages.index') }}"><i class="fa fa-book"></i><span>@lang('site.stages')</span></a></li>--}}
             {{----}}
             {{----}}
-            {{--<li><a href="{{ route('dashboard.users.index') }}"><i class="fa fa-users"></i><span>@lang('site.users')</span></a></li>--}}
+            {{-- {{an class="pull-right-container">--}} --}}
+            {{--<i class="fa fa-angle-left pull-right"></i>--}}
+            {{--</span>--}}
+            {{--</a>--}}
+            {{--<ul c--<li><a href="{{ route('dashboard.users.index') }}"><i class="fa fa-users"></i><span>@lang('site.users')</span></a></li>--}}
 
             {{--<li class="treeview">--}}
             {{--<a href="#">--}}
             {{--<i class="fa fa-pie-chart"></i>--}}
             {{--<span>الخرائط</span>--}}
-            {{--<span class="pull-right-container">--}}
-            {{--<i class="fa fa-angle-left pull-right"></i>--}}
-            {{--</span>--}}
-            {{--</a>--}}
-            {{--<ul class="treeview-menu">--}}
+            {{--<splass="treeview-menu">--}}
             {{--<li>--}}
             {{--<a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a>--}}
             {{--</li>--}}

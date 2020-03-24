@@ -21,7 +21,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>{{ $stages_count }}</h3>
+                            {{-- <h3>{{ $stages_count }}</h3> --}}
 
                             <p>@lang('site.stages')</p>
                         </div>
@@ -99,7 +99,7 @@
 
 @push('scripts')
 
-    <script>
+    {{-- <script>
 
         //line chart
         var line = new Morris.Line({
@@ -122,6 +122,6 @@
             gridTextFamily: 'Open Sans',
             gridTextSize: 10
         });
-    </script>
+    </script> --}}
 
 @endpush
