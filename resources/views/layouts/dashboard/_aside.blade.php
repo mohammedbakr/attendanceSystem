@@ -3,8 +3,7 @@
     <section class="sidebar">
 
         <div class="user-panel">
-            <div class="pull-left image">
-                <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+            <div class="pull-left image" style="margin-bottom:100px">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>
@@ -13,10 +12,94 @@
         </div>
 
 
+        <ul class="sidebar-menu" data-widget="tree">
+
+            <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-th"></i><span>@lang('site.dashboard')</span></a></li>
+
+            <li class="treeview">  
+                    <a href="#">
+                        <i class="fa fa-users"></i>  <span>@lang('students')</span> <span class="pull-right-container">   <i class="fa fa-angle-left pull-right"></i>   </span>  
+                    </a>  
+    
+                    <ul class="treeview-menu">  
+                        <li>  
+                            <a href="#"><i class="fa fa-dashcube"></i>@lang('Postgraduate')</a>  
+                        </li>  
+
+                         <li>  
+                            <a href="#"><i class="fa fa-dashcube"></i>@lang('Generaldiploma')</a>  
+                        </li>  
+
+                        <li>  
+                                <li class="treeview">  
+                                    <a href="#">
+                                        <i class="fa fa-dashcube"></i> @lang('general')
+                                    </a>
+
+                                    <ul class="treeview-menu">  
+                                        <li>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                        </li>  
+                                    </ul>
+
+
+                                </li>
+                        </li>  
+
+                        <li>  
+                                <li class="treeview">  
+                                    <a href="#">
+                                        <i class="fa fa-dashcube"></i> @lang('basic')
+                                    </a>
+
+                                    <ul class="treeview-menu">  
+                                        <li>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                        </li>  
+                                    </ul>
+
+
+                                </li>
+                        </li>  
+
+                       
+                        <li>  
+                                <li class="treeview">  
+                                    <a href="#">
+                                        <i class="fa fa-dashcube"></i> @lang('kg')
+                                    </a>
+
+                                    <ul class="treeview-menu">  
+                                        <li>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage1')</a>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                        </li>  
+                                    </ul>
+
+
+                                </li>
+                        </li>  
+
+                       
+
+
+
+                    </ul>  
+                </li>   
+        </ul>    
+        
+        
+
+
+
+
     
 
         <ul class="sidebar-menu" data-widget="tree">
-            <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-th"></i><span>@lang('site.dashboard')</span></a></li>
+
 
                 
           @if (auth()->user()->hasPermission('read_users'))
@@ -29,17 +112,11 @@
                 <li><a href="{{ route('dashboard.schools.index') }}"><i class="fa fa-th"></i><span>@lang('site.schools')</span></a></li>
             @endif
 
-            {{-- @if (auth()->user()->hasPermission('read_clients'))
-                <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa fa-th"></i><span>@lang('site.clients')</span></a></li>
-            @endif
+     
 
-            @if (auth()->user()->hasPermission('read_orders'))
-                <li><a href="{{ route('dashboard.orders.index') }}"><i class="fa fa-th"></i><span>@lang('site.orders')</span></a></li>
-            @endif --}}
-
-            {{--<li><a href="{{ route('dashboard.stages.index') }}"><i class="fa fa-book"></i><span>@lang('site.stages')</span></a></li>--}}
-            {{----}}
-            {{----}}
+            <li><a href="{{ route('dashboard.stages.index') }}"><i class="fa fa-book"></i><span>@lang('site.stages')</span></a></li>
+        
+            
             {{-- {{an class="pull-right-container">--}} --}}
             {{--<i class="fa fa-angle-left pull-right"></i>--}}
             {{--</span>--}}
@@ -62,9 +139,9 @@
             {{--</li>--}}
             {{--<li>--}}
             {{--<a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a>--}}
-            {{--</li>--}}
-            {{--</ul>--}}
-            {{--</li>--}}
+            </li>
+            </ul>
+            {{-- </li>
         </ul>
 
     </section>

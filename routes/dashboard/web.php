@@ -7,6 +7,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
             Route::get('/', 'WelcomeController@index')->name('welcome');
 
+            //student routes
+            Route::resource('students', 'StudentController')->except(['show']);
+
+
             //stage routes
             Route::resource('stages', 'StageController')->except(['show']);
 
@@ -17,11 +21,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::resource('clients', 'ClientController')->except(['show']);
             Route::resource('clients.orders', 'Client\OrderController')->except(['show']);
 
-            //order routes
-            Route::resource('orders', 'OrderController');
-            Route::get('/orders/{order}/schools', 'OrderController@schools')->name('orders.schools');
-
-
+     
             //user routes
             Route::resource('users', 'UserController')->except(['show']);
 
