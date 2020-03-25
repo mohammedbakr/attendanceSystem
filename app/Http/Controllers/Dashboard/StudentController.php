@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Client;
+use App\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ClientController extends Controller
+class StudentController extends Controller
 {
     public function index(Request $request)
     {
-        $clients = Client::when($request->search, function($q) use ($request){
+        $students = Student::when($request->search, function($q) use ($request){
 
             return $q->where('name', 'like', '%' . $request->search . '%')
                 ->orWhere('phone', 'like', '%' . $request->search . '%')
@@ -18,13 +18,13 @@ class ClientController extends Controller
 
         })->latest()->paginate(5);
 
-        return view('dashboard.clients.index', compact('clients'));
+        return view('dashboard.students.index', compact('students'));
 
     }//end of index
 
     public function create()
     {
-        return view('dashboard.clients.create');
+        return view('dashboard.students.create');
 
     }//end of create
 
@@ -40,20 +40,20 @@ class ClientController extends Controller
         $request_data = $request->all();
         $request_data['phone'] = array_filter($request->phone);
 
-        Client::create($request_data);
+        Student::create($request_data);
 
         session()->flash('success', __('site.added_successfully'));
-        return redirect()->route('dashboard.clients.index');
+        return redirect()->route('dashboard.students.index');
 
     }//end of store
 
-    public function edit(Client $client)
+    public function edit(Student $student)
     {
-        return view('dashboard.clients.edit', compact('client'));
+        return view('dashboard.students.edit', compact('student'));
 
     }//end of edit
 
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Student $student)
     {
         $request->validate([
             'name' => 'required',
@@ -65,17 +65,17 @@ class ClientController extends Controller
         $request_data = $request->all();
         $request_data['phone'] = array_filter($request->phone);
 
-        $client->update($request_data);
+        $student->update($request_data);
         session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.clients.index');
+        return redirect()->route('dashboard.students.index');
 
     }//end of update
 
-    public function destroy(Client $client)
+    public function destroy(Student $student)
     {
-        $client->delete();
+        $student->delete();
         session()->flash('success', __('site.deleted_successfully'));
-        return redirect()->route('dashboard.clients.index');
+        return redirect()->route('dashboard.students.index');
 
     }//end of destroy
 
