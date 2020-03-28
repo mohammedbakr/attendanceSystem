@@ -79,8 +79,9 @@ return [
     ],
 
     'member' => 'Member',
-
-    'students' => 'الطلاب'
+    'students' => 'Students',
+    'head' => 'Head',
+    'all_users' => 'All Users',
 
 ];
 
