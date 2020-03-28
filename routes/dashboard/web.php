@@ -15,7 +15,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::resource('stages', 'StageController')->except(['show']);
 
             //school routes
-            Route::resource('schools', 'schoolController')->except(['show']);
+            Route::resource('schools', 'SchoolController')->except(['show']);
 
             //client routes
             Route::resource('clients', 'ClientController')->except(['show']);

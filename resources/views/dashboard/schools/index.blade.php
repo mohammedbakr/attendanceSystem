@@ -29,15 +29,6 @@
                             <div class="col-md-4">
                                 <input type="text" name="search" class="form-control" placeholder="@lang('site.search')" value="{{ request()->search }}">
                             </div>
-
-                            <div class="col-md-4">
-                                <select name="stage_id" class="form-control">
-                                    <option value="">@lang('site.all_stages')</option>
-                                    @foreach ($stages as $stage)
-                                        <option value="{{ $stage->id }}" {{ request()->stage_id == $stage->id ? 'selected' : '' }}>{{ $stage->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                             
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
@@ -63,13 +54,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
-                                <th>@lang('site.description')</th>
-                                <th>@lang('site.stage')</th>
-                                <th>@lang('site.image')</th>
-                                <th>@lang('site.purchase_price')</th>
-                                <th>@lang('site.sale_price')</th>
-                                <th>@lang('site.profit_percent') %</th>
-                                <th>@lang('site.stock')</th>
+                                <th>@lang('site.head')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -79,13 +64,7 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $school->name }}</td>
-                                    <td>{!! $school->description !!}</td>
-                                    <td>{{ $school->stage->name }}</td>
-                                    <td><img src="{{ $school->image_path }}" style="width: 100px"  class="img-thumbnail" alt=""></td>
-                                    <td>{{ $school->purchase_price }}</td>
-                                    <td>{{ $school->sale_price }}</td>
-                                    <td>{{ $school->profit_percent }} %</td>
-                                    <td>{{ $school->stock }}</td>
+                                    <td>{{ $school->user['name'] }}</td>
                                     <td>
                                         @if (auth()->user()->hasPermission('update_schools'))
                                             <a href="{{ route('dashboard.schools.edit', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
