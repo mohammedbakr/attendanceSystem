@@ -20,7 +20,9 @@
 
                 <div class="box-header with-border">
 
-                    <h3 class="box-title" style="margin-bottom: 15px">@lang('site.students') <small>{{ $students->total() }}</small></h3>
+                    <h3 class="box-title" style="margin-bottom: 15px">
+                        @lang('site.students') <small>{{ $students->total() }}</small>
+                    </h3>
 
                     <form action="{{ route('dashboard.students.index') }}" method="get">
 
@@ -32,7 +34,7 @@
 
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
-                                @if (auth()->user()->hasPermission('create_clients'))
+                                @if (auth()->user()->hasPermission('create_students'))
                                     <a href="{{ route('dashboard.students.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
                                 @else
                                     <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</a>
@@ -76,12 +78,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if (auth()->user()->hasPermission('update_clients'))
+                                        @if (auth()->user()->hasPermission('update_students'))
                                             <a href="{{ route('dashboard.students.edit', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                         @else
                                             <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                         @endif
-                                        @if (auth()->user()->hasPermission('delete_clients'))
+                                        @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}

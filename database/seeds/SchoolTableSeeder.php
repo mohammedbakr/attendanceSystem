@@ -24,11 +24,6 @@ class SchoolTableSeeder extends Seeder
             'name' => 'school two'
 
         ]);
-
-        School::create([
-
-            'name' => 'school three'
-
-        ]);
+        
     }
 }

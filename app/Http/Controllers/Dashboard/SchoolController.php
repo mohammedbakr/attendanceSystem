@@ -18,6 +18,7 @@ class SchoolController extends Controller
         $this->middleware(['permission:delete_schools'])->only('destroy');
 
     }//end of constructor
+    
     /**
      * Display a listing of the resource.
      *
