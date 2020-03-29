@@ -24,7 +24,7 @@
                         @lang('site.students') <small>{{ $students->total() }}</small>
                     </h3>
 
-                    <form action="{{ route('dashboard.students.index') }}" method="get">
+                    <form action="{{ route('dashboard.primary4') }}" method="get">
 
                         <div class="row">
 
@@ -56,33 +56,23 @@
                             <tr>
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
-                                <th>@lang('site.phone')</th>
-                                <th>@lang('site.address')</th>
-                                <th>@lang('site.add_order')</th>
+                                <th>@lang('site.email')</th>
+                                <th>@lang('site.school')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
                             
                             <tbody>
+                    
                             @foreach ($students as $index=>$student)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{ is_array($student->phone) ? implode($student->phone, '-') : $student->phone }}</td>
-                                    <td>{{ $student->address }}</td>
+                                    <td>{{ $student->email }}</td>
+                                    <td>{{ $student->school->name }}</td>
+                                   
                                     <td>
-                                        @if (auth()->user()->hasPermission('create_orders'))
-                                            <a href="{{ route('dashboard.students.orders.create', $student->id) }}" class="btn btn-primary btn-sm">@lang('site.add_order')</a>
-                                        @else
-                                            <a href="#" class="btn btn-primary btn-sm disabled">@lang('site.add_order')</a>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if (auth()->user()->hasPermission('update_students'))
-                                            <a href="{{ route('dashboard.students.edit', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                        @else
-                                            <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                        @endif
+                                    
                                         @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
@@ -94,7 +84,6 @@
                                         @endif
                                     </td>
                                 </tr>
-                            
                             @endforeach
                             </tbody>
 

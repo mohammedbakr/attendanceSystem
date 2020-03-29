@@ -43,8 +43,7 @@ class UserController extends Controller
 
     }//end of create
 
-    public
-    function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'first_name' => 'required',

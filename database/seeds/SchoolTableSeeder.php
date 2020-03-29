@@ -3,6 +3,7 @@
 use App\School;
 use Illuminate\Database\Seeder;
 
+
 class SchoolTableSeeder extends Seeder
 {
     /**
@@ -24,6 +25,5 @@ class SchoolTableSeeder extends Seeder
             'name' => 'school two'
 
         ]);
-        
     }
 }
