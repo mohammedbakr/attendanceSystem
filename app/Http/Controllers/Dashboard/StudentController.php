@@ -8,6 +8,16 @@ use App\Http\Controllers\Controller;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        //create read update delete
+        $this->middleware(['permission:read_students'])->only('index');
+        $this->middleware(['permission:create_students'])->only('create');
+        $this->middleware(['permission:update_students'])->only('edit');
+        $this->middleware(['permission:delete_students'])->only('destroy');
+
+    }//end of constructor
+
     public function index(Request $request)
     {
         $students = Student::when($request->search, function($q) use ($request){
@@ -18,7 +28,9 @@ class StudentController extends Controller
 
         })->latest()->paginate(5);
 
-        return view('dashboard.students.index', compact('students'));
+        $params = $request->params;
+
+        return view('dashboard.students.index', compact('students', 'params'));
 
     }//end of index
 

@@ -23,11 +23,11 @@
     
                     <ul class="treeview-menu">  
                         <li>  
-                            <a href="#"><i class="fa fa-dashcube"></i>@lang('Postgraduate')</a>  
+                            <a href="{{ route('dashboard.students.index', ['params' => 'Postgraduate']) }}"><i class="fa fa-dashcube"></i>@lang('Postgraduate')</a>  
                         </li>  
 
                          <li>  
-                            <a href="#"><i class="fa fa-dashcube"></i>@lang('Generaldiploma')</a>  
+                            <a href="{{ route('dashboard.students.index', ['params' => 'Generaldiploma']) }}"><i class="fa fa-dashcube"></i>@lang('Generaldiploma')</a>  
                         </li>  
 
                         <li>  
@@ -38,8 +38,8 @@
 
                                     <ul class="treeview-menu">  
                                         <li>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                            <a href="{{ route('dashboard.students.index', ['params' => 'gstage3']) }}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="{{ route('dashboard.students.index', ['params' => 'gstage4']) }}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
                                         </li>  
                                     </ul>
 
