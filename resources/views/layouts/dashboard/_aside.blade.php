@@ -23,11 +23,11 @@
     
                     <ul class="treeview-menu">  
                         <li>  
-                            <a href="{{ route('dashboard.students.index', ['params' => 'Postgraduate']) }}"><i class="fa fa-dashcube"></i>@lang('Postgraduate')</a>  
+                            <a href="{{ route('dashboard.postgraduate')}}"><i class="fa fa-dashcube"></i>@lang('Postgraduate')</a>  
                         </li>  
 
                          <li>  
-                            <a href="{{ route('dashboard.students.index', ['params' => 'Generaldiploma']) }}"><i class="fa fa-dashcube"></i>@lang('Generaldiploma')</a>  
+                            <a href="{{ route('dashboard.diploma')}}"><i class="fa fa-dashcube"></i>@lang('Generaldiploma')</a>  
                         </li>  
 
                         <li>  
@@ -38,8 +38,8 @@
 
                                     <ul class="treeview-menu">  
                                         <li>  
-                                            <a href="{{ route('dashboard.students.index', ['params' => 'gstage3']) }}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
-                                            <a href="{{ route('dashboard.students.index', ['params' => 'gstage4']) }}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                            <a href="{{ route('dashboard.general3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="{{ route('dashboard.general4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
                                         </li>  
                                     </ul>
 
@@ -50,13 +50,13 @@
                         <li>  
                                 <li class="treeview">  
                                     <a href="#">
-                                        <i class="fa fa-dashcube"></i> @lang('basic')
+                                        <i class="fa fa-dashcube"></i> @lang('primary')
                                     </a>
 
                                     <ul class="treeview-menu">  
                                         <li>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                            <a href="{{ route('dashboard.primary3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="{{ route('dashboard.primary4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
                                         </li>  
                                     </ul>
 
@@ -73,9 +73,9 @@
 
                                     <ul class="treeview-menu">  
                                         <li>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage1')</a>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
-                                            <a href="#"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                            <a href="{{ route('dashboard.kg1')}}"><i class="fa fa-dashcube"></i>@lang('stage1')</a>  
+                                            <a href="{{ route('dashboard.kg3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                            <a href="{{ route('dashboard.kg4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
                                         </li>  
                                     </ul>
 
