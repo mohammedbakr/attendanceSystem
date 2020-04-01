@@ -114,7 +114,7 @@
 
      
 
-            <li><a href="{{ route('dashboard.stages.index') }}"><i class="fa fa-book"></i><span>@lang('site.stages')</span></a></li>
+            <li><a href="#"><i class="fa fa-book"></i><span>@lang('site.stages')</span></a></li>
         
             
             {{-- {{an class="pull-right-container">--}} --}}

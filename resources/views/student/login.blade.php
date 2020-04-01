@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Student Login</title>
 
     {{--<!-- Bootstrap 3.3.7 -->--}}
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap.min.css') }}">
@@ -84,7 +84,7 @@
                 </li>
             </ul>
     
-            <!-- Tab panes -->
+            {{-- <!-- Tab panes -->
             <div class="tab-content">
                 <div id="home" class="container tab-pane active"><br>
                     <div class="login-box">
@@ -122,7 +122,7 @@
                         </div><!-- end of login body -->
                     
                         </div><!-- end of login-box -->
-                </div>
+                </div> --}}
                 <div id="menu1" class="container tab-pane fade"><br>
                     <div class="login-box">
                         <div class="login-logo">
@@ -130,7 +130,7 @@
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
-                            <p class="login-box-msg">Sign in to start your sessionv st</p>
+                            <p class="login-box-msg">Sign in to start your session</p>
                     
                             <form action="{{ route('student.login') }}" method="post">
                         {{ csrf_field() }}
@@ -160,10 +160,10 @@
                     
                         </div><!-- end of login-box -->
                 </div>
-                <div id="menu2" class="container tab-pane fade"><br>
+                {{-- <div id="menu2" class="container tab-pane fade"><br>
                     <div class="login-box">
                         <div class="login-logo">
-                            <a href="#"><b>Admint</b></a>
+                            <a href="#"><b>Admin</b></a>
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
@@ -195,8 +195,8 @@
                     
                         </div><!-- end of login body -->
                     
-                        </div><!-- end of login-box -->
-                </div>
+                        {{-- </div><!-- end of login-box --> --}}
+                </div> 
             </div>
         </div>
     </div>
