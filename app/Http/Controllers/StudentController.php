@@ -13,7 +13,7 @@ class StudentController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth:student');
     }
 
     /**
@@ -23,7 +23,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('test');
+        return view('student.welcome');
     }
 
     public function log()
