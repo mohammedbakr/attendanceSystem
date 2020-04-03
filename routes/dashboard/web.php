@@ -22,19 +22,20 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('students/majors/kg4', 'StudentController@kg4')->name('kg4');
 
 
-            //stage routes
-            Route::resource('stages', 'StageController')->except(['show']);
 
             //school routes
             Route::resource('schools', 'SchoolController')->except(['show']);
 
-            //client routes
-            Route::resource('clients', 'ClientController')->except(['show']);
-            Route::resource('clients.orders', 'Client\OrderController')->except(['show']);
+            // //client routes
+            // Route::resource('clients', 'ClientController')->except(['show']);
+            // Route::resource('clients.orders', 'Client\OrderController')->except(['show']);
 
      
             //user routes
             Route::resource('users', 'UserController')->except(['show']);
+
+
+            
 
         });//end of dashboard routes
     });

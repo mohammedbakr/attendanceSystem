@@ -1,0 +1,1 @@
+<h1 style="color:red">Welcome student {{auth()->user()->name}}</h1>

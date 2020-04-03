@@ -17,4 +17,16 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//student login system
+Route::GET('student/home', 'StudentController@index');
+Route::GET('student', 'Student\LoginController@showLoginForm')->name('student.login');
+Route::POST('student','Student\LoginController@login');
+Route::POST('student-password/email','Student\ForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
+Route::GET('student-password/reset','Student\ForgotPasswordController@showLinkRequestForm')->name('student.password.request');
+Route::POST('student-password/reset','Student\ResetPasswordController@reset');
+Route::GET('student-password/reset/{token}','Student\ResetPasswordController@showResetForm')->name('student.password');
+
+Route::GET('test', 'StudentController@log');
+
+ 
+Route::GET('/home', 'HomeController@index')->name('home');
