@@ -20,22 +20,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('students/majors/kg1', 'StudentController@kg1')->name('kg1');
             Route::get('students/majors/kg3', 'StudentController@kg3')->name('kg3');
             Route::get('students/majors/kg4', 'StudentController@kg4')->name('kg4');
-
-
-
+            Route::get('students/notenrolled', 'StudentController@notenrolled')->name('notenrolled');
             //school routes
             Route::resource('schools', 'SchoolController')->except(['show']);
 
-            // //client routes
-            // Route::resource('clients', 'ClientController')->except(['show']);
-            // Route::resource('clients.orders', 'Client\OrderController')->except(['show']);
-
-     
             //user routes
             Route::resource('users', 'UserController')->except(['show']);
-
-
-            
 
         });//end of dashboard routes
     });

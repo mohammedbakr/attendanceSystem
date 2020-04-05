@@ -36,5 +36,4 @@ class Student extends Authenticatable
     }
 
 
-
 }//end of model

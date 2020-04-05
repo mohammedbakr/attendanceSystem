@@ -163,7 +163,7 @@
                 <div id="menu2" class="container tab-pane fade"><br>
                     <div class="login-box">
                         <div class="login-logo">
-                            <a href="#"><b>Admint</b></a>
+                            <a href="#"><b>Admin</b></a>
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">

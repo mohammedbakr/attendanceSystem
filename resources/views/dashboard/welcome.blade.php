@@ -21,9 +21,9 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            {{-- <h3>{{ $stages_count }}</h3> --}}
+                            <h3>{{ $students }}</h3>
 
-                            <p>@lang('site.stages')</p>
+                            <p>@lang('site.not enrolled students')</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -51,7 +51,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>{{ $clients_count }}</h3>
+                            <h3>{{ $students_count }}</h3>
 
                             <p>@lang('site.clients')</p>
                         </div>
@@ -82,10 +82,28 @@
             <div class="box box-solid">
 
                 <div class="box-header">
-                    <h3 class="box-title">Sales Graph</h3>
+                    <h3 class="box-title">@lang('site.assign students to schools')</h3>
                 </div>
                 <div class="box-body border-radius-none">
-                    <div class="chart" id="line-chart" style="height: 250px;"></div>
+                    <div class="chart" id="line-chart" style="height: 250px;">
+                        {{-- count --}}
+                        <p><strong>range 5 - 18</strong></p>
+                        <table>
+                            <tr>
+                                <th>School Name</th>
+                                <th>enrolled students</th>
+                                <th>remaining students</th>
+                            </tr>
+                            @foreach ($schools as $school)
+                            <tr>
+                                <td>{{ $school->name }}</td>
+                                <td>{{ $school->students_count() }}</td>
+                                <td>{{ 18 - $school->students_count() }}</td>
+                            </tr>
+                            @endforeach                        
+                        </table>
+                        {{ $schools->links() }}
+                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -98,30 +116,5 @@
 @endsection
 
 @push('scripts')
-
-    {{-- <script>
-
-        //line chart
-        var line = new Morris.Line({
-            element: 'line-chart',
-            resize: true,
-            data: [
-                @foreach ($sales_data as $data)
-                {
-                    ym: "{{ $data->year }}-{{ $data->month }}", sum: "{{ $data->sum }}"
-                },
-                @endforeach
-            ],
-            xkey: 'ym',
-            ykeys: ['sum'],
-            labels: ['@lang('site.total')'],
-            lineWidth: 2,
-            hideHover: 'auto',
-            gridStrokeWidth: 0.4,
-            pointSize: 4,
-            gridTextFamily: 'Open Sans',
-            gridTextSize: 10
-        });
-    </script> --}}
 
 @endpush

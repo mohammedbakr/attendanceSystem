@@ -28,7 +28,6 @@ class StudentController extends Controller
 
         })->latest()->paginate(5);
 
-
         return view('dashboard.students.majors.postgraduate', compact('students'));
 
     }//end of postgradute
@@ -42,7 +41,6 @@ class StudentController extends Controller
                 ->orWhere('email', 'like', '%' . $request->search . '%');
 
         })->latest()->paginate(5);
-
 
         return view('dashboard.students.majors.diploma', compact('students'));
 
@@ -58,7 +56,6 @@ class StudentController extends Controller
 
         })->latest()->paginate(5);
 
-
         return view('dashboard.students.majors.general3', compact('students'));
 
     }//end of general3
@@ -72,7 +69,6 @@ class StudentController extends Controller
                 ->orWhere('email', 'like', '%' . $request->search . '%');
 
         })->latest()->paginate(5);
-
 
         return view('dashboard.students.majors.general4', compact('students'));
 
@@ -88,7 +84,6 @@ class StudentController extends Controller
 
         })->latest()->paginate(5);
 
-
         return view('dashboard.students.majors.primary3', compact('students'));
 
     }//end of primary3
@@ -102,7 +97,6 @@ class StudentController extends Controller
                 ->orWhere('email', 'like', '%' . $request->search . '%');
 
         })->latest()->paginate(5);
-
 
         return view('dashboard.students.majors.primary4', compact('students'));
 
@@ -118,7 +112,6 @@ class StudentController extends Controller
 
         })->latest()->paginate(5);
 
-
         return view('dashboard.students.majors.kg1', compact('students'));
 
     }//end of kg1
@@ -131,7 +124,6 @@ class StudentController extends Controller
                 ->orWhere('email', 'like', '%' . $request->search . '%');
 
         })->latest()->paginate(5);
-
 
         return view('dashboard.students.majors.kg3', compact('students'));
 
@@ -146,16 +138,26 @@ class StudentController extends Controller
 
         })->latest()->paginate(5);
 
-
         return view('dashboard.students.majors.kg4', compact('students'));
 
     }//end of kg4
 
+    public function notEnrolled(Request $request)
+    {
+        $students = Student::where(function ($q) use ($request) {
 
- 
+            return $q->where('school_id', null)->when($request->search, function ($query) use ($request) {
 
+                return $query->where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('email', 'like', '%' . $request->search . '%');
+                
+            });
 
+        })->latest()->paginate(5);
 
+        return view('dashboard.students.notenrolled', compact('students'));
+
+    }//end of postgradute
 
     public function create()
     {

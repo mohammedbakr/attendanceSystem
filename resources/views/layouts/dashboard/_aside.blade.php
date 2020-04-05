@@ -48,45 +48,37 @@
                         </li>  
 
                         <li>  
-                                <li class="treeview">  
-                                    <a href="#">
-                                        <i class="fa fa-dashcube"></i> @lang('primary')
-                                    </a>
-
-                                    <ul class="treeview-menu">  
-                                        <li>  
-                                            <a href="{{ route('dashboard.primary3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
-                                            <a href="{{ route('dashboard.primary4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
-                                        </li>  
-                                    </ul>
-
-
-                                </li>
+                            <li class="treeview">  
+                                <a href="#">
+                                    <i class="fa fa-dashcube"></i> @lang('primary')
+                                </a>
+                                <ul class="treeview-menu">  
+                                    <li>  
+                                        <a href="{{ route('dashboard.primary3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                        <a href="{{ route('dashboard.primary4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                    </li>  
+                                </ul>
+                            </li>
                         </li>  
-
-                       
                         <li>  
-                                <li class="treeview">  
-                                    <a href="#">
-                                        <i class="fa fa-dashcube"></i> @lang('kg')
-                                    </a>
-
-                                    <ul class="treeview-menu">  
-                                        <li>  
-                                            <a href="{{ route('dashboard.kg1')}}"><i class="fa fa-dashcube"></i>@lang('stage1')</a>  
-                                            <a href="{{ route('dashboard.kg3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
-                                            <a href="{{ route('dashboard.kg4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
-                                        </li>  
-                                    </ul>
-
-
-                                </li>
-                        </li>  
-
-                       
-
-
-
+                            <li class="treeview">  
+                                <a href="#">
+                                    <i class="fa fa-dashcube"></i> @lang('kg')
+                                </a>
+                                <ul class="treeview-menu">  
+                                    <li>  
+                                        <a href="{{ route('dashboard.kg1')}}"><i class="fa fa-dashcube"></i>@lang('stage1')</a>  
+                                        <a href="{{ route('dashboard.kg3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>  
+                                        <a href="{{ route('dashboard.kg4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>  
+                                    </li>  
+                                </ul>
+                            </li>
+                        </li>
+                        <li>  
+                            <li>  
+                                <a href="{{ route('dashboard.notenrolled')}}"><i class="fa fa-dashcube"></i>@lang('notenrolled')</a> 
+                            </li>                            
+                        </li>
                     </ul>  
                 </li>   
         </ul>    

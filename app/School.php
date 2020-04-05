@@ -19,7 +19,10 @@ class School extends Model
         return $this->hasMany(Student::class);
     }
 
-
+    public function students_count()
+    {
+        return Student::where('school_id', [$this->id])->count();
+    }
   
 
 }//end of model

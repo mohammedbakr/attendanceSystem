@@ -4,11 +4,11 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>@lang('site.clients')</h1>
+            <h1>@lang('site.students')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.clients.index') }}"> @lang('site.clients')</a></li>
+                <li><a href="{{ route('dashboard.students.index') }}"> @lang('site.students')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>
         </section>
@@ -42,7 +42,7 @@
 
                         <div class="form-group">
                             <label>@lang('site.password')</label>
-                            <input name="password" class="form-control" value="{{old('password')}}"/>
+                            <input type="password" name="password" class="form-control" value="{{old('password')}}"/>
                         </div>
 
                         <div class="form-group">
