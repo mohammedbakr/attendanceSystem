@@ -8,7 +8,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('/', 'WelcomeController@index')->name('welcome');
 
             //student routes
-            Route::resource('students', 'StudentController')->except(['show']);
+            Route::resource('students', 'StudentController');
 
             //majors
             Route::get('students/majors/postgraduate', 'StudentController@postgraduate')->name('postgraduate');
@@ -22,7 +22,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('students/majors/kg4', 'StudentController@kg4')->name('kg4');
             Route::get('students/notenrolled', 'StudentController@notenrolled')->name('notenrolled');
             //school routes
-            Route::resource('schools', 'SchoolController')->except(['show']);
+            Route::resource('schools', 'SchoolController');
 
             //user routes
             Route::resource('users', 'UserController')->except(['show']);

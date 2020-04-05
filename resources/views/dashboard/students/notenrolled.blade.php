@@ -6,11 +6,11 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.students')</h1>
+            <h1>@lang('site.students not enrolled')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li class="active">@lang('site.students')</li>
+                <li class="active">@lang('site.students not enrolled')</li>
             </ol>
         </section>
 
@@ -21,7 +21,7 @@
                 <div class="box-header with-border">
 
                     <h3 class="box-title" style="margin-bottom: 15px">
-                        @lang('site.students') <small>{{ $students->total() }}</small>
+                        @lang('site.students not enrolled') <small>{{ $students->total() }}</small>
                     </h3>
 
                     <form action="{{ route('dashboard.notenrolled') }}" method="get">
@@ -79,6 +79,9 @@
                                         @else
                                             <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
                                         @endif
+
+                                        <a href="{{ route('dashboard.students.edit', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.Add to a school')</a>
+
                                     </td>
                                 </tr>
                             @endforeach

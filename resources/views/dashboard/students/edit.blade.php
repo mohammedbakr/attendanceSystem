@@ -4,11 +4,11 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>@lang('site.clients')</h1>
+            <h1>@lang('site.Add student to a school')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.clients.index') }}"> @lang('site.clients')</a></li>
+                <li><a href="{{ route('dashboard.notenrolled') }}"> @lang('site.students not enrolled')</a></li>
                 <li class="active">@lang('site.edit')</li>
             </ol>
         </section>
@@ -24,30 +24,30 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.clients.update', $client->id) }}" method="post">
+                    <form action="{{ route('dashboard.students.update', $student->id) }}" method="post">
 
                         {{ csrf_field() }}
                         {{ method_field('put') }}
 
+                     
+                    
+
                         <div class="form-group">
-                            <label>@lang('site.name')</label>
-                            <input type="text" name="name" class="form-control" value="{{ $client->name }}">
+                            <label>@lang('site.schools')</label>
+                            <select name="school_id" class="form-control">
+                                <option value="">@lang('site.schools')</option>
+                                @foreach ($schools as $school)
+                                    <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
-                        @for ($i = 0; $i < 2; $i++)
-                            <div class="form-group">
-                                <label>@lang('site.phone')</label>
-                                <input type="text" name="phone[]" class="form-control" value="{{ $client->phone[$i] ?? '' }}">
-                            </div>
-                        @endfor
 
-                        <div class="form-group">
-                            <label>@lang('site.address')</label>
-                            <textarea name="address" class="form-control">{{ $client->address }}</textarea>
-                        </div>
 
+
+            
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> @lang('site.edit')</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> @lang('site.Add to a school')</button>
                         </div>
 
                     </form><!-- end of form -->

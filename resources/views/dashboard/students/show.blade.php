@@ -21,41 +21,17 @@
                 <div class="box-header with-border">
 
                     <h3 class="box-title" style="margin-bottom: 15px">
-                        @lang('site.students') <small>{{ $students->total() }}</small>
+                        @lang('site.students') 
                     </h3>
-
-                    <form action="{{ route('dashboard.kg3') }}" method="get">
-
-                        <div class="row">
-
-                            <div class="col-md-4">
-                                <input type="text" name="search" class="form-control" placeholder="@lang('site.search')" value="{{ request()->search }}">
-                            </div>
-
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
-                                @if (auth()->user()->hasPermission('create_students'))
-                                    <a href="{{ route('dashboard.students.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-
-                                @else
-                                    <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                                @endif
-                            </div>
-
-                        </div>
-                    </form><!-- end of form -->
 
                 </div><!-- end of box header -->
 
                 <div class="box-body">
 
-                    @if ($students->count() > 0)
-
                         <table class="table table-hover">
 
                             <thead>
                             <tr>
-                                <th>#</th>
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.email')</th>
                                 <th>@lang('site.school')</th>
@@ -65,16 +41,16 @@
                             
                             <tbody>
                     
-                            @foreach ($students as $index=>$student)
+                       
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                    
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->email }}</td>
+                                    
                                     <td>{{ $student->school->name }}</td>
                                    
                                     <td>
-                                        <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
-
+                                    
                                         @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
@@ -86,18 +62,12 @@
                                         @endif
                                     </td>
                                 </tr>
-                            @endforeach
                             </tbody>
 
                         </table><!-- end of table -->
+                                                
                         
-                        {{ $students->appends(request()->query())->links() }}
                         
-                    @else
-                        
-                        <h2>@lang('site.no_data_found')</h2>
-                        
-                    @endif
 
                 </div><!-- end of box body -->
 

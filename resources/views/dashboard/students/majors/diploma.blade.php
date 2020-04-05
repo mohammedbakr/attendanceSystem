@@ -71,6 +71,8 @@
                                     <td>{{ $student->school->name }}</td>
                                    
                                     <td>
+                                        <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
+
                                     
                                         @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">

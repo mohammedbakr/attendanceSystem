@@ -166,6 +166,13 @@ class StudentController extends Controller
 
     }//end of create
 
+    public function show(Student $student)
+    {
+    
+        return view('dashboard.students.show', compact('student'));
+
+    }//end of show
+
     public function store(Request $request)
     {
         $request->validate([
@@ -189,25 +196,22 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
-        return view('dashboard.students.edit', compact('student'));
+        $schools= School::all();
+        return view('dashboard.students.edit', compact('student','schools'));
 
     }//end of edit
 
     public function update(Request $request, Student $student)
     {
         $request->validate([
-            'name' => 'required',
-            'phone' => 'required|array|min:1',
-            'phone.0' => 'required',
-            'address' => 'required',
+            'school_id' => 'required',
         ]);
 
         $request_data = $request->all();
-        $request_data['phone'] = array_filter($request->phone);
 
         $student->update($request_data);
         session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.students.index');
+        return redirect()->route('dashboard.notenrolled');
 
     }//end of update
 

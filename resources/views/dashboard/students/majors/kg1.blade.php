@@ -35,6 +35,7 @@
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
                                 @if (auth()->user()->hasPermission('create_students'))
                                     <a href="{{ route('dashboard.students.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
+
                                 @else
                                     <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</a>
                                 @endif
@@ -71,7 +72,8 @@
                                     <td>{{ $student->school->name }}</td>
                                    
                                     <td>
-                                    
+                                        <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
+
                                         @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
