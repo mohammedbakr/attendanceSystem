@@ -10,6 +10,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             //student routes
             Route::resource('students', 'StudentController');
 
+
+   
             //majors
             Route::get('students/majors/postgraduate', 'StudentController@postgraduate')->name('postgraduate');
             Route::get('students/majors/diploma', 'StudentController@diploma')->name('diploma');
@@ -20,7 +22,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('students/majors/kg1', 'StudentController@kg1')->name('kg1');
             Route::get('students/majors/kg3', 'StudentController@kg3')->name('kg3');
             Route::get('students/majors/kg4', 'StudentController@kg4')->name('kg4');
-            Route::get('students/notenrolled', 'StudentController@notenrolled')->name('notenrolled');
+            Route::get('students/notenrolled', 'StudentController@notEnrolled')->name('notenrolled');
+
+
             //school routes
             Route::resource('schools', 'SchoolController');
 

@@ -77,7 +77,8 @@
                         <li>  
                             <li>  
                                 <a href="{{ route('dashboard.notenrolled')}}"><i class="fa fa-dashcube"></i>@lang('notenrolled')</a> 
-                            </li>                            
+                            </li>   
+                                                     
                         </li>
                     </ul>  
                 </li>   

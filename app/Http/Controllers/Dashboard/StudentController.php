@@ -21,12 +21,17 @@ class StudentController extends Controller
 
     public function postgraduate(Request $request)
     {
-        $students = Student::where('major', 'postgraduate')->when($request->search, function($q) use ($request){
+       
+        $students = Student::where('major', 'postgraduate')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
+            return $q->when($request->search, function ($query) use ($request) {
 
-        })->latest()->paginate(5);
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+
+        })->latest()->paginate(3);
+
 
         return view('dashboard.students.majors.postgraduate', compact('students'));
 
@@ -34,14 +39,17 @@ class StudentController extends Controller
 
 
     public function diploma(Request $request)
-    {
-        $students = Student::where('major', 'diploma')->when($request->search, function($q) use ($request){
+    { 
+        
+        $students = Student::where('major', 'diploma')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
+        return $q->when($request->search, function ($query) use ($request) {
 
-        })->latest()->paginate(5);
+            return $query->where('name','like','%'. $request->search .'%')
+                    ->orWhere('email','like','%'. $request->search .'%');
+        });
 
+    })->latest()->paginate(3);
         return view('dashboard.students.majors.diploma', compact('students'));
 
     }//end of diploma
@@ -49,12 +57,15 @@ class StudentController extends Controller
 
     public function general3(Request $request)
     {
-        $students = Student::where('major', 'general3')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'general3')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-
-        })->latest()->paginate(5);
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
         return view('dashboard.students.majors.general3', compact('students'));
 
@@ -63,12 +74,15 @@ class StudentController extends Controller
 
     public function general4(Request $request)
     {
-        $students = Student::where('major', 'general4')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'general4')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-
-        })->latest()->paginate(5);
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
         return view('dashboard.students.majors.general4', compact('students'));
 
@@ -77,12 +91,15 @@ class StudentController extends Controller
 
     public function primary3(Request $request)
     {
-        $students = Student::where('major', 'primary3')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'primary3')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-
-        })->latest()->paginate(5);
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
         return view('dashboard.students.majors.primary3', compact('students'));
 
@@ -91,12 +108,15 @@ class StudentController extends Controller
 
     public function primary4(Request $request)
     {
-        $students = Student::where('major', 'primary4')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'primary4')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-
-        })->latest()->paginate(5);
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
         return view('dashboard.students.majors.primary4', compact('students'));
 
@@ -105,12 +125,15 @@ class StudentController extends Controller
 
     public function kg1(Request $request)
     {
-        $students = Student::where('major', 'kg1')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'kg1')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-
-        })->latest()->paginate(5);
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
         return view('dashboard.students.majors.kg1', compact('students'));
 
@@ -118,12 +141,15 @@ class StudentController extends Controller
 
     public function kg3(Request $request)
     {
-        $students = Student::where('major', 'kg3')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'kg3')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-
-        })->latest()->paginate(5);
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
         return view('dashboard.students.majors.kg3', compact('students'));
 
@@ -131,12 +157,16 @@ class StudentController extends Controller
 
     public function kg4(Request $request)
     {
-        $students = Student::where('major', 'kg4')->when($request->search, function($q) use ($request){
+        $students = Student::where('major', 'kg4')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
+            });
+    
+        })->latest()->paginate(3);
 
-        })->latest()->paginate(5);
 
         return view('dashboard.students.majors.kg4', compact('students'));
 
@@ -144,20 +174,21 @@ class StudentController extends Controller
 
     public function notEnrolled(Request $request)
     {
-        $students = Student::where(function ($q) use ($request) {
+        $students = Student::where('school_id', Null)->where(function ($q) use ($request) {
 
-            return $q->where('school_id', null)->when($request->search, function ($query) use ($request) {
-
-                return $query->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
-                
+            return $q->when($request->search, function ($query) use ($request) {
+    
+                return $query->where('name','like','%'. $request->search .'%')
+                        ->orWhere('email','like','%'. $request->search .'%');
             });
+    
+        })->latest()->paginate(3);
 
-        })->latest()->paginate(5);
+        return view('dashboard.students.majors.notenrolled', compact('students'));
 
-        return view('dashboard.students.notenrolled', compact('students'));
+    
 
-    }//end of postgradute
+    }//end of notEnrolled
 
     public function create()
     {
@@ -211,7 +242,7 @@ class StudentController extends Controller
 
         $student->update($request_data);
         session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.notenrolled');
+         return redirect()->route('dashboard.notenrolled');
 
     }//end of update
 
