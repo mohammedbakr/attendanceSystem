@@ -6,11 +6,12 @@
 
         <section class="content-header">
 
-            <h1>{{$school->name}}</h1>
-
+            <h3 class="box-title" style="margin-bottom: 15px">
+              نسبة الحضور    <i class="fa fa-percent">{{$attendance_percentage}}</i>
+            </h3>
+   
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li class="active">{{$school->name}} @lang('enrolled_students')</li>
             </ol>
         </section>
 
@@ -33,29 +34,22 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{$school->name}} @lang('site.school students')</th>
-                                <th>@lang('site.action')</th>
+                                <th>التاريخ</th>
+                                <th>الحضور</th>
                             </tr>
                             </thead>
                             
                             <tbody>
                                
-                                    @foreach ($school->students as $index=>$student)
+                                    @foreach ($student->attendances as $index=>$student)
                                     <tr>
                                         <td>{{$index + 1}}</td>
-                                        <td>{{ $student->name}}</td>
-                                        <td>
-                                            <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
-                                            @if (auth()->user()->hasPermission('delete_students'))
-                                                <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('delete') }}
-                                                    <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                                </form><!-- end of form -->
-                                            @else
-                                                <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                            @endif
-                                        </td>
+                                        <td>{{$student->created_at->format('l , j/M/Y')}}</td>
+                                         @if($student->attended == 1)
+                                            <td><div class="label label-success"> <i class="fa fa-check"></i> Yes</div></td>
+                                         @else
+                                             <td><div class="label label-danger"><i class="fa fa-times"></i>  No </div></td>
+                                         @endif
                                     </tr>
                                     @endforeach
 

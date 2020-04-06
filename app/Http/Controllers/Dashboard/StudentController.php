@@ -6,6 +6,7 @@ use App\Student;
 use App\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -197,8 +198,19 @@ class StudentController extends Controller
 
     public function show(Student $student)
     {
+        $student_attendance = DB::table('attendances')->where('attended', 1)->count();
+        $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
     
-        return view('dashboard.students.show', compact('student'));
+        return view('dashboard.students.show', compact('student', 'attendance_percentage'));
+
+    }//end of show
+
+
+    public function showAttendance(Student $student)
+    {
+        $student_attendance = DB::table('attendances')->where('attended', 1)->count();
+        $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
+        return view('dashboard.students.showattendance', compact('student','attendance_percentage'));
 
     }//end of show
 

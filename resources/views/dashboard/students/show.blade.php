@@ -35,6 +35,7 @@
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.email')</th>
                                 <th>@lang('site.school')</th>
+                                <th>@lang('site.Attendance') %</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -48,7 +49,11 @@
                                     <td>{{ $student->email }}</td>
                                     
                                     <td>{{ $student->school->name }}</td>
-                                   
+                                    
+                                    <td class="Bold"><a href="{{route('dashboard.showattendance', $student->id)}}">{{ $attendance_percentage}}<i class="fa fa-percent"></i></a></td>
+                                    
+                                    
+                             
                                     <td>
                                     
                                         @if (auth()->user()->hasPermission('delete_students'))
