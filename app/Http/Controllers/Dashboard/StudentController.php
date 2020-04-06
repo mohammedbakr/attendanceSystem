@@ -184,7 +184,7 @@ class StudentController extends Controller
     
         })->latest()->paginate(3);
 
-        return view('dashboard.students.majors.notenrolled', compact('students'));
+        return view('dashboard.students.notenrolled', compact('students'));
 
     
 
