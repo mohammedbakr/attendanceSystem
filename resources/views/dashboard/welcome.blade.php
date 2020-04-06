@@ -82,28 +82,65 @@
             <div class="box box-solid">
 
                 <div class="box-header">
-                    <h3 class="box-title">@lang('site.assign students to schools')</h3>
+                    <h3 class="box-title">@lang('site.schools summary')</h3>
                 </div>
-                <div class="box-body border-radius-none">
-                    <div class="chart" id="line-chart" style="height: 250px;">
-                        {{-- count --}}
-                        <p><strong>range 5 - 18</strong></p>
-                        <table>
-                            <tr>
-                                <th>School Name</th>
-                                <th>enrolled students</th>
-                                <th>remaining students</th>
-                                <th>Add students to school</th>
-                            </tr>
-                            @foreach ($schools as $school)
-                            <tr>
-                                <td>{{ $school->name }}</td>
-                                <td>{{ $school->students_count() }}</td>
-                                <td>{{ 18 - $school->students_count() }}</td>
-                            </tr>
-                            @endforeach                        
-                        </table>
-                        {{ $schools->links() }}
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>range < 5 </strong></p>
+                            @if ($schools->count() > 0)
+                            <table class="table table-stripped table-hover">
+                                <tr>
+                                    <th>School Name</th>
+                                    <th>enrolled students</th>
+                                    <th>available</th>
+                                    <th>show</th>
+                                </tr>
+                                @foreach ($schools as $school)
+                                @if ($school->count() < 5)
+                                <tr>
+                                    <td>{{ $school->name }}</td>
+                                    <td>{{ $school->students_count() }}</td>
+                                    <td>{{ 18 - $school->students_count() }}</td>
+                                    <td>
+                                        <a href="{{ route('dashboard.schools.show', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
+                                    </td>
+                                </tr>
+                                @endif
+                                @endforeach                        
+                            </table>
+                            @else
+                            <h2>@lang('site.no_data_found')</h2>
+                            @endif
+                            {{ $schools->links() }}
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>range  5 - 18 </strong></p>
+                            @if ($schools->count() > 0)
+                            <table class="table table-stripped table-hover">
+                                <tr>
+                                    <th>School Name</th>
+                                    <th>enrolled students</th>
+                                    <th>available</th>
+                                    <th>show</th>
+                                </tr>
+                                @foreach ($schools as $school)
+                                @if ($school->count() >=5 && $school->count <= 18)
+                                <tr>
+                                    <td>{{ $school->name }}</td>
+                                    <td>{{ $school->students_count() }}</td>
+                                    <td>{{ 18 - $school->students_count() }}</td>
+                                    <td>
+                                        <a href="{{ route('dashboard.schools.show', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
+                                    </td>
+                                </tr>
+                                @endif
+                                @endforeach               
+                            </table>
+                            @else
+                            <h2>@lang('site.no_data_found')</h2>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
