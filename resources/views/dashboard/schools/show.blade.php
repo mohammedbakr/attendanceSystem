@@ -33,7 +33,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                            <th>{{$school->name}} @lang('site.school students')</th>
+                                <th>{{$school->name}} @lang('site.school students')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -44,29 +44,21 @@
                                     <tr>
                                         <td>{{$index + 1}}</td>
                                         <td>{{ $student->name}}</td>
+                                        <td>
+                                            <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
+                                            @if (auth()->user()->hasPermission('delete_students'))
+                                                <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('delete') }}
+                                                    <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                                </form><!-- end of form -->
+                                            @else
+                                                <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                            @endif
+                                        </td>
                                     </tr>
                                     @endforeach
-                                   
-                          
-                                    {{-- <td>
-                                        <a href="{{ route('dashboard.schools.show', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
 
-                                        @if (auth()->user()->hasPermission('update_schools'))
-                                            <a href="{{ route('dashboard.schools.edit', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                        @else
-                                            <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                        @endif
-                                        @if (auth()->user()->hasPermission('delete_schools'))
-                                            <form action="{{ route('dashboard.schools.destroy', $school->id) }}" method="post" style="display: inline-block">
-                                                {{ csrf_field() }}
-                                                {{ method_field('delete') }}
-                                                <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                            </form><!-- end of form -->
-                                        @else
-                                            <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                        @endif
-                                    </td> --}}
-                            
                             </tbody>
 
                         </table><!-- end of table -->
