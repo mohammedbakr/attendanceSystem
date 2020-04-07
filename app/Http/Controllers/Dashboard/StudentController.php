@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Attendance;
 use App\Student;
 use App\School;
 use Illuminate\Http\Request;
@@ -198,8 +199,13 @@ class StudentController extends Controller
 
     public function show(Student $student)
     {
-        $student_attendance = DB::table('attendances')->where('attended', 1)->count();
-        $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
+        $student_attendance = Attendance::attended()->count();
+        if ($student->attendances->first->attended){
+            $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
+        }else{
+            $attendance_percentage = 0;
+        }
+        
     
         return view('dashboard.students.show', compact('student', 'attendance_percentage'));
 
@@ -208,8 +214,12 @@ class StudentController extends Controller
 
     public function showAttendance(Student $student)
     {
-        $student_attendance = DB::table('attendances')->where('attended', 1)->count();
-        $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
+        $student_attendance = Attendance::attended()->count();
+        if ($student->attendances->first->attended){
+            $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
+        }else{
+            $attendance_percentage = 0;
+        }
         return view('dashboard.students.showattendance', compact('student','attendance_percentage'));
 
     }//end of show
@@ -264,4 +274,4 @@ class StudentController extends Controller
 
     }//end of destroy
 
-    }//end of controller
+}//end of controller

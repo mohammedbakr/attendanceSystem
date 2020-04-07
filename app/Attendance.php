@@ -12,4 +12,9 @@ class Attendance extends Model
 
         return $this->belongsTo(Student::class);
     }
+
+    public function scopeAttended($query)
+    {
+        return $query->where('attended', 1);
+    }
 }
