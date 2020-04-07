@@ -10,7 +10,7 @@
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li class="active">{{$school->name}} @lang('enrolled_students')</li>
+                <li class="active">@lang('site.show students')</li>
             </ol>
         </section>
 
@@ -39,25 +39,25 @@
                             </thead>
                             
                             <tbody>
-                               
-                                    @foreach ($school->students as $index=>$student)
-                                    <tr>
-                                        <td>{{$index + 1}}</td>
-                                        <td>{{ $student->name}}</td>
-                                        <td>
-                                            <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
-                                            @if (auth()->user()->hasPermission('delete_students'))
-                                                <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('delete') }}
-                                                    <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                                </form><!-- end of form -->
-                                            @else
-                                                <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                                
+                                @foreach ($school->students as $index=>$student)
+                                <tr>
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{ $student->name}}</td>
+                                    <td>
+                                        <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
+                                        @if (auth()->user()->hasPermission('delete_students'))
+                                            <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
+                                                {{ csrf_field() }}
+                                                {{ method_field('delete') }}
+                                                <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                            </form><!-- end of form -->
+                                        @else
+                                            <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
 
                             </tbody>
 
