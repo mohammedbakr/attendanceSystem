@@ -29,6 +29,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
 
     public function getNameAttribute($value)
     {
@@ -46,6 +47,4 @@ class User extends Authenticatable
         return $this->belongsToMany(Student::class,'student_user')->withPivot('grades');
     }
 
-
-   
 }//end of model

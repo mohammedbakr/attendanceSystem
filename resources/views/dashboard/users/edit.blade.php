@@ -33,13 +33,8 @@
                         {{ method_field('put') }}
 
                         <div class="form-group">
-                            <label>@lang('site.first_name')</label>
-                            <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.last_name')</label>
-                            <input type="text" name="last_name" class="form-control" value="{{ $user->last_name }}">
+                            <label>@lang('site.name')</label>
+                            <input type="text" name="name" class="form-control" value="{{ $user->name }}">
                         </div>
 
                         <div class="form-group">
@@ -48,20 +43,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('site.image')</label>
-                            <input type="file" name="image" class="form-control image">
-                        </div>
-
-                        <div class="form-group">
-                            <img src="{{ $user->image_path }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
-                        </div>
-
-                        <div class="form-group">
                             <label>@lang('site.permissions')</label>
                             <div class="nav-tabs-custom">
 
                                 @php
-                                    $models = ['users', 'stages', 'schools', 'clients', 'orders'];
+                                    $models = ['users', 'students', 'schools'];
                                     $maps = ['create', 'read', 'update', 'delete'];
                                 @endphp
 

@@ -94,8 +94,6 @@
                         class="fa fa-th"></i><span>@lang('site.schools')</span></a></li>
             @endif
 
-
-            <li><a href="#"><i class="fa fa-book"></i><span>@lang('site.stages')</span></a></li>
         </ul>
     </section>
 

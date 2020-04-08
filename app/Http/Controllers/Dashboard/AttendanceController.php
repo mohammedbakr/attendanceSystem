@@ -47,7 +47,7 @@ class AttendanceController extends Controller
      */
     public function show(Request $request,Attendance $attendance)
     {
-        return view('dashboard.attendance.show', compact('attendance'));
+        //
     }
 
     /**

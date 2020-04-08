@@ -79,9 +79,11 @@
                                         @else
                                             <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
                                         @endif
-
-                                        <a href="{{ route('dashboard.students.edit', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.Add to a school')</a>
-
+                                        @if (auth()->user()->hasPermission('delete_students'))
+                                            <a href="{{ route('dashboard.students.edit', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.Add to a school')</a>
+                                        @else
+                                            <button href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.Add to a school')</button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

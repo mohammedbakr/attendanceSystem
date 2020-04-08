@@ -17,7 +17,13 @@ class Student extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','major','school_id'
     ];
+    
 
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+
+    }//end of get first name
 
     public function school(){
 
@@ -29,11 +35,9 @@ class Student extends Authenticatable
         return $this->belongsToMany(User::class,'student_user')->withPivot('grades');
     }
 
-
     public function attendances(){
 
         return $this->hasMany(Attendance::class);
     }
-
 
 }//end of model

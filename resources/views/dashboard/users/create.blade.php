@@ -27,33 +27,19 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.users.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.users.store') }}" method="post">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}
 
                         <div class="form-group">
-                            <label>@lang('site.first_name')</label>
-                            <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.last_name')</label>
-                            <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
+                            <label>@lang('site.name')</label>
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                         </div>
 
                         <div class="form-group">
                             <label>@lang('site.email')</label>
                             <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.image')</label>
-                            <input type="file" name="image" class="form-control image">
-                        </div>
-
-                        <div class="form-group">
-                            <img src="{{ asset('uploads/user_images/default.png') }}"  style="width: 100px" class="img-thumbnail image-preview" alt="">
                         </div>
 
                         <div class="form-group">
