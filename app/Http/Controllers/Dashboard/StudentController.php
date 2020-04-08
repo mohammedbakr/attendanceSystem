@@ -220,7 +220,9 @@ class StudentController extends Controller
         }else{
             $attendance_percentage = 0;
         }
-        return view('dashboard.students.showattendance', compact('student','attendance_percentage'));
+
+
+        return view('dashboard.students.showattendance', compact('student','attendance_percentage','student_attendance'));
 
     }//end of show
 

@@ -22,7 +22,7 @@
 
                 <div class="box-header with-border">
 
-                    <a href="{{route('dashboard.notenrolled')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
+                <p>عدد أيام الحضور {{$student_attendance}} من أصل {{$student->attendances->count()}}</p>
 
 
                 </div><!-- end of box header -->

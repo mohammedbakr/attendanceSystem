@@ -87,7 +87,7 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>range < 5 </strong></p>
+                            <p><strong>المدارس الغير مكتملة (أقل من 5 طلاب) </strong></p>
                             @if ($schools->count() > 0)
                             <table class="table table-stripped table-hover">
                                 <tr>

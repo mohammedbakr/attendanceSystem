@@ -37,7 +37,12 @@
                             <select name="school_id" class="form-control">
                                 <option value="">@lang('site.schools')</option>
                                 @foreach ($schools as $school)
-                                    <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                                    @if($school->students_count() <= 15)
+                                         <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                                    @else
+                                         <option value="" disabled>{{ $school->name }}</option>
+                                    @endif
+
                                 @endforeach
                             </select>
                         </div>
