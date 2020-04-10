@@ -20,8 +20,8 @@ class CreateStudentUserTable extends Migration
             $table->double('grades',8,2)->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade')->onUpdate('cascade');
 
         });
     }

@@ -238,6 +238,26 @@ class StudentController extends Controller
 
     }//end of show
 
+    public function addDegree(Request $request)
+    {
+        $request->validate([
+            'grades' => 'required|numeric',
+        ]);
+
+        $student = Student::findOrFail($request->student_id);
+        
+
+        $student->users()->attac(
+            $request->grades,
+            );
+
+            
+
+        session()->flash('success', __('site.added_successfully'));
+        return redirect()->back();
+
+    }// end of addDegree
+
     public function store(Request $request)
     {
         $request->validate([

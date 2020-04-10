@@ -2,64 +2,95 @@
 
 @section('content')
 
-    <div class="content-wrapper">
+<div class="content-wrapper">
 
-        <section class="content-header">
+    <section class="content-header">
 
-            <h3 class="box-title" style="margin-bottom: 15px">
-                الدرجات <i class="fa fa-percent">{{$total_grades}}</i>
-            </h3>
-   
-            <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li class="active">الدرجات</li>
-            </ol>
-        </section>
+        <h3 class="box-title" style="margin-bottom: 15px">
+            الدرجات <i class="fa fa-percent">{{$total_grades}}</i>
+        </h3>
 
-        <section class="content">
+        <ol class="breadcrumb">
+            <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
+            </li>
+            <li class="active">الدرجات</li>
+        </ol>
+    </section>
 
-            <div class="box box-primary">
+    <section class="content">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">اضف الدرجة</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('dashboard.addDegree', $student->id) }}" method="POST">
+                        @csrf
+                        <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
+                        <input type="hidden" id="student_id" name="student_id" value="{{ $student->id }}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="grades" class="col-form-label">الدرجة: </label>
+                                <input type="number" class="form-control" id="grades" name="grades">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info">@lang('site.add')</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-                <div class="box-header with-border">
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
 
                 <p>مجموع درجات الطالب {{$total_grades}} من 100</p>
+                <button type="button" class="btn btn-info float-right" data-toggle="modal"
+                    data-target="#exampleModal">Add Degree</button>
 
 
-                </div><!-- end of box header -->
+            </div><!-- end of box header -->
 
-                <div class="box-body">
+            <div class="box-body">
 
-                        <table class="table table-hover">
+                <table class="table table-hover">
 
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>الدرجة</th>
-                                    <th>المقيٌم</th>
-                                    <th>التاريخ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               
-                                @foreach ($student->users as $index=>$std)
-                                <tr>
-                                    <td>{{$index + 1}}</td>
-                                    <td>{{$std->pivot->grades}}</td>
-                                    <td>{{$std->name}}</td>
-                                    <td>{{$std->pivot->created_at->format('l , j/M/Y')}}</td>   
-                                </tr>
-                                @endforeach
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الدرجة</th>
+                            <th>المقيٌم</th>
+                            <th>التاريخ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                            </tbody>
+                        @foreach ($student->users as $index=>$std)
+                        <tr>
+                            <td>{{$index + 1}}</td>
+                            <td>{{$std->pivot->grades}}</td>
+                            <td>{{$std->name}}</td>
+                            <td>{{$std->pivot->created_at->format('l , j/M/Y')}}</td>
+                        </tr>
+                        @endforeach
 
-                        </table><!-- end of table -->
+                    </tbody>
 
-                </div><!-- end of box body -->
+                </table><!-- end of table -->
 
-            </div><!-- end of box -->
+            </div><!-- end of box body -->
 
-        </section><!-- end of content -->
+        </div><!-- end of box -->
 
-    </div><!-- end of content wrapper -->
+    </section><!-- end of content -->
+
+</div><!-- end of content wrapper -->
 
 @endsection
