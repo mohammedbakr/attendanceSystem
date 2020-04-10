@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function students(){
 
-        return $this->belongsToMany(Student::class,'student_user')->withPivot('grades');
+        return $this->belongsToMany(Student::class,'student_user')->withPivot('grades')->withTimestamps();;
     }
 
 }//end of model

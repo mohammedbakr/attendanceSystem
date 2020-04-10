@@ -22,6 +22,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('students/majors/kg4', 'StudentController@kg4')->name('kg4');
             Route::get('students/majors/notenrolled', 'StudentController@notenrolled')->name('notenrolled');
             Route::get('students/attendance/{student}', 'StudentController@showAttendance')->name('showattendance');
+            Route::get('students/degrees/{student}', 'StudentController@showDegrees')->name('showdegrees');
 
 
             //user routes

@@ -20,10 +20,14 @@
 
                 <div>يجب وضع أقل من 15 طالب في كل مدرسة</div>
                 <div class="box-header with-border">
-                    @if($school->students_count() < 15)
-                    <a href="{{route('dashboard.notenrolled')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                    @else
-                    <button class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</button>
+
+          
+                        @if($school->students_count() < 15)
+                         @if(auth()->user()->hasPermission('edit_students'))
+                            <a href="{{route('dashboard.notenrolled')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
+                        @endif
+                        @else
+                          <button class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</button>
                     @endif
                 </div><!-- end of box header -->
 

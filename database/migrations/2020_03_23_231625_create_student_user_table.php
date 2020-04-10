@@ -17,7 +17,7 @@ class CreateStudentUserTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('student_id')->unsigned();
-            $table->double('grades',3,2)->unsigned();
+            $table->double('grades',8,2)->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
