@@ -244,15 +244,14 @@ class StudentController extends Controller
             'grades' => 'required|numeric',
         ]);
 
-        $student = Student::findOrFail($request->student_id);
-        
+        $user_id    = $request->user_id;
+        $student_id = $request->student_id;
+        $grades  = $request->grades;
 
-        $student->users()->attac(
-            $request->grades,
-            );
+        $student = Student::find($student_id);
 
-            
-
+        $student->users()->attach($user_id, ['student_id' => $student_id, 'grades' => $grades]);
+    
         session()->flash('success', __('site.added_successfully'));
         return redirect()->back();
 
