@@ -9,7 +9,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
             //student routes
             Route::resource('students', 'StudentController');
-            Route::post('students/degrees/{student}', 'StudentController@addDegree')->name('addDegree');
+            Route::post('students/degrees', 'StudentController@addDegree')->name('addDegree');
 
             //majors
             Route::get('students/majors/postgraduate', 'StudentController@postgraduate')->name('postgraduate');
