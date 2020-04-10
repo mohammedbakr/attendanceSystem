@@ -205,9 +205,11 @@ class StudentController extends Controller
         }else{
             $attendance_percentage = 0;
         }
-        
+      
+        $total_grades = DB::table('student_user')->where('student_id', $student->id)->sum('grades');
+
     
-        return view('dashboard.students.show', compact('student', 'attendance_percentage'));
+        return view('dashboard.students.show', compact('student', 'attendance_percentage','total_grades'));
 
     }//end of show
 
@@ -223,6 +225,16 @@ class StudentController extends Controller
 
 
         return view('dashboard.students.showattendance', compact('student','attendance_percentage','student_attendance'));
+
+    }//end of show
+
+    public function showDegrees(Student $student)
+    {
+       
+        $total_grades = DB::table('student_user')->where('student_id', $student->id)->sum('grades');
+
+
+        return view('dashboard.students.showdegrees', compact('student','total_grades'));
 
     }//end of show
 

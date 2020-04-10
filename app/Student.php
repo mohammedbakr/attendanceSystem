@@ -32,7 +32,7 @@ class Student extends Authenticatable
 
     public function users(){
 
-        return $this->belongsToMany(User::class,'student_user')->withPivot('grades');
+        return $this->belongsToMany(User::class,'student_user')->withPivot('grades')->withTimestamps();;
     }
 
     public function attendances(){

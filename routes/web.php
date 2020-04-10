@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
+
+
 //student login system
 Route::GET('student/home', 'StudentController@index');
 Route::GET('student', 'Student\LoginController@showLoginForm')->name('student.login');
