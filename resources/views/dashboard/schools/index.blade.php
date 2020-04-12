@@ -67,7 +67,13 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $school->name }}</td>
                                     <td>{{ $school->users->first()->name }}</td>
-                                    <td>{{ $school->users->last()->name }}</td>                          
+                                    <td>
+                                        @if ($school->users->first()->name != $school->users->last()->name && $school->users->last()->name)
+                                            {{ $school->users->last()->name }}
+                                        @else
+                                            <a href="{{ route('dashboard.getAgent', $school->id) }}">اضف وكيل للمدرسة</a>
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('dashboard.schools.show', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
 
