@@ -55,6 +55,7 @@
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.email')</th>
+                                <th>الدور</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -65,6 +66,7 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td> {{ $user->type }}</td>
                                     <td>
                                         @if (auth()->user()->hasPermission('update_users'))
                                             <a href="{{ route('dashboard.users.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
