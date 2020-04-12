@@ -31,6 +31,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
             //schools routes
             Route::resource('schools', 'SchoolController');
+            Route::get('schools/agent/create/{school}', 'SchoolController@getAgent')->name('getAgent');
+            Route::put('schools/agent/create/{school}', 'SchoolController@addAgent')->name('addAgent');
 
             //attendance routes
             Route::resource('attendance', 'AttendanceController');

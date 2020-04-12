@@ -244,7 +244,7 @@ class StudentController extends Controller
             'grades' => 'required|numeric',
         ]);
 
-        $user_id    = $request->user_id;
+        $user_id = $request->user_id;
         $student_id = $request->student_id;
         $grades  = $request->grades;
 

@@ -9,9 +9,9 @@ class School extends Model
 
     protected $guarded = [];
 
-    public function user(){
+    public function users(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class, 'school_user');
     }
 
     public function students(){

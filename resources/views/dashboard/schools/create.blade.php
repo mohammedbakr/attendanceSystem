@@ -24,7 +24,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.schools.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.schools.store') }}" method="post">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}
@@ -35,18 +35,6 @@
                                 <option value="">اختر مدير</option>
                                 @foreach ($users as $user)
                                     @if ($user->type == 'مدير المدرسة')
-                                    <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.users')(الوكيل)</label>
-                            <select name="user_id" class="form-control">
-                                <option value="">اختر وكيل</option>
-                                @foreach ($users as $user)
-                                    @if ($user->type == 'وكيل المدرسة')
                                     <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
                                     @endif
                                 @endforeach
