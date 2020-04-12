@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('school_id')->unsigned()->nullable();
+            $table->string('type')->nullable();
             $table->string('email')->unique();
             $table->string('major');
             $table->timestamp('email_verified_at')->nullable();

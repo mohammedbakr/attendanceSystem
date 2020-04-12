@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\School;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Student;
 use App\User;
 
 class SchoolController extends Controller
@@ -92,4 +93,16 @@ class SchoolController extends Controller
         session()->flash('success', __('site.deleted_successfully'));
         return redirect()->route('dashboard.schools.index');
     }
+
+    public function update(Request $request,School $school)
+    {
+       foreach($school->students as $student){
+        $student->update(['type' => Null]);
+       }
+        $student = Student::where('id', $request->leader)->update(['type' => 'leader']);
+        session()->flash('success', __('site.updated_successfully'));
+        return redirect()->back();
+    }
+
+
 }

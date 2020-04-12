@@ -19,6 +19,9 @@
             <div class="box box-primary">
 
                 <div>يجب وضع أقل من 15 طالب في كل مدرسة</div>
+
+
+
                 <div class="box-header with-border">
 
           
@@ -31,7 +34,7 @@
                     @endif
                 </div><!-- end of box header -->
 
-                <div class="box-body">
+                <div class="box-body" style="margin-bottom:20px;">
 
 
                         <table class="table table-hover">
@@ -49,8 +52,16 @@
                                 @foreach ($school->students as $index=>$student)
                                 <tr>
                                     <td>{{$index + 1}}</td>
-                                    <td>{{ $student->name}}</td>
+
                                     <td>
+                                        {{$student->name}}
+                                        @if($student->type == 'leader')
+                                        <span class="badge badge-info"><i class="fa fa-star"></i> قائد المجموعة</span>
+                                       @endif
+                                    </td>
+                                   
+                                    <td>
+                                       
                                         <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
                                         @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
@@ -69,15 +80,34 @@
 
                         </table><!-- end of table -->
                         
-                        
-                    {{-- @else
+{{--                         
+                    @else
                         
                         <h2>@lang('site.no_data_found')</h2>
                         
                     @endif --}}
 
+
                 </div><!-- end of box body -->
 
+                <form action="{{ route('dashboard.schools.update', $school->id ) }}" method="post"  class="pull-left">
+
+                    {{ csrf_field() }}
+                    {{ method_field('put') }}
+                    
+                    <div class="form-group">
+                        <label>تعيين قائد المجموعة</label>
+                        <select name="leader" class="form-control">
+                             @foreach ($school->students as $student)
+                                <option value="{{$student->id}}">{{$student->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> تعيين</button>
+                  </div>
+
+                </form><!-- end of form -->
 
             </div><!-- end of box -->
 

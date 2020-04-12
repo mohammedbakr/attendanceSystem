@@ -15,7 +15,7 @@ class Student extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password','major','school_id'
+        'name', 'email', 'password','major','school_id','type'
     ];
     
 
