@@ -20,22 +20,21 @@
 
                 <div>يجب وضع أقل من 15 طالب في كل مدرسة</div>
 
-
-
                 <div class="box-header with-border">
 
-          
                         @if($school->students_count() < 15)
-                         @if(auth()->user()->hasPermission('edit_students'))
-                            <a href="{{route('dashboard.notenrolled')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                        @endif
+                            @if(auth()->user()->hasPermission('update_students'))
+                                <a href="{{route('dashboard.notenrolled')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
+                            @endif
                         @else
                           <button class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</button>
-                    @endif
+                        @endif
+
                 </div><!-- end of box header -->
 
                 <div class="box-body" style="margin-bottom:20px;">
 
+                    @if ($school->students->count() > 0)
 
                         <table class="table table-hover">
 
@@ -52,14 +51,12 @@
                                 @foreach ($school->students as $index=>$student)
                                 <tr>
                                     <td>{{$index + 1}}</td>
-
                                     <td>
                                         {{$student->name}}
                                         @if($student->type == 'leader')
-                                        <span class="badge badge-info"><i class="fa fa-star"></i> قائد المجموعة</span>
+                                            <span class="badge badge-info"><i class="fa fa-star"></i> قائد المجموعة</span>
                                        @endif
                                     </td>
-                                   
                                     <td>
                                        
                                         <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
@@ -79,13 +76,12 @@
                             </tbody>
 
                         </table><!-- end of table -->
-                        
-{{--                         
+                                               
                     @else
                         
                         <h2>@lang('site.no_data_found')</h2>
                         
-                    @endif --}}
+                    @endif
 
 
                 </div><!-- end of box body -->
@@ -103,9 +99,10 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="form-group col-sm-6">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> تعيين</button>
-                  </div>
+                    </div>
 
                 </form><!-- end of form -->
 

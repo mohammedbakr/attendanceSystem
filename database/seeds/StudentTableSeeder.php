@@ -17,8 +17,7 @@ class StudentTableSeeder extends Seeder
             'name' => 'ahmed',
             'email' => 'ahmed@app.com',
             'password' => bcrypt('111'),
-            'major' => 'kg',
-            'stage' => '1',
+            'major' => 'kg1',
 
         ]);
 
@@ -27,8 +26,7 @@ class StudentTableSeeder extends Seeder
             'name' => 'nader',
             'email' => 'nader@app.com',
             'password' => bcrypt('111'),
-            'major' => 'primary',
-            'stage' => '3',
+            'major' => 'primary3',
             'school_id' => '1'
 
         ]);
