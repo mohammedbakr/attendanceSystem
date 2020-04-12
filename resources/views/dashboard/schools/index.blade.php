@@ -55,25 +55,22 @@
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.head')</th>
+                                <th>الوكيل</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
                             
                             <tbody>
+
                             @foreach ($schools as $index=>$school)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $school->name }}</td>
-                                    <td>{{ $school->user['name']}}</td>
-                          
+                                    <td>{{ $school->users->first()->name }}</td>
+                                    <td>{{ $school->users->last()->name }}</td>                          
                                     <td>
                                         <a href="{{ route('dashboard.schools.show', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
 
-                                        @if (auth()->user()->hasPermission('update_schools'))
-                                            <a href="{{ route('dashboard.schools.edit', $school->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                        @else
-                                            <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                        @endif
                                         @if (auth()->user()->hasPermission('delete_schools'))
                                             <form action="{{ route('dashboard.schools.destroy', $school->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
@@ -85,8 +82,8 @@
                                         @endif
                                     </td>
                                 </tr>
-                            
                             @endforeach
+                            
                             </tbody>
 
                         </table><!-- end of table -->

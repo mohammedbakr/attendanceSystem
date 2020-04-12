@@ -62,10 +62,16 @@ class SchoolController extends Controller
             'user_id' => 'required'
         ]);
 
-        $school = School::create($request->all());
+        $school = School::create($request->only(['name']));
+
+        $user_id = $request->user_id;
+
+        $school->users()->attach([
+            'user_id' => $user_id
+        ]);
 
         session()->flash('success', __('site.added_successfully'));
-        return redirect()->route('dashboard.schools.index');
+        return redirect()->route('dashboard.getAgent', $school->id);
     }
 
     /**
@@ -110,6 +116,31 @@ class SchoolController extends Controller
         $school->delete();
 
         session()->flash('success', __('site.deleted_successfully'));
+        return redirect()->route('dashboard.schools.index');
+    }
+
+    // get agent
+    public function getAgent(School $school)
+    {
+        $users = User::all();
+
+        return view('dashboard.schools.addagent', compact('school', 'users'));
+    }
+
+    // add agent to school
+    public function addAgent(Request $request, School $school)
+    {
+        $request->validate([
+            'user_id' => 'required'
+        ]);
+
+        $user_id = $request->user_id;
+
+        $school->users()->attach([
+            'user_id' => $user_id
+        ]);
+
+        session()->flash('success', __('site.added_successfully'));
         return redirect()->route('dashboard.schools.index');
     }
 
