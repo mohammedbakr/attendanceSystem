@@ -43,6 +43,18 @@
                         </div>
 
                         <div class="form-group">
+                            <label>الادوار</label>
+                            <select name="type" class="form-control">
+                                <option value="">اختر دور</option>
+                                <option value="الشؤون">الشؤون</option>
+                                <option value="مشرف الكلية">مشرف الكلية</option>
+                                <option value="مدير المدرسة">مدير المدرسة</option>
+                                <option value="وكيل المدرسة">وكيل المدرسة</option>
+                                <option value="رائد الفصل">رائد الفصل</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label>@lang('site.permissions')</label>
                             <div class="nav-tabs-custom">
 

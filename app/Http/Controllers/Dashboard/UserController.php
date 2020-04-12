@@ -46,6 +46,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users',
+            'type' => 'required',
             'password' => 'required|confirmed',
             'permissions' => 'required|min:1'
         ]);
@@ -75,6 +76,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($user->id),],
+            'type' => 'required',
             'permissions' => 'required|min:1'
         ]);
 

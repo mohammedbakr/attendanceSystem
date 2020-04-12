@@ -30,11 +30,25 @@
                         {{ method_field('post') }}
 
                         <div class="form-group">
-                            <label>@lang('site.users')</label>
+                            <label>@lang('site.users')(المدير)</label>
                             <select name="user_id" class="form-control">
-                                <option value="">@lang('site.all_users')</option>
+                                <option value="">اختر مدير</option>
                                 @foreach ($users as $user)
+                                    @if ($user->type == 'مدير المدرسة')
                                     <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.users')(الوكيل)</label>
+                            <select name="user_id" class="form-control">
+                                <option value="">اختر وكيل</option>
+                                @foreach ($users as $user)
+                                    @if ($user->type == 'وكيل المدرسة')
+                                    <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
