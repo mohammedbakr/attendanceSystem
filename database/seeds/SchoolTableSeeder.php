@@ -15,15 +15,13 @@ class SchoolTableSeeder extends Seeder
     {
         School::create([
 
-            'name' => 'school one',
-            'user_id' => 2
+            'name' => 'school one'
 
         ]);
 
         School::create([
 
-            'name' => 'school two',
-            'user_id' => 3
+            'name' => 'school two'
 
         ]);
     }
