@@ -113,19 +113,16 @@
       .header div.float-left {
         display: inline-block;
         color: #000;
-        float: left;
         vertical-align: bottom;
-        position: relative;
-        left: 0px;
-        top: 45px;
-        right: 65px;
+        margin-top: 10px;
+        margin-left: 10px;
       }
       .header div.float-right:last-child span {
         color: #575bba;
       }
       aside {
         border-left: 4px solid #316897;
-        height: 430px;
+        /* height: 430px; */
       }
       aside .my-navtabs-v {
         border: 1px solid #CCC;
@@ -148,6 +145,12 @@
       main {
         padding-top: 10px; 
       }
+      @media (min-width: 320px) and (max-width: 767px) {
+        aside {
+          border-left: none;
+          border-bottom: 4px solid #316897;
+        }
+      }
     </style>
 
 </head>
@@ -156,77 +159,76 @@
 <h1 class="text-center" style="color:red; margin-top: 10px;">Welcome Student {{auth()->user()->name}}</h1>
 
 <div class="header">
-  <img class="img-thumbnail" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
-  <span>
-    <h4>Mohamed Ahmed Ghaly</h4>
-    &nbsp;
-    <h4>Four Year - Information And Tecnology - Faculty Of Engineering</h4>
-  </span>
-  <button class="btn btn-danger">Logout</button>
-  <div class="float-left">
-    All Right Reserved &copy; <span>Mansoura University</span>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9">
+        <img class="img-thumbnail" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
+        <span>
+          <h4>Mohamed Ahmed Ghaly</h4>
+          &nbsp;
+          <h4>Four Year - Information And Tecnology - Faculty Of Engineering</h4>
+        </span>
+      </div>
+      <div class="col-sm-3">
+        <div class="row">
+          <div class="col-sm-12">
+            <button class="btn btn-danger">Logout</button>
+          </div>
+          <div class="col-sm-12">
+            <div class="float-left">
+              <p>All Right Reserved &copy; <span>Mansoura University</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 
-<div class="row">
-  <div class="col-sm-3">
-    <aside class="text-center">
-      <div class="my-navtabs-v">
-        <h4>Students</h4>
-        <!-- Nav pills -->
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" href="#result">Review Result</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#absence">Absence</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#registry">School Registry</a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-  </div>
-  <div class="col-sm-9">
-    <main>
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div class="tab-pane container active" id="result">
-          Student Name : {{auth()->user()->name}}
-          <br>
-          code : 445
-          <br>
-          Gender : male
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 col-sm-4 col-md-3">
+      <aside class="text-center">
+        <div class="my-navtabs-v">
+          <h4>Students</h4>
+          <!-- Nav pills -->
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" href="#result">Review Result</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#absence">Absence</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#registry">School Registry</a>
+            </li>
+          </ul>
         </div>
-        <div class="tab-pane container fade" id="absence">
-          Student Absence
+      </aside>
+    </div>
+    <div class="col-6 col-sm-8 col-md-9">
+      <main>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane container active" id="result">
+            Student Name : {{auth()->user()->name}}
+            <br>
+            code : 445
+            <br>
+            Gender : male
+          </div>
+          <div class="tab-pane container fade" id="absence">
+            Student Absence
+          </div>
+          <div class="tab-pane container fade" id="registry">
+            School Registry
+          </div>
         </div>
-        <div class="tab-pane container fade" id="registry">
-          School Registry
-        </div>
-      </div>
       </main>
+    </div>
   </div>
-  
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script src="{{ asset('dashboard_files/js/bootstrap.min.js') }}"></script>
