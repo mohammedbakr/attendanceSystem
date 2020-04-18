@@ -58,7 +58,6 @@
                                        @endif
                                     </td>
                                     <td>
-                                       
                                         <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
                                         @if (auth()->user()->hasPermission('delete_students'))
                                             <form action="{{ route('dashboard.students.destroy', $student->id) }}" method="post" style="display: inline-block">
@@ -86,6 +85,7 @@
 
                 </div><!-- end of box body -->
 
+                @if (auth()->user()->type == 'super')
                 <form action="{{ route('dashboard.schools.update', $school->id ) }}" method="post"  class="pull-left">
 
                     {{ csrf_field() }}
@@ -105,6 +105,7 @@
                     </div>
 
                 </form><!-- end of form -->
+                @endif
 
             </div><!-- end of box -->
 

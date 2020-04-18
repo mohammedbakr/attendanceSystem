@@ -26,9 +26,4 @@ class StudentController extends Controller
         return view('student.welcome');
     }
 
-    public function log()
-    {
-        return view('student.login');
-    }
-
 }

@@ -16,6 +16,9 @@
             <li><a href="{{ route('dashboard.welcome') }}"><i
                         class="fa fa-th"></i><span>@lang('site.dashboard')</span></a></li>
 
+            @if (auth()->user()->type != 'مدير المدرسة' && auth()->user()->type != 'وكيل المدرسة')
+            @if (auth()->user()->hasPermission('read_students'))
+            
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>@lang('students')</span> <span class="pull-right-container"> <i
@@ -62,6 +65,7 @@
                             </li>
                         </ul>
                     </li>
+                    
 
                     <li class="treeview">
                         <a href="#">
@@ -81,19 +85,28 @@
                                 class="fa fa-dashcube"></i>@lang('notenrolled')</a>
                     </li>
                 </ul>
-
-                @if (auth()->user()->hasPermission('read_users'))
-            <li><a href="{{ route('dashboard.users.index') }}"><i
-                        class="fa fa-th"></i><span>@lang('site.users')</span></a>
             </li>
             @endif
-
 
             @if (auth()->user()->hasPermission('read_schools'))
             <li><a href="{{ route('dashboard.schools.index') }}"><i
                         class="fa fa-th"></i><span>@lang('site.schools')</span></a></li>
             @endif
+            @endif
 
+            @if (auth()->user()->hasPermission('read_users'))
+            <li><a href="{{ route('dashboard.users.index') }}"><i
+                        class="fa fa-th"></i><span>@lang('site.users')</span></a>
+            </li>
+            @endif
+
+            @if (auth()->user()->type == 'مدير المدرسة' || auth()->user()->type == 'وكيل المدرسة')
+            <li>
+                <a href="{{ route('dashboard.schools.show', auth()->user()->schools()->first()->pivot->school_id) }}"><i
+                class="fa fa-th"></i><span>طلاب المدرسة</span></a>
+            </li>
+            @endif
+            
         </ul>
     </section>
 
