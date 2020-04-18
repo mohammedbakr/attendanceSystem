@@ -27,8 +27,3 @@ Route::POST('student-password/email','Student\ForgotPasswordController@sendReset
 Route::GET('student-password/reset','Student\ForgotPasswordController@showLinkRequestForm')->name('student.password.request');
 Route::POST('student-password/reset','Student\ResetPasswordController@reset');
 Route::GET('student-password/reset/{token}','Student\ResetPasswordController@showResetForm')->name('student.password');
-
-Route::GET('test', 'StudentController@log');
-
- 
-Route::GET('/home', 'HomeController@index')->name('home');

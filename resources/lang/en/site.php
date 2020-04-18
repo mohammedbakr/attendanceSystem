@@ -1,4 +1,5 @@
 <?php
+
 return [
     'dashboard' => 'Dashboard',
     'logout' => 'Log out',
@@ -29,15 +30,7 @@ return [
 
     'no_data_found' => 'No data Found',
     'no_records' => 'No records',
-
-    'clients' => 'Clients',
-    'client_name' => 'Client Name',
-    'phone' => 'Phone',
     'address' => 'Address',
-    'previous_orders' => 'Previous Orders',
-    'orders' => 'Orders',
-    'add_order' => 'Add Order',
-    'edit_order' => 'Add Order',
 
     'users' => 'Users',
     'username' => 'Username',
@@ -62,27 +55,12 @@ return [
     'product' => 'Product',
     'quantity' => 'Quantity',
     'total' => 'Total',
-    'purchase_price' => 'Purchase Price',
-    'price' => 'Price',
-    'sale_price' => 'Sale Price',
-    'stock' => 'Stock',
-    'profit_percent' => 'Profit Percent',
-
-    'ar' => [
-        'name' => 'Name in Arabic',
-        'description' => 'Description in Arabic',
-    ],
-
-    'en' => [
-        'name' => 'Name in English',
-        'description' => 'Description in English',
-    ],
 
     'member' => 'Member',
     'students' => 'Students',
     'head' => 'Head',
     'all_users' => 'All Users',
-
+    'lang' => 'Language',
 ];
 
 
