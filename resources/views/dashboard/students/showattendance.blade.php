@@ -22,7 +22,7 @@
 
                 <div class="box-header with-border">
 
-                <p>عدد أيام الحضور {{$student_attendance}} من أصل {{$student->attendances->count()}}</p>
+                <p>عدد أيام الحضور {{$student->attendances->count()}} من أصل {{$student_attendance}}</p>
 
 
                 </div><!-- end of box header -->

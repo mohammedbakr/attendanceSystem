@@ -250,7 +250,17 @@ class StudentController extends Controller
 
         $student = Student::find($student_id);
 
-        $student->users()->attach($user_id, ['student_id' => $student_id, 'grades' => $grades]);
+        $exists = DB::table('student_user')
+        ->where('user_id', $user_id)
+        ->where('student_id', $student_id)
+        ->count() > 0;
+
+        if($exists){
+            $student->users()->updateExistingPivot($user_id, ['student_id' => $student_id, 'grades' => $grades]);
+        } else {
+            $student->users()->attach($user_id, ['student_id' => $student_id, 'grades' => $grades]);
+        }
+
     
         session()->flash('success', __('site.added_successfully'));
         return redirect()->back();

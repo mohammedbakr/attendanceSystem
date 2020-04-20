@@ -23,7 +23,11 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">أضف درجة<span style="color:red"> (ملحوظة لا يمكنك وضع أكثر من 20 درجة)</span></h5>
+                        @if(auth()->user()->type == 'مدير المدرسة' || auth()->user()->type == 'وكيل المدرسة')
+                             <h5 class="modal-title" id="exampleModalLabel">أضف درجة<span style="color:red"> (ملحوظة لا يمكنك وضع أكثر من 15 درجة)</span></h5>
+                        @else
+                          <h5 class="modal-title" id="exampleModalLabel">أضف درجة<span style="color:red"> (ملحوظة لا يمكنك وضع أكثر من 20 درجة)</span></h5>
+                        @endif
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -35,7 +39,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="grades" class="col-form-label">الدرجة: </label>
-                                <input type="number" class="form-control" id="grades" name="grades" required min="0" max="20">
+                                @if(auth()->user()->type == 'مدير المدرسة' || auth()->user()->type == 'وكيل المدرسة')
+                                     <input type="number" class="form-control" id="grades" name="grades" required min="0" max="15">
+                                @else
+                                     <input type="number" class="form-control" id="grades" name="grades" required min="0" max="20">
+                                @endif
                             </div>
                         </div>
                         <div class="modal-footer">
