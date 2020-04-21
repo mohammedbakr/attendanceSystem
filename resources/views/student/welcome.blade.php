@@ -154,7 +154,8 @@
 <body>
 
 <h1 class="text-center" style="color:red; margin-top: 10px;">Welcome Student {{auth()->user()->name}}</h1>
-
+@include('partials._session')
+@include('partials._errors')
 <div class="header">
   <div class="container-fluid">
     <div class="row">
@@ -218,13 +219,39 @@
             code : 445
             <br>
             Gender : male
-          </div>
+          </div><!-- end of degrees -->
           <div class="tab-pane container fade" id="absence">
             Student Absence
-          </div>
+          </div><!-- end of attendance -->
+
           <div class="tab-pane container fade" id="registry">
-            School Registry
-          </div>
+            @if (!auth()->user()->school_id)
+            <form action="{{ route('students.update', auth()->user()->id) }}" method="post">
+
+              {{ csrf_field() }}
+              {{ method_field('post') }}
+
+              <div class="form-group">
+                  <label>@lang('site.schools')</label>
+                  <select name="school_id" class="form-control">
+                      <option value="">اختر مدرسة</option>
+                      @foreach ($schools as $school)
+                          <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                      @endforeach
+                  </select>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.select')</button>
+              </div>
+
+            </form><!-- end of form -->
+            @else
+            School Name : {{ auth()->user()->school()->first()->name }}
+            @endif
+
+          </div><!-- end of schools -->
+
         </div>
       </main>
     </div>
