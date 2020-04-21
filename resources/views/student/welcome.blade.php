@@ -64,26 +64,7 @@
             }
         }
 
-    </style>
-    {{--<!-- jQuery 3 -->--}}
-    <script src="{{ asset('dashboard_files/js/jquery.min.js') }}"></script>
-
-    {{--noty--}}
-    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
-    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
-
-    {{--morris--}}
-    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/morris/morris.css') }}">
-
-    {{--<!-- iCheck -->--}}
-    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/icheck/all.css') }}">
-
-    {{--html in  ie--}}
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-    <style>
-      .header {
+        .header {
         border-top: 4px solid #83B2DC;
         border-bottom: 4px solid #316897;
         padding: 10px 0;
@@ -151,7 +132,23 @@
           border-bottom: 4px solid #316897;
         }
       }
+
     </style>
+    {{--<!-- jQuery 3 -->--}}
+    <script src="{{ asset('dashboard_files/js/jquery.min.js') }}"></script>
+
+    {{--noty--}}
+    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
+    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
+
+
+    {{--<!-- iCheck -->--}}
+    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/icheck/all.css') }}">
+
+    {{--html in  ie--}}
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
 
 </head>
 <body>
@@ -172,7 +169,12 @@
       <div class="col-sm-3">
         <div class="row">
           <div class="col-sm-12">
-            <button class="btn btn-danger">Logout</button>
+            <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">@lang('site.logout')</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
           </div>
           <div class="col-sm-12">
             <div class="float-left">
@@ -185,23 +187,22 @@
   </div>
 </div>
 
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-6 col-sm-4 col-md-3">
       <aside class="text-center">
         <div class="my-navtabs-v">
-          <h4>Students</h4>
+          <h4>الطالب</h4>
           <!-- Nav pills -->
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="pill" href="#result">Review Result</a>
+              <a class="nav-link active" data-toggle="pill" href="#result">الدرجات</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#absence">Absence</a>
+              <a class="nav-link" data-toggle="pill" href="#absence">الحضور</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#registry">School Registry</a>
+              <a class="nav-link" data-toggle="pill" href="#registry">تسجيل المدرسة</a>
             </li>
           </ul>
         </div>
@@ -233,31 +234,11 @@
 
 <script src="{{ asset('dashboard_files/js/bootstrap.min.js') }}"></script>
 
-{{--icheck--}}
-<script src="{{ asset('dashboard_files/plugins/icheck/icheck.min.js') }}"></script>
-
 {{--<!-- FastClick -->--}}
 <script src="{{ asset('dashboard_files/js/fastclick.js') }}"></script>
 
 {{--<!-- AdminLTE App -->--}}
 <script src="{{ asset('dashboard_files/js/adminlte.min.js') }}"></script>
-
-{{--ckeditor standard--}}
-<script src="{{ asset('dashboard_files/plugins/ckeditor/ckeditor.js') }}"></script>
-
-{{--jquery number--}}
-<script src="{{ asset('dashboard_files/js/jquery.number.min.js') }}"></script>
-
-{{--print this--}}
-<script src="{{ asset('dashboard_files/js/printThis.js') }}"></script>
-
-{{--morris --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="{{ asset('dashboard_files/plugins/morris/morris.min.js') }}"></script>
-
-{{--custom js--}}
-<script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
-<script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
 
 @stack('scripts')
 </body>

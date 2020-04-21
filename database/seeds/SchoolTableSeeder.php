@@ -16,10 +16,6 @@ class SchoolTableSeeder extends Seeder
         School::create([
 
             'name' => 'school one'
-<<<<<<< HEAD
-           
-=======
->>>>>>> 6f5b621042ea32ecedf49b4320feebf9b2e69c00
 
         ]);
 

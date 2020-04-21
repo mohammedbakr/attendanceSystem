@@ -20,7 +20,7 @@ Auth::routes(['register' => false]);
 
 
 //student login system
-Route::GET('student/home', 'StudentController@index');
+Route::GET('student/home', 'Front\StudentController@index');
 Route::GET('student', 'Student\LoginController@showLoginForm')->name('student.login');
 Route::POST('student','Student\LoginController@login');
 Route::POST('student-password/email','Student\ForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
