@@ -24,7 +24,7 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Student $student)
+    public function index()
     {
         $schools = School::select('id', 'name')->get();
 
