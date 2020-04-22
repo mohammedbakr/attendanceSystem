@@ -86,80 +86,51 @@
     
             <!-- Tab panes -->
             <div class="tab-content">
+
                 <div id="home" class="container tab-pane active"><br>
+                    {{--Start employees --}}
                     <div class="login-box">
+
                         <div class="login-logo">
                             <a href="#"><b>Employes</b></a>
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
-                            <p class="login-box-msg">Sign in to start your session</p>
-                    
-                            <form action="{{ route('login') }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
-                    
-                        @include('partials._errors')
-                    
-                        <div class="form-group has-feedback">
-                            <input type="email" name="email" class="form-control" placeholder="@lang('site.email')">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        </div>
-                    
-                        <div class="form-group has-feedback">
-                            <input type="password" name="password" class="form-control" placeholder="@lang('site.password')">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label style="font-weight: normal;"><input type="checkbox" name="remember"> @lang('site.remember_me')</label>
-                        </div>
-                    
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('site.login')</button>
-                    
-                        </form><!-- end of form -->
-                    
-                        </div><!-- end of login body -->
-                    
-                        </div><!-- end of login-box -->
-                </div>
-                <div id="menu1" class="container tab-pane fade"><br>
-                    <div class="login-box">
-                        <div class="login-logo">
-                            <a href="#"><b>Students</b></a>
-                        </div><!-- end of login lgo -->
-                    
-                        <div class="login-box-body">
-                            <p class="login-box-msg">Sign in to start your sessionv st</p>
-                    
-                            <form action="{{ route('student.login') }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
-                    
-                        @include('partials._errors')
-                    
-                        <div class="form-group has-feedback">
-                            <input type="email" name="email" class="form-control" placeholder="@lang('site.email')">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        </div>
-                    
-                        <div class="form-group has-feedback">
-                            <input type="password" name="password" class="form-control" placeholder="@lang('site.password')">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label style="font-weight: normal;"><input type="checkbox" name="remember"> @lang('site.remember_me')</label>
-                        </div>
-                    
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('site.login')</button>
-                    
-                        </form><!-- end of form -->
+                                <p class="login-box-msg">Employees</p>
+                            
+                                <form action="{{ route('login') }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('post') }}
+        
+                                    @include('partials._errors')
+                                
+                                    <div class="form-group has-feedback">
+                                        <input type="email" name="email" class="form-control" placeholder="@lang('site.email')">
+                                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                    </div>
+                                
+                                    <div class="form-group has-feedback">
+                                        <input type="password" name="password" class="form-control" placeholder="@lang('site.password')">
+                                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label style="font-weight: normal;"><input type="checkbox" name="remember"> @lang('site.remember_me')</label>
+                                    </div>
+                                
+                                    <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('site.login')</button>
+                                
+                                </form><!-- end of form -->
                     
                         </div><!-- end of login body -->
-                    
                         </div><!-- end of login-box -->
-                </div>
+
+
+
+                    </div>
+                    {{--End employees --}}
+
+                {{--Start admin --}}
                 <div id="menu2" class="container tab-pane fade"><br>
                     <div class="login-box">
                         <div class="login-logo">
@@ -167,29 +138,68 @@
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
-                            <p class="login-box-msg">Sign in to start your session</p>
+                            <p class="login-box-msg">Admin</p>
                     
                             <form action="{{ route('login') }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
+                                {{ csrf_field() }}
+                                {{ method_field('post') }}
+                            
+                                @include('partials._errors')
+                            
+                                <div class="form-group has-feedback">
+                                    <input type="email" name="email" class="form-control" placeholder="@lang('site.email')">
+                                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                </div>
+                            
+                                <div class="form-group has-feedback">
+                                    <input type="password" name="password" class="form-control" placeholder="@lang('site.password')">
+                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label style="font-weight: normal;"><input type="checkbox" name="remember"> @lang('site.remember_me')</label>
+                                </div>
+                            
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('site.login')</button>
+                            </form><!-- end of form -->
                     
-                        @include('partials._errors')
+                        </div><!-- end of login body -->
                     
-                        <div class="form-group has-feedback">
-                            <input type="email" name="email" class="form-control" placeholder="@lang('site.email')">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        </div>
+                        </div><!-- end of login-box -->
+                </div>
+                {{--End admin --}}
+
+
+                <div id="menu1" class="container tab-pane fade"><br>
+                    <div class="login-box">
+                        <div class="login-logo">
+                            <a href="#"><b>Students</b></a>
+                        </div><!-- end of login lgo -->
                     
-                        <div class="form-group has-feedback">
-                            <input type="password" name="password" class="form-control" placeholder="@lang('site.password')">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        </div>
+                        <div class="login-box-body">
+                            <p class="login-box-msg">students</p>
                     
-                        <div class="form-group">
-                            <label style="font-weight: normal;"><input type="checkbox" name="remember"> @lang('site.remember_me')</label>
-                        </div>
-                    
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('site.login')</button>
+                            <form action="{{ route('student.login') }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('post') }}
+                            
+                                @include('partials._errors')
+                            
+                                <div class="form-group has-feedback">
+                                    <input type="email" name="email" class="form-control" placeholder="@lang('site.email')">
+                                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                </div>
+                            
+                                <div class="form-group has-feedback">
+                                    <input type="password" name="password" class="form-control" placeholder="@lang('site.password')">
+                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label style="font-weight: normal;"><input type="checkbox" name="remember"> @lang('site.remember_me')</label>
+                                </div>
+                            
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('site.login')</button>
                     
                         </form><!-- end of form -->
                     

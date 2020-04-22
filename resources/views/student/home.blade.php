@@ -162,7 +162,7 @@
       <div class="col-sm-9">
         <img class="img-thumbnail" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
         <span>
-          <h4>Mohamed Ahmed Ghaly</h4>
+          <h4>{{auth()->user()->name}}</h4>
           &nbsp;
           <h4>Four Year - Information And Tecnology - Faculty Of Engineering</h4>
         </span>
@@ -205,6 +205,10 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="pill" href="#registry">تسجيل المدرسة</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#pass">تغيير  كلمة السر</a>
+            </li>
           </ul>
         </div>
       </aside>
@@ -213,15 +217,129 @@
       <main>
         <!-- Tab panes -->
         <div class="tab-content">
+
+          {{-- result tab --}}
           <div class="tab-pane container active" id="result">
-            Student Name : {{auth()->user()->name}}
-            <br>
-            code : 445
-            <br>
-            Gender : male
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  {{-- <p>مجموع درجات الطالب {{$total_grades}} من 100</p> --}}
+                </div><!-- end of box header -->
+
+                <div class="box-body">
+                    <table class="table table-hover">
+                          <thead>
+                              <tr>
+                              <th>#</th>
+                              <th>الدرجة</th>
+                              <th>المقيٌم</th>
+                              <th>الوظيفة</th>
+                              <th>التاريخ</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (auth()->user()->users as $index=>$std)
+                              <tr>
+                                  <td>{{$index + 1}}</td>
+                                  <td>{{$std->pivot->grades}}</td>
+                                  <td>{{$std->name}}</td>
+                                  <td>{{$std->type}}</td>
+                                  <td>{{$std->pivot->created_at->format('l , j/M/Y')}}</td>
+                              </tr>
+                            @endforeach
+                        </tbody>
+                    </table><!-- end of table -->
+                </div><!-- end of box body -->
+
+             </div><!-- end of box -->
+            
           </div><!-- end of degrees -->
+
+          {{-- absence tab --}}
           <div class="tab-pane container fade" id="absence">
-            Student Absence
+            
+              <div class="box box-primary">
+
+                <div class="box-header with-border">
+
+                {{-- <p>عدد أيام الحضور {{auth()->user()->attendances->count()}} من أصل {{$student_attendance}}</p> --}}
+
+
+                </div><!-- end of box header -->
+
+                <div class="box-body">
+
+                        <table class="table table-hover">
+
+                            <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>التاريخ</th>
+                                  <th>الحضور</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                             
+                              @foreach (auth()->user()->attendances as $index=>$attendance)
+                              <tr>
+                                  <td>{{$index + 1}}</td>
+                                  <td>{{$attendance->created_at->format('l , j/M/Y')}}</td>
+                                      <td>
+                                          @if ($attendance->attended == 1)
+                                          <div class="label label-success"> <i class="fa fa-check"></i> Yes</div>
+                                          @else
+                                          <div class="label label-danger"><i class="fa fa-times"></i>  No </div>
+                                          @endif
+                                      </td>
+                              </tr>
+                              @endforeach
+
+                          </tbody>
+
+                      </table><!-- end of table -->
+
+              </div><!-- end of box body -->
+
+          </div><!-- end of box -->
+          </div>
+
+          {{-- pass tab --}}
+          <div class="tab-pane container fade" id="pass">
+           
+            <div class="box box-primary">
+
+              <div class="box-header with-border">
+
+              {{-- <p>عدد أيام الحضور {{auth()->user()->attendances->count()}} من أصل {{$student_attendance}}</p> --}}
+
+
+              </div><!-- end of box header -->
+
+              <div class="box-body">
+
+                <form action="{{ route('students.update', auth()->user()->id) }}" method="post">
+
+                  {{ csrf_field() }}
+                  {{ method_field('post') }}
+
+                  <div class="form-group">
+                     <input type="password" placeholder="اكتب كلمة السر الجديدة " name="password" class="form-control">
+                    
+                  </div>
+
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> تغيير كلمة السر</button>
+                  </div>
+
+              </form><!-- end of form -->
+
+              </div><!-- end of box body -->
+
+          </div><!-- end of box -->
+
+            
+
           </div><!-- end of attendance -->
 
           <div class="tab-pane container fade" id="registry">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,24 +24,32 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Student $student)
     {
         $schools = School::select('id', 'name')->get();
 
-        return view('student.welcome', compact('schools'));
+        return view('student.home', compact('schools'));
     }
 
     public function update(Request $request, Student $student)
     {
-        $request->validate([
-            'school_id' => 'required',
-        ]);
 
-        $student->update($request->all());
+        if(trim($request->password == '')){
+            //leave the password field in DB without change
+           $request_data = $request->except('password');
+        }
+        else {
+            //chane the password
+            $request_data = $request->all();
+            $request_data['password'] = bcrypt($request->password);
+        }
+      
+        $student->update($request_data);
 
         session()->flash('success', __('site.updated_successfully'));
         return redirect()->back();
 
     }//end of update
 
+   
 }
