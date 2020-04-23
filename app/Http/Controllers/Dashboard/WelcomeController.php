@@ -6,7 +6,6 @@ use App\Student;
 use App\School;
 use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {

@@ -226,7 +226,7 @@ class StudentController extends Controller
 
         return view('dashboard.students.showattendance', compact('student','attendance_percentage','student_attendance'));
 
-    }//end of show
+    }//end of showAttendance
 
     public function showDegrees(Student $student)
     {
@@ -236,7 +236,7 @@ class StudentController extends Controller
 
         return view('dashboard.students.showdegrees', compact('student','total_grades'));
 
-    }//end of show
+    }//end of showDegrees
 
     public function addDegree(Request $request)
     {

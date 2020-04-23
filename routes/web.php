@@ -4,9 +4,10 @@
 
 Auth::routes(['register' => false]);
 
-
 //student login system
-Route::GET('student/home', 'StudentController@index');
+Route::GET('student/home', 'StudentController@index')->name('student.index');
+Route::get('students/attendance/{student}', 'StudentController@showAttendance')->name('showattendance');
+Route::post('students/attendance/{student}', 'StudentController@storeAttendance')->name('storeattendance');
 Route::GET('student', 'Student\LoginController@showLoginForm')->name('student.login');
 Route::POST('student','Student\LoginController@login');
 Route::POST('student-password/email','Student\ForgotPasswordController@sendResetLinkEmail')->name('student.password.email');

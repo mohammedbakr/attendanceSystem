@@ -1,4 +1,3 @@
-{{-- @extends('layouts.dashboard.app') --}}
 <!DOCTYPE html>
 <html dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
@@ -29,6 +28,16 @@
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/AdminLTE.min.css') }}">
     @endif
+    {{--<!-- jQuery 3 -->--}}
+    <script src="{{ asset('dashboard_files/js/jquery.min.js') }}"></script>
+
+    {{--noty--}}
+    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
+    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
+
+    {{--html in  ie--}}
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <style>
         .mr-2{
@@ -134,21 +143,6 @@
       }
 
     </style>
-    {{--<!-- jQuery 3 -->--}}
-    <script src="{{ asset('dashboard_files/js/jquery.min.js') }}"></script>
-
-    {{--noty--}}
-    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
-    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
-
-
-    {{--<!-- iCheck -->--}}
-    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/icheck/all.css') }}">
-
-    {{--html in  ie--}}
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
 
 </head>
 <body>
@@ -223,7 +217,7 @@
 
             <div class="box box-primary">
                 <div class="box-header with-border">
-                  {{-- <p>مجموع درجات الطالب {{$total_grades}} من 100</p> --}}
+                  <p>مجموع درجات الطالب {{$total_grades}} من 100</p>
                 </div><!-- end of box header -->
 
                 <div class="box-body">
@@ -263,8 +257,11 @@
 
                 <div class="box-header with-border">
 
-                {{-- <p>عدد أيام الحضور {{auth()->user()->attendances->count()}} من أصل {{$student_attendance}}</p> --}}
-
+                  @if (auth()->user()->attendances->count() == 0)
+                  <p>عدد أيام الحضور 0</p>
+                  @else
+                  <p>عدد أيام الحضور {{$student_attendance}} من أصل {{auth()->user()->attendances->count()}}</p>
+                  @endif
 
                 </div><!-- end of box header -->
 
@@ -308,13 +305,6 @@
           <div class="tab-pane container fade" id="pass">
            
             <div class="box box-primary">
-
-              <div class="box-header with-border">
-
-              {{-- <p>عدد أيام الحضور {{auth()->user()->attendances->count()}} من أصل {{$student_attendance}}</p> --}}
-
-
-              </div><!-- end of box header -->
 
               <div class="box-body">
 
@@ -381,12 +371,5 @@
 
 <script src="{{ asset('dashboard_files/js/bootstrap.min.js') }}"></script>
 
-{{--<!-- FastClick -->--}}
-<script src="{{ asset('dashboard_files/js/fastclick.js') }}"></script>
-
-{{--<!-- AdminLTE App -->--}}
-<script src="{{ asset('dashboard_files/js/adminlte.min.js') }}"></script>
-
-@stack('scripts')
 </body>
 </html>
