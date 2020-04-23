@@ -61,6 +61,25 @@ return [
     'head' => 'Head',
     'all_users' => 'All Users',
     'lang' => 'Language',
+
+    'Incomplete schools less' => 'Incomplete schools (less than 5 Students)',
+    'Incomplete schools between' => 'Incomplete schools (between 5 : 18 Students)',
+    'schools' => 'Schools',
+    'not enrolled students' => 'Not Enrolled Students',
+    'clients' => 'Clients',
+    'schools summary' => 'Schools Summary',
+
+    'School Name' => 'School Name',
+    'enrolled students' => 'Enrolled Students',
+    'available' => 'Available',
+
+    // aside dropdown
+    'Postgraduate' => 'Post Graduate',
+    'Generaldiploma' => 'General Diploma',
+    'general' => 'General',
+    'primary' => 'Primary',
+    'kg' => 'Kg',
+    'notenrolled' => 'Not Enrolled',
 ];
 
 

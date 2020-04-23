@@ -87,14 +87,14 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>المدارس الغير مكتملة (أقل من 5 طلاب) </strong></p>
+                            <p><strong>@lang('site.Incomplete schools less')</strong></p>
                             @if ($schools->count() > 0)
                             <table class="table table-stripped table-hover">
                                 <tr>
-                                    <th>School Name</th>
-                                    <th>enrolled students</th>
-                                    <th>available</th>
-                                    <th>show</th>
+                                    <th>@lang('site.School Name')</th>
+                                    <th>@lang('site.enrolled students')</th>
+                                    <th>@lang('site.available')</th>
+                                    <th>@lang('site.show')</th>
                                 </tr>
                                 @foreach ($schools as $school)
                                 @if ($school->count() < 5)
@@ -115,14 +115,14 @@
                             {{ $schools->links() }}
                         </div>
                         <div class="col-md-6">
-                            <p><strong>range  5 - 18 </strong></p>
+                            <p><strong>@lang('site.Incomplete schools between')</strong></p>
                             @if ($schools->count() > 0)
                             <table class="table table-stripped table-hover">
                                 <tr>
-                                    <th>School Name</th>
-                                    <th>enrolled students</th>
-                                    <th>available</th>
-                                    <th>show</th>
+                                    <th>@lang('site.School Name')</th>
+                                    <th>@lang('site.enrolled students')</th>
+                                    <th>@lang('site.available')</th>
+                                    <th>@lang('site.show')</th>
                                 </tr>
                                 @foreach ($schools as $school)
                                 @if ($school->count() >=5 && $school->count <= 18)
