@@ -213,7 +213,7 @@
         <div class="tab-content">
 
           {{-- result tab --}}
-          <div class="tab-pane container active" id="result">
+          <div class="tab-pane active" id="result">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -251,7 +251,7 @@
           </div><!-- end of degrees -->
 
           {{-- absence tab --}}
-          <div class="tab-pane container fade" id="absence">
+          <div class="tab-pane fade" id="absence">
             
               <div class="box box-primary">
 
@@ -302,7 +302,7 @@
           </div>
 
           {{-- pass tab --}}
-          <div class="tab-pane container fade" id="pass">
+          <div class="tab-pane fade" id="pass">
            
             <div class="box box-primary">
 
@@ -332,7 +332,7 @@
 
           </div><!-- end of attendance -->
 
-          <div class="tab-pane container fade" id="registry">
+          <div class="tab-pane fade" id="registry">
             @if (!auth()->user()->school_id)
             <form action="{{ route('students.update', auth()->user()->id) }}" method="post">
 

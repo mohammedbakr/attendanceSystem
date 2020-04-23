@@ -216,6 +216,7 @@
 
 <div class="box box-primary">
   <div class="box-header with-border">
+    <h4>اسم الطالب: {{ $student->name }}</h4>
     @if ($student->attendances->count() == 0)
     <p>عدد أيام الحضور 0</p>
     @else
@@ -224,7 +225,6 @@
     <button type="button" class="btn btn-info" data-toggle="modal"
         data-target="#exampleModal">تسجيل الحضور و الغياب</button>
     <a href="{{ route('student.index') }}" class="pull-right btn btn-info">رجوع</a>
-
 
   </div><!-- end of box header -->
   <div class="box-body">

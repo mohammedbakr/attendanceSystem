@@ -78,6 +78,13 @@ class StudentController extends Controller
 
         Attendance::create($request->all());
 
+        $student_id = $request->student_id;
+
+        if ($request->attended == 1) {
+
+            DB::table('student_user')->insert(['user_id' => null, 'student_id' => $student_id, 'grades' => 2.5]);
+        }
+
         session()->flash('success', __('site.added_successfully'));
         return redirect()->back();
     }
