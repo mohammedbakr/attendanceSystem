@@ -13,40 +13,34 @@
 
         <ul class="sidebar-menu" data-widget="tree">
 
-            <li><a href="{{ route('dashboard.welcome') }}"><i
-                        class="fa fa-th"></i><span>@lang('site.dashboard')</span></a></li>
+            <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-th"></i><span>@lang('site.dashboard')</span></a></li>
 
             @if (auth()->user()->type != 'مدير المدرسة' && auth()->user()->type != 'وكيل المدرسة')
             @if (auth()->user()->hasPermission('read_students'))
             
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i> <span>@lang('students')</span> <span class="pull-right-container"> <i
-                            class="fa fa-angle-left pull-right"></i> </span>
+                    <i class="fa fa-users"></i> <span>@lang('site.students')</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                 </a>
 
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ route('dashboard.postgraduate')}}"><i
-                                class="fa fa-dashcube"></i>@lang('Postgraduate')</a>
+                        <a href="{{ route('dashboard.postgraduate')}}"><i class="fa fa-dashcube"></i>@lang('site.Postgraduate')</a>
                     </li>
 
                     <li>
-                        <a href="{{ route('dashboard.diploma')}}"><i
-                                class="fa fa-dashcube"></i>@lang('Generaldiploma')</a>
+                        <a href="{{ route('dashboard.diploma')}}"><i class="fa fa-dashcube"></i>@lang('site.Generaldiploma')</a>
                     </li>
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashcube"></i> @lang('general')
+                            <i class="fa fa-dashcube"></i> @lang('site.general')
                         </a>
 
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ route('dashboard.general3')}}"><i
-                                        class="fa fa-dashcube"></i>@lang('stage3')</a>
-                                <a href="{{ route('dashboard.general4')}}"><i
-                                        class="fa fa-dashcube"></i>@lang('stage4')</a>
+                                <a href="{{ route('dashboard.general3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>
+                                <a href="{{ route('dashboard.general4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>
                             </li>
                         </ul>
 
@@ -54,14 +48,12 @@
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashcube"></i> @lang('primary')
+                            <i class="fa fa-dashcube"></i> @lang('site.primary')
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ route('dashboard.primary3')}}"><i
-                                        class="fa fa-dashcube"></i>@lang('stage3')</a>
-                                <a href="{{ route('dashboard.primary4')}}"><i
-                                        class="fa fa-dashcube"></i>@lang('stage4')</a>
+                                <a href="{{ route('dashboard.primary3')}}"><i class="fa fa-dashcube"></i>@lang('stage3')</a>
+                                <a href="{{ route('dashboard.primary4')}}"><i class="fa fa-dashcube"></i>@lang('stage4')</a>
                             </li>
                         </ul>
                     </li>
@@ -69,7 +61,7 @@
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashcube"></i> @lang('kg')
+                            <i class="fa fa-dashcube"></i> @lang('site.kg')
                         </a>
                         <ul class="treeview-menu">
                             <li>
@@ -81,8 +73,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('dashboard.notenrolled')}}"><i
-                                class="fa fa-dashcube"></i>@lang('notenrolled')</a>
+                        <a href="{{ route('dashboard.notenrolled')}}"><i class="fa fa-dashcube"></i>@lang('site.notenrolled')</a>
                     </li>
                 </ul>
             </li>

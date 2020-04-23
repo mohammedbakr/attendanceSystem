@@ -61,4 +61,22 @@ return [
     'head' => 'المدير',
     'all_users' => 'كل المديرين',
     'lang' => 'اللغة',
+
+    'Incomplete schools less' => 'المدارس الغير مكتملة (أقل من 5 طلاب)',
+    'Incomplete schools between' => 'المدراس الغير مكتملة ( بين ٥ : ١٨ طالب )',
+    'not enrolled students' => 'الطلاب الغير مسجلين',
+    'clients' => 'العملاء',
+    'schools summary' => 'مخلص قوائم المدارس',
+
+    'School Name' => 'اسم المدرسه',
+    'enrolled students' => 'الطلاب المسجلين',
+    'available' => 'المتاح',
+
+    // aside dropdown
+    'Postgraduate' => 'دراسات عليا',
+    'Generaldiploma' => 'دبلومة عامة',
+    'general' => 'عام',
+    'primary' => 'أساسي',
+    'kg' => 'رياض أطفال',
+    'notenrolled' => 'الغير مسجلين  بمدرسة',
 ];
