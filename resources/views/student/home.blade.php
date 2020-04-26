@@ -237,8 +237,16 @@
                               <tr>
                                   <td>{{$index + 1}}</td>
                                   <td>{{$std->pivot->grades}}</td>
-                                  <td>{{$std->name}}</td>
-                                  <td>{{$std->type}}</td>
+                                  @if($std->name == 'Superadmin')
+                                   <td>------</td>
+                                  @else
+                                    <td>{{$std->name}}</td>
+                                  @endif
+                                  @if($std->name == 'Superadmin')
+                                  <td>قائد المجموعة</td>
+                                  @else
+                                   <td>{{$std->type}}</td>
+                                 @endif
                                   <td>{{$std->pivot->created_at->format('l , j/M/Y')}}</td>
                               </tr>
                             @endforeach

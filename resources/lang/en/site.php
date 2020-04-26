@@ -80,6 +80,8 @@ return [
     'primary' => 'Primary',
     'kg' => 'Kg',
     'notenrolled' => 'Not Enrolled',
+
+    'attendance percentage' => 'Attendance Percentage'
 ];
 
 

@@ -79,4 +79,6 @@ return [
     'primary' => 'أساسي',
     'kg' => 'رياض أطفال',
     'notenrolled' => 'الغير مسجلين  بمدرسة',
+
+    'attendance percentage' => 'نسبة الحضور'
 ];

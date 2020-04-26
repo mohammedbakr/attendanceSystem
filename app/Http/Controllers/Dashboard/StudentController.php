@@ -199,7 +199,7 @@ class StudentController extends Controller
 
     public function show(Student $student)
     {
-        $student_attendance = Attendance::attended()->count();
+        $student_attendance = Attendance::attended()->where('student_id', $student->id )->count();
         if ($student->attendances->first->attended){
             $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
         }else{
@@ -216,7 +216,7 @@ class StudentController extends Controller
 
     public function showAttendance(Student $student)
     {
-        $student_attendance = Attendance::attended()->count();
+        $student_attendance = Attendance::attended()->where('student_id', $student->id )->count();
         if ($student->attendances->first->attended){
             $attendance_percentage = $student_attendance / $student->attendances->count() * 100;
         }else{

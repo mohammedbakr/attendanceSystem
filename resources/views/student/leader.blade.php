@@ -250,6 +250,7 @@
 
                             <div class="box-body">
                                 <table class="table table-hover">
+
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -259,8 +260,8 @@
                                             <th>التاريخ</th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
+                
                                         @foreach (auth()->user()->users as $index=>$std)
                                         <tr>
                                             <td>{{$index + 1}}</td>
@@ -270,8 +271,11 @@
                                             <td>{{$std->pivot->created_at->format('l , j/M/Y')}}</td>
                                         </tr>
                                         @endforeach
+                
                                     </tbody>
+                
                                 </table><!-- end of table -->
+                
                             </div><!-- end of box body -->
 
                         </div><!-- end of box -->
@@ -286,7 +290,7 @@
                             <div class="box-header with-border">
 
                                 @if (auth()->user()->attendances->count() == 0)
-                                <p>عدد أيام الحضور 0</p>
+                                <p>عدد أيام الحضور </p>
                                 @else
                                 <p>عدد أيام الحضور {{$student_attendance}} من أصل
                                     {{auth()->user()->attendances->count()}}</p>

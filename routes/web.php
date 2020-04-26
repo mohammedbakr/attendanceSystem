@@ -2,6 +2,8 @@
 
 
 
+
+
 Auth::routes(['register' => false]);
 
 //student login system

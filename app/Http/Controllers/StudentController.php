@@ -29,16 +29,20 @@ class StudentController extends Controller
     public function index()
     {
         $schools = School::select('id', 'name')->get();
-
-        $student_attendance = Attendance::attended()->count();
+        $student_id = auth()->user()->id;
+        $student_attendance = Attendance::attended()->where('student_id', $student_id )->count();
         $total_grades = DB::table('student_user')->where('student_id', auth()->user()->id)->sum('grades');
+
+        $student_data = DB::table('student_user')->get();
+
+
 
         if (auth()->user()->type == 'leader') {
 
-            return view('student.leader', compact('schools', 'total_grades', 'student_attendance'));
+            return view('student.leader', compact('schools', 'total_grades', 'student_attendance','student_data'));
         } else {
             
-            return view('student.home', compact('schools', 'total_grades', 'student_attendance'));
+            return view('student.home', compact('schools', 'total_grades', 'student_attendance','student_data'));
         }
     }
 
@@ -64,7 +68,8 @@ class StudentController extends Controller
 
     public function showAttendance(Student $student)
     {
-        $student_attendance = Attendance::attended()->count();
+        $student_attendance = Attendance::attended()->where('student_id', $student->id )->count();
+
 
         return view('student.showattendance', compact('student', 'student_attendance'));
 
@@ -80,10 +85,20 @@ class StudentController extends Controller
 
         $student_id = $request->student_id;
 
+        // if ($request->attended == 1) {
+
+        //     DB::table('student_user')->insert(['user_id' => null, 'student_id' => $student_id, 'grades' => 2.5]);
+        // }else {
+        //     DB::table('student_user')->insert(['user_id' => null, 'student_id' => $student_id, 'grades' => 0]);
+
+        // }
+
         if ($request->attended == 1) {
 
-            DB::table('student_user')->insert(['user_id' => null, 'student_id' => $student_id, 'grades' => 2.5]);
+            $student->users()->attach(1,[ 'student_id' => $student_id, 'grades' => 2.5]);
         }
+
+        
 
         session()->flash('success', __('site.added_successfully'));
         return redirect()->back();

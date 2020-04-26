@@ -7,7 +7,7 @@
         <section class="content-header">
 
             <h3 class="box-title" style="margin-bottom: 15px">
-                @lang('site.attendance percentage') <i class="fa fa-percent">{{$attendance_percentage}}</i>
+                @lang('site.attendance percentage') <i class="fa fa-percent">{{number_format($attendance_percentage,1)}}</i>
             </h3>
    
             <ol class="breadcrumb">
@@ -22,8 +22,11 @@
 
                 <div class="box-header with-border">
 
-                <p>عدد أيام الحضور {{$student->attendances->count()}} من أصل {{$student_attendance}}</p>
-
+                    @if ($student->attendances->count() == 0)
+                    <p>عدد أيام الحضور 0</p>
+                    @else
+                    <p>عدد أيام الحضور {{$student_attendance}} من أصل {{$student->attendances->count()}}</p>
+                    @endif
 
                 </div><!-- end of box header -->
 

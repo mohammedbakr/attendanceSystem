@@ -16,7 +16,7 @@ class CreateStudentUserTable extends Migration
         Schema::create('student_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('student_id')->unsigned();
+            $table->integer('student_id')->unsigned()->nullable();
             $table->double('grades',8,2)->unsigned();
             $table->timestamps();
 

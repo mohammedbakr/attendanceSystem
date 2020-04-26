@@ -47,7 +47,7 @@
                             <td>{{ $student->email }}</td>
                             <td>{{ $student->school->name }}</td>
                             <td>
-                                <a href="{{route('dashboard.showattendance', $student->id)}}"><b>%</b> {{ $attendance_percentage}} </a>
+                                <a href="{{route('dashboard.showattendance', $student->id)}}"><b>%</b> {{number_format($attendance_percentage,1,'.',"") }} </a>
                             </td>
                             <td>
                             <a href="{{route('dashboard.showdegrees', $student->id)}}"><b>%</b> {{$total_grades}} </a>
