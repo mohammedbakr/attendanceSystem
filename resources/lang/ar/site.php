@@ -32,8 +32,7 @@ return [
     'address' => 'العنوان',
 
     'users' => 'المشرفين',
-    'first_name' => 'الاسم الاول',
-    'last_name' => 'الاسم الاخير',
+    'username' => 'الاسم',
     'email' => 'البريد الاكتروني',
     'action' => 'اكشن',
 
@@ -63,7 +62,6 @@ return [
     'Incomplete schools less' => 'المدارس غير المكتملة (أقل من 5 طلاب)',
     'Incomplete schools between' => 'المدراس غير المكتملة ( بين ٥ : ١٨ طالب )',
     'not enrolled students' => 'الطلاب الغير مسجلين',
-    'clients' => 'العملاء',
     'schools summary' => 'ملخص قوائم المدارس',
 
     'School Name' => 'اسم المدرسه',
@@ -87,9 +85,10 @@ return [
     'Online' => 'نشط الآن',
     'role' => 'الوظيفة',
     'add_head_assis' => 'أضف وكيل المدرسة',
+    'head' => 'المدير',
     'stm1' => 'يجب وضع أقل من 15 طالب في كل مدرسة',
     'Leader' => 'قائد المجموعة',
-    'ass_Leader' => 'تعيين القائد',
+    'assign_leader' => 'تعيين القائد',
     'choose' => 'اختر',
     'control' => 'الكنترول',
     'faculty supervisor' => 'مشرف الكلية',
@@ -102,13 +101,9 @@ return [
     'from' => 'من أصل',
     'total' => 'المجموع',
     'evaluator' => 'المقيُم',
+    'close' => 'اغلاق',
     'add_degree' => 'أضف درجة',
     'stm2' => 'ملحوظة لا يمكنك وضع أكثر من 15 درجة',
     'stm3' => 'ملحوظة لا يمكنك وضع أكثر من 20 درجة',
-
-
-
-
-
-    
+    'You Aren\'t Allowed To See That Information' => 'انت غير مصرح لك اظهار محتويات الصفحة الرئيسية',
 ];

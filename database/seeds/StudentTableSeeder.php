@@ -39,6 +39,12 @@ class StudentTableSeeder extends Seeder
             'major' => 'primary3'
         ]);
 
+        // students for school 3
+        factory(Student::class, 3)->create([
+            'school_id' => 3,
+            'major' => 'general4'
+        ]);
+
         // not enrolled students
         factory(Student::class, 6)->create([
             'major' => 'kg1'

@@ -13,6 +13,7 @@
         </ol>
     </section>
 
+    @if (auth()->user()->type == 'super')
     <section class="content">
 
         <div class="row">
@@ -166,6 +167,17 @@
 
     </section>
     <!-- end of content -->
+    @else
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-danger">
+                        @lang('site.You Aren\'t Allowed To See That Information')
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 
 </div>
 <!-- end of content wrapper -->

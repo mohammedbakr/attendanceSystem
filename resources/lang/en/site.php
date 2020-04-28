@@ -38,9 +38,19 @@ return [
 
     'permissions' => 'Permissions',
 
-   
+    'stages' => 'Stages',
+    'all_stages' => 'All Stages',
     'name' => 'Name',
-    'created_at' => 'Created at',
+    'description' => 'Description',
+    'schools_count' => 'Schools Count',
+    'related_schools' => 'Related Schools',
+    'stage' => 'Stage',
+    'show_schools' => 'Show Schools',
+    'created_at' => 'Created At',
+
+    'schools' => 'Schools',
+    'school' => 'School',
+    'quantity' => 'Quantity',
     'total' => 'Total',
 
     'member' => 'Member',
@@ -51,9 +61,7 @@ return [
 
     'Incomplete schools less' => 'Incomplete schools (less than 5 Students)',
     'Incomplete schools between' => 'Incomplete schools (between 5 : 18 Students)',
-    'schools' => 'Schools',
     'not enrolled students' => 'Not Enrolled Students',
-    'clients' => 'Clients',
     'schools summary' => 'Schools Summary',
 
     'School Name' => 'School Name',
@@ -80,7 +88,7 @@ return [
     'head_assis' => 'Head Assistant',
     'stm1' => 'You have to fill school with less than 15 student',
     'Leader' => 'The Leader',
-    'ass_Leader' => 'Assign the leader',
+    'assign_leader' => 'Assign the leader',
     'choose' => 'Choose',
     'control' => 'Control',
     'faculty supervisor' => 'Faculty Supervisor',
@@ -97,11 +105,5 @@ return [
     'add_degree' => 'add_degree',
     'stm2' => 'You can not give more than 15 degrees',
     'stm3' => 'You can not give more than 20 degrees',
-
-
-
-
-
+    'You Aren\'t Allowed To See That Information' => 'You Aren\'t Allowed To See That Information',
 ];
-
-

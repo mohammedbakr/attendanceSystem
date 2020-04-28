@@ -92,7 +92,7 @@
                     {{ method_field('put') }}
                     
                     <div class="form-group">
-                        <label>@lang('site.ass_Leader')</label>
+                        <label>@lang('site.assign_leader')</label>
                         <select name="leader" class="form-control">
                              @foreach ($school->students as $student)
                                 <option value="{{$student->id}}">{{$student->name}}</option>

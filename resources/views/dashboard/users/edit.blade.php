@@ -43,18 +43,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('site.role')</label>
-                            <select name="type" class="form-control">
-                                <option value="">@lang('choose')</option>
-                                <option value="control">@lang('site.control')</option>
-                                <option value="head master">@lang('site.head')</option>
-                                <option value="head assistant">@lang('site.head_assis')</option>
-                                <option value="faculty supervisor">@lang('site.faculty supervisor')</option>
-                                <option value="leader">@lang('site.Leader')</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                             <label>@lang('site.permissions')</label>
                             <div class="nav-tabs-custom">
 

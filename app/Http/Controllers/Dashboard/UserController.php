@@ -76,7 +76,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($user->id),],
-            'type' => 'required',
             'permissions' => 'required|min:1'
         ]);
 

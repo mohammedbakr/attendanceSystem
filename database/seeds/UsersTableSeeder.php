@@ -35,6 +35,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // وكيل المدرسة 1
         $user = User::create([
@@ -46,7 +47,8 @@ class UsersTableSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        $user->attachRole('admin'); 
+        $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // مدير المدرسة 2
         $user = User::create([
@@ -59,6 +61,7 @@ class UsersTableSeeder extends Seeder
         ]);       
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // وكيل المدرسة 2
         $user = User::create([
@@ -71,6 +74,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // مدير المدرسة 3
         $user = User::create([
@@ -83,6 +87,7 @@ class UsersTableSeeder extends Seeder
         ]);       
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // وكيل المدرسة 3
         $user = User::create([
@@ -95,6 +100,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // مدير المدرسة 4
         $user = User::create([
@@ -107,6 +113,7 @@ class UsersTableSeeder extends Seeder
         ]);       
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // وكيل المدرسة 4
         $user = User::create([
@@ -119,6 +126,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students']);
 
         // مشرف الكلية
         $user = User::create([
@@ -131,6 +139,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students', 'update_students', 'read_schools', 'update_schools']);
 
         // الكنترول
         $user = User::create([
@@ -143,6 +152,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole('admin');
+        $user->syncPermissions(['read_students']);
 
     }//end of run
 
