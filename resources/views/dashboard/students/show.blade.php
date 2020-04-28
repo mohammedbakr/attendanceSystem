@@ -10,7 +10,7 @@
 
         <ol class="breadcrumb">
             <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-            <li class="active">@lang('site.show student')</li>
+            <li class="active">@lang('site.students')</li>
         </ol>
     </section>
 
@@ -35,8 +35,8 @@
                             <th>@lang('site.name')</th>
                             <th>@lang('site.email')</th>
                             <th>@lang('site.school')</th>
-                            <th>نسبة الحضور %</th>
-                            <th>الدرجات %</th>
+                            <th>@lang('site.student_attend') %</th>
+                            <th>@lang('site.student_grades') %</th>
                             <th>@lang('site.action')</th>
                         </tr>
                     </thead>

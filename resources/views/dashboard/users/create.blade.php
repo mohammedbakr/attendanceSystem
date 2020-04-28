@@ -43,14 +43,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label>الادوار</label>
+                            <label>@lang('site.role')</label>
                             <select name="type" class="form-control">
-                                <option value="">اختر دور</option>
-                                <option value="الكنترول">الكنترول</option>
-                                <option value="مشرف الكلية">مشرف الكلية</option>
-                                <option value="مدير المدرسة">مدير المدرسة</option>
-                                <option value="وكيل المدرسة">وكيل المدرسة</option>
-                                <option value="رائد الفصل">رائد الفصل</option>
+                                <option value="">@lang('choose')</option>
+                                <option value="control">@lang('site.control')</option>
+                                <option value="head master">@lang('site.head')</option>
+                                <option value="head assistant">@lang('site.head_assis')</option>
+                                <option value="faculty supervisor">@lang('site.faculty supervisor')</option>
+                                <option value="leader">@lang('site.Leader')</option>
                             </select>
                         </div>
 

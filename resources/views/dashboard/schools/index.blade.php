@@ -55,7 +55,7 @@
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.head')</th>
-                                <th>الوكيل</th>
+                                <th>@lang('site.head_assis')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -71,7 +71,7 @@
                                         @if ($school->users->first()->name != $school->users->last()->name && $school->users->last()->name)
                                             {{ $school->users->last()->name }}
                                         @else
-                                            <a href="{{ route('dashboard.getAgent', $school->id) }}">اضف وكيل للمدرسة</a>
+                                            <a href="{{ route('dashboard.getAgent', $school->id) }}">@lang('site.add_head_assis')</a>
                                         @endif
                                     </td>
                                     <td>

@@ -30,11 +30,11 @@
                         {{ method_field('put') }}
 
                         <div class="form-group">
-                            <label>@lang('site.users')(الوكيل)</label>
+                            <label>@lang('site.head_assis')</label>
                             <select name="user_id" class="form-control">
-                                <option value="">اختر وكيل</option>
+                                <option value="">@lang('site.choose')</option>
                                 @foreach ($users as $user)
-                                    @if ($user->type == 'وكيل المدرسة')
+                                    @if ($user->type == 'head assistant')
                                     <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
                                     @endif
                                 @endforeach

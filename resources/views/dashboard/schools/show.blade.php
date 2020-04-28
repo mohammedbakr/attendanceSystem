@@ -10,7 +10,7 @@
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li class="active">@lang('site.show students')</li>
+                <li class="active">@lang('site.students')</li>
             </ol>
         </section>
 
@@ -18,8 +18,8 @@
 
             <div class="box box-primary">
 
-                <div>يجب وضع أقل من 15 طالب في كل مدرسة</div>
-
+                <div>@lang('site.stm1')</div>
+             
                 <div class="box-header with-border">
 
                         @if($school->students_count() < 15)
@@ -54,7 +54,7 @@
                                     <td>
                                         {{$student->name}}
                                         @if($student->type == 'leader')
-                                            <span class="badge badge-info"><i class="fa fa-star"></i> قائد المجموعة</span>
+                                            <span class="badge badge-info"><i class="fa fa-star"></i>@lang('site.Leader')</span>
                                        @endif
                                     </td>
                                     <td>
@@ -92,7 +92,7 @@
                     {{ method_field('put') }}
                     
                     <div class="form-group">
-                        <label>تعيين قائد المجموعة</label>
+                        <label>@lang('site.ass_Leader')</label>
                         <select name="leader" class="form-control">
                              @foreach ($school->students as $student)
                                 <option value="{{$student->id}}">{{$student->name}}</option>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> تعيين</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> @lang('site.ass_Leader')</button>
                     </div>
 
                 </form><!-- end of form -->
@@ -112,6 +112,4 @@
         </section><!-- end of content -->
 
     </div><!-- end of content wrapper -->
-
-
 @endsection

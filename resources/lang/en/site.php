@@ -2,6 +2,7 @@
 
 return [
     'dashboard' => 'Dashboard',
+    'home' => 'Home',
     'logout' => 'Log out',
 
     'add' => 'Add',
@@ -12,8 +13,6 @@ return [
     'delete' => 'Delete',
     'search' => 'Search',
     'show' => 'Show',
-    'loading' => 'Loading',
-    'print' => 'Print',
 
     'confirm_delete' => 'Confirm Deleting',
     'yes' => 'Yes',
@@ -35,25 +34,13 @@ return [
     'users' => 'Users',
     'username' => 'Username',
     'email' => 'Email',
-    'image' => 'Image',
     'action' => 'Action',
 
     'permissions' => 'Permissions',
 
-    'categories' => 'Categories',
-    'all_categories' => 'All Categories',
+   
     'name' => 'Name',
-    'description' => 'Description',
-    'products_count' => 'Products Count',
-    'related_products' => 'Related Products',
-    'cat_products'  => 'Category Products',
-    'category' => 'Category',
-    'show_products' => 'Show Products ',
     'created_at' => 'Created at',
-
-    'products' => 'Products',
-    'product' => 'Product',
-    'quantity' => 'Quantity',
     'total' => 'Total',
 
     'member' => 'Member',
@@ -80,8 +67,41 @@ return [
     'primary' => 'Primary',
     'kg' => 'Kg',
     'notenrolled' => 'Not Enrolled',
+    'stage1' => 'Stage 1',
+    'stage3' => 'Stage 3',
+    'stage4' => 'Stage 4',
 
-    'attendance percentage' => 'Attendance Percentage'
+    'attendance percentage' => 'Attendance Percentage',
+    'All rights reserved' => 'All rights reserved',
+    'Version' => 'Version',
+    'Online' => 'Online',
+    'role' => 'Role',
+    'add_head_assis' => 'Add Head Assistant',
+    'head_assis' => 'Head Assistant',
+    'stm1' => 'You have to fill school with less than 15 student',
+    'Leader' => 'The Leader',
+    'ass_Leader' => 'Assign the leader',
+    'choose' => 'Choose',
+    'control' => 'Control',
+    'faculty supervisor' => 'Faculty Supervisor',
+    'majors' => 'Majors',
+    'school' => 'School',
+    'student_attend' => 'Student Attendance',
+    'student_grades' => 'Student Grades',
+    'date' => 'Date',
+    'Attended days' => 'Attended days',
+    'from' => 'From',
+    'total' => 'Total',
+    'evaluator' => 'Evaluator',
+    'close' => 'Close',
+    'add_degree' => 'add_degree',
+    'stm2' => 'You can not give more than 15 degrees',
+    'stm3' => 'You can not give more than 20 degrees',
+
+
+
+
+
 ];
 
 

@@ -55,7 +55,7 @@
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.email')</th>
-                                <th>الدور</th>
+                                <th>@lang('site.role')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>

@@ -7,13 +7,13 @@
     <section class="content-header">
 
         <h3 class="box-title" style="margin-bottom: 15px">
-            الدرجات <i class="fa fa-percent">{{$total_grades}}</i>
+            @lang('site.student_grades') <i class="fa fa-percent">{{$total_grades}}</i>
         </h3>
 
         <ol class="breadcrumb">
             <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
             </li>
-            <li class="active">الدرجات</li>
+            <li class="active">@lang('site.student_grades')</li>
         </ol>
     </section>
 
@@ -23,10 +23,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        @if(auth()->user()->type == 'مدير المدرسة' || auth()->user()->type == 'وكيل المدرسة')
-                             <h5 class="modal-title" id="exampleModalLabel">أضف درجة<span style="color:red"> (ملحوظة لا يمكنك وضع أكثر من 15 درجة)</span></h5>
+                        @if(auth()->user()->type == 'head master' || auth()->user()->type == 'head assistant')
+                             <h5 class="modal-title" id="exampleModalLabel">@lang('site.add_degree')<span style="color:red"> (@lang('stm2'))</span></h5>
                         @else
-                          <h5 class="modal-title" id="exampleModalLabel">أضف درجة<span style="color:red"> (ملحوظة لا يمكنك وضع أكثر من 20 درجة)</span></h5>
+                          <h5 class="modal-title" id="exampleModalLabel">@lang('site.add_degree')<span style="color:red"> (@lang('stm3'))</span></h5>
                         @endif
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -39,8 +39,8 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="grades" class="col-form-label">الدرجة: </label>
-                                @if(auth()->user()->type == 'مدير المدرسة' || auth()->user()->type == 'وكيل المدرسة')
-                                     <input type="number" class="form-control" id="grades" name="grades" required min="0" max="15">
+                                @if(auth()->user()->type == 'head master' || auth()->user()->type == 'head assistant')
+                                <input type="number" class="form-control" id="grades" name="grades" required min="0" max="15">
                                 @else
                                      <input type="number" class="form-control" id="grades" name="grades" required min="0" max="20">
                                 @endif
@@ -48,7 +48,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-info">@lang('site.add')</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('site.close')</button>
                         </div>
                     </form>
                 </div>
@@ -59,11 +59,11 @@
 
             <div class="box-header with-border">
 
-                <p>مجموع درجات الطالب {{$total_grades}} من 100</p>
+                <p> @lang('site.total')  {{$total_grades}} @lang('site.from') 100</p>
 
-                @if(auth()->user()->type != 'super' && auth()->user()->type != 'الكنترول' )
+                @if(auth()->user()->type != 'super' && auth()->user()->type != 'control' )
                 <button type="button" class="btn btn-info float-right" data-toggle="modal"
-                    data-target="#exampleModal">Add Degree</button>
+                    data-target="#exampleModal">@lang('site.add_degree')</button>
                 @endif
 
             </div><!-- end of box header -->
@@ -75,10 +75,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>الدرجة</th>
-                            <th>المقيٌم</th>
-                            <th>الوظيفة</th>
-                            <th>التاريخ</th>
+                            <th>@lang('site.student_grades')</th>
+                            <th>@lang('site.evaluator')</th>
+                            <th>@lang('site.role')</th>
+                            <th>@lang('site.date')</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,7 +93,7 @@
                               <td>{{$std->name}}</td>
                             @endif
                             @if($std->type == 'super')
-                            <td>قائد المجموعة</td>
+                            <td>@lang('site.leader')</td>
                             @else
                              <td>{{$std->type}}</td>
                            @endif

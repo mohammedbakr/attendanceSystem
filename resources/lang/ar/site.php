@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'dashboard' => 'الرئيسية',
+    'dashboard' => 'لوحة التحكم',
+    'home' => 'الرئيسية',
     'logout' => 'تسجيل الخروج',
 
     'add' => 'اضف',
@@ -12,8 +13,6 @@ return [
     'delete' => 'حذف',
     'search' => 'بحث',
     'show' => 'عرض',
-    'loading' => 'جاري التحميل',
-    'print' => 'طبع',
 
     'confirm_delete' => 'تاكيد الحذف',
     'yes' => 'نعم',
@@ -36,7 +35,6 @@ return [
     'first_name' => 'الاسم الاول',
     'last_name' => 'الاسم الاخير',
     'email' => 'البريد الاكتروني',
-    'image' => 'صوره',
     'action' => 'اكشن',
 
     'permissions' => 'الصلاحيات',
@@ -62,11 +60,11 @@ return [
     'all_users' => 'كل المديرين',
     'lang' => 'اللغة',
 
-    'Incomplete schools less' => 'المدارس الغير مكتملة (أقل من 5 طلاب)',
-    'Incomplete schools between' => 'المدراس الغير مكتملة ( بين ٥ : ١٨ طالب )',
+    'Incomplete schools less' => 'المدارس غير المكتملة (أقل من 5 طلاب)',
+    'Incomplete schools between' => 'المدراس غير المكتملة ( بين ٥ : ١٨ طالب )',
     'not enrolled students' => 'الطلاب الغير مسجلين',
     'clients' => 'العملاء',
-    'schools summary' => 'مخلص قوائم المدارس',
+    'schools summary' => 'ملخص قوائم المدارس',
 
     'School Name' => 'اسم المدرسه',
     'enrolled students' => 'الطلاب المسجلين',
@@ -79,6 +77,38 @@ return [
     'primary' => 'أساسي',
     'kg' => 'رياض أطفال',
     'notenrolled' => 'الغير مسجلين  بمدرسة',
+    'stage1' => 'الفرقة الأولى',
+    'stage3' => 'الفرقة الثالثة',
+    'stage4' => 'الفرقة الرابعة',
 
-    'attendance percentage' => 'نسبة الحضور'
+    'attendance percentage' => 'نسبة الحضور',
+    'All rights reserved' => 'كل الحقوق محفوظة',
+    'Version' => 'الإصدار',
+    'Online' => 'نشط الآن',
+    'role' => 'الوظيفة',
+    'add_head_assis' => 'أضف وكيل المدرسة',
+    'stm1' => 'يجب وضع أقل من 15 طالب في كل مدرسة',
+    'Leader' => 'قائد المجموعة',
+    'ass_Leader' => 'تعيين القائد',
+    'choose' => 'اختر',
+    'control' => 'الكنترول',
+    'faculty supervisor' => 'مشرف الكلية',
+    'majors' => 'الأقسام',
+    'school' => 'School',
+    'student_attend' => 'حضور الطالب',
+    'student_grades' => 'درجات الطالب',
+    'date' => 'االتاريخ',
+    'Attended days' => 'عدد أيام الحضور',
+    'from' => 'من أصل',
+    'total' => 'المجموع',
+    'evaluator' => 'المقيُم',
+    'add_degree' => 'أضف درجة',
+    'stm2' => 'ملحوظة لا يمكنك وضع أكثر من 15 درجة',
+    'stm3' => 'ملحوظة لا يمكنك وضع أكثر من 20 درجة',
+
+
+
+
+
+    
 ];

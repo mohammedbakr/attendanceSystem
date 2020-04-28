@@ -23,9 +23,9 @@
                 <div class="box-header with-border">
 
                     @if ($student->attendances->count() == 0)
-                    <p>عدد أيام الحضور 0</p>
+                    <p>@lang('site.Attended days') 0</p>
                     @else
-                    <p>عدد أيام الحضور {{$student_attendance}} من أصل {{$student->attendances->count()}}</p>
+                    <p>@lang('site.Attended days') {{$student_attendance}} @lang('site.from') {{$student->attendances->count()}}</p>
                     @endif
 
                 </div><!-- end of box header -->
@@ -37,8 +37,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>التاريخ</th>
-                                    <th>الحضور</th>
+                                    <th>@lang('site.date')</th>
+                                    <th>@lang('site.student_attend')</th>
                                 </tr>
                             </thead>
                             <tbody>
