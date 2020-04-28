@@ -12,23 +12,48 @@ class StudentTableSeeder extends Seeder
      */
     public function run()
     {
-        Student::create([
-
-            'name' => 'ahmed',
-            'email' => 'ahmed@app.com',
-            'password' => bcrypt('111'),
-            'major' => 'kg1',
-
+        // students for school 1
+        factory(Student::class, 3)->create([
+            'school_id' => 1,
+            'major' => 'primary3'
         ]);
 
-        Student::create([
+        factory(Student::class, 3)->create([
+            'school_id' => 1,
+            'major' => 'postgraduate'
+        ]);
 
-            'name' => 'nader',
-            'email' => 'nader@app.com',
-            'password' => bcrypt('111'),
-            'major' => 'primary3',
-            'school_id' => '1'
+        factory(Student::class, 3)->create([
+            'school_id' => 1,
+            'major' => 'general4'
+        ]);
 
+        // students for school 2
+        factory(Student::class, 5)->create([
+            'school_id' => 2,
+            'major' => 'diploma'
+        ]);
+
+        factory(Student::class, 5)->create([
+            'school_id' => 2,
+            'major' => 'primary3'
+        ]);
+
+        // not enrolled students
+        factory(Student::class, 6)->create([
+            'major' => 'kg1'
+        ]);
+
+        factory(Student::class, 5)->create([
+            'major' => 'diploma'
+        ]);
+
+        factory(Student::class, 5)->create([
+            'major' => 'primary4'
+        ]);
+
+        factory(Student::class, 5)->create([
+            'major' => 'kg4'
         ]);
     }
 }

@@ -171,7 +171,3 @@
 <!-- end of content wrapper -->
 
 @endsection
-
-@push('scripts')
-
-@endpush

@@ -85,14 +85,6 @@ class StudentController extends Controller
 
         $student_id = $request->student_id;
 
-        // if ($request->attended == 1) {
-
-        //     DB::table('student_user')->insert(['user_id' => null, 'student_id' => $student_id, 'grades' => 2.5]);
-        // }else {
-        //     DB::table('student_user')->insert(['user_id' => null, 'student_id' => $student_id, 'grades' => 0]);
-
-        // }
-
         if ($request->attended == 1) {
 
             $student->users()->attach(1,[ 'student_id' => $student_id, 'grades' => 2.5]);
