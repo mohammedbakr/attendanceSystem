@@ -68,7 +68,11 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->email }}</td>
-                                    <td>{{ $student->school->name }}</td>
+                                    @if(empty($student->school->name))
+                                    <td>@lang('site.Not Found')</td>
+                                    @else
+                                     <td>{{ $student->school->name }}</td>
+                                    @endif
                                    
                                     <td>
                                         <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>

@@ -74,13 +74,13 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active btn btn-warning btn-lg" data-toggle="tab" href="#home">Employes</a>
+                    <a class="nav-link active btn btn-warning btn-lg" data-toggle="tab" href="#home">الشؤون</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-info btn-lg" data-toggle="tab" href="#menu1">Students</a>
+                    <a class="nav-link btn btn-info btn-lg" data-toggle="tab" href="#menu1">الطلاب</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary btn-lg" data-toggle="tab" href="#menu2">Admin</a>
+                    <a class="nav-link btn btn-primary btn-lg" data-toggle="tab" href="#menu2">المدارس</a>
                 </li>
             </ul>
     
@@ -92,11 +92,11 @@
                     <div class="login-box">
 
                         <div class="login-logo">
-                            <a href="#"><b>Employes</b></a>
+                            <a href="#"><b>الشؤون</b></a>
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
-                                <p class="login-box-msg">Employees</p>
+                                <p class="login-box-msg">الشؤون</p>
                             
                                 <form action="{{ route('login') }}" method="post">
                                     {{ csrf_field() }}
@@ -134,11 +134,11 @@
                 <div id="menu2" class="container tab-pane fade"><br>
                     <div class="login-box">
                         <div class="login-logo">
-                            <a href="#"><b>Admin</b></a>
+                            <a href="#"><b>المدارس</b></a>
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
-                            <p class="login-box-msg">Admin</p>
+                            <p class="login-box-msg">المدارس</p>
                     
                             <form action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
@@ -173,11 +173,11 @@
                 <div id="menu1" class="container tab-pane fade"><br>
                     <div class="login-box">
                         <div class="login-logo">
-                            <a href="#"><b>Students</b></a>
+                            <a href="#"><b>الطلاب</b></a>
                         </div><!-- end of login lgo -->
                     
                         <div class="login-box-body">
-                            <p class="login-box-msg">students</p>
+                            <p class="login-box-msg">الطلاب</p>
                     
                             <form action="{{ route('student.login') }}" method="post">
                                 {{ csrf_field() }}

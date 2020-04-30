@@ -56,11 +56,12 @@ return [
     'member' => 'Member',
     'students' => 'Students',
     'head' => 'Head',
+    'head_assis' => 'Head Assistant',
     'all_users' => 'All Users',
     'lang' => 'Language',
 
     'Incomplete schools less' => 'Incomplete schools (less than 5 Students)',
-    'Incomplete schools between' => 'Incomplete schools (between 5 : 18 Students)',
+    'Incomplete schools between' => ' schools (between 5 : 18 Students)',
     'not enrolled students' => 'Not Enrolled Students',
     'schools summary' => 'Schools Summary',
 
@@ -86,13 +87,14 @@ return [
     'role' => 'Role',
     'add_head_assis' => 'Add Head Assistant',
     'head_assis' => 'Head Assistant',
-    'stm1' => 'You have to fill school with less than 15 student',
+    'stm1' => 'You have to fill school with less than 18 student',
     'Leader' => 'The Leader',
     'assign_leader' => 'Assign the leader',
     'choose' => 'Choose',
     'control' => 'Control',
     'faculty supervisor' => 'Faculty Supervisor',
     'majors' => 'Majors',
+    'major' => 'Major',
     'school' => 'School',
     'student_attend' => 'Student Attendance',
     'student_grades' => 'Student Grades',
@@ -108,4 +110,8 @@ return [
     'save' => 'Save',
     'exit' => 'Close',
     'You Aren\'t Allowed To See That Information' => 'You Aren\'t Allowed To See That Information',
+    'Add to a school' => 'Add to A school',
+    'school students' => 'School Students',
+    'Not Found' => 'Not Found',
+
 ];

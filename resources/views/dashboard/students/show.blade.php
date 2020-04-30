@@ -45,7 +45,11 @@
 
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
-                            <td>{{ $student->school->name }}</td>
+                            @if(empty($student->school->name))
+                                 <td>@lang('site.Not Found')</td>
+                            @else
+                                 <td>{{ $student->school->name }}</td>
+                            @endif
                             <td>
                                 <a href="{{route('dashboard.showattendance', $student->id)}}"><b>%</b> {{number_format($attendance_percentage,1,'.',"") }} </a>
                             </td>

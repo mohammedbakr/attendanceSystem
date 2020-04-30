@@ -108,7 +108,8 @@
                                 <th>@lang('site.available')</th>
                                 <th>@lang('site.show')</th>
                             </tr>
-                            @foreach ($schools as $school) @if ($school->count() < 5)
+                            @foreach ($schools as $school) 
+                            @if ($school->students_count() < 5)
                             <tr>
                                 <td>{{ $school->name }}</td>
                                 <td>{{ $school->students_count() }}</td>
@@ -140,8 +141,8 @@
                                 <th>@lang('site.available')</th>
                                 <th>@lang('site.show')</th>
                             </tr>
-                            @foreach ($schools as $school) @if ($school->count() >=5 && $school->count <=
-                            18)
+                            @foreach ($schools as $school)
+                             @if ($school->students_count() >=5 && $school->students_count() <= 18)
                             <tr>
                                 <td>{{ $school->name }}</td>
                                 <td>{{ $school->students_count() }}</td>

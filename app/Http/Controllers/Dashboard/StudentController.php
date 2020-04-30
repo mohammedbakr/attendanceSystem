@@ -309,12 +309,13 @@ class StudentController extends Controller
 
     }//end of update
 
-    public function destroy(Student $student)
-    {
-        $student->delete();
-        session()->flash('success', __('site.deleted_successfully'));
-        return redirect()->back();
+    // public function destroy(Student $student)
+    // {
+    //     $student->delete();
+    //     session()->flash('success', __('site.deleted_successfully'));
+    //     return redirect()->back();
 
-    }//end of destroy
+    // }//end of destroy
+
 
 }//end of controller

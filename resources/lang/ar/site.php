@@ -60,7 +60,7 @@ return [
     'lang' => 'اللغة',
 
     'Incomplete schools less' => 'المدارس غير المكتملة (أقل من 5 طلاب)',
-    'Incomplete schools between' => 'المدراس غير المكتملة ( بين ٥ : ١٨ طالب )',
+    'Incomplete schools between' => 'المدراس  ( بين ٥ : ١٨ طالب )',
     'not enrolled students' => 'الطلاب الغير مسجلين',
     'schools summary' => 'ملخص قوائم المدارس',
 
@@ -85,8 +85,9 @@ return [
     'Online' => 'نشط الآن',
     'role' => 'الوظيفة',
     'add_head_assis' => 'أضف وكيل المدرسة',
+    'head_assis' => 'وكيل المدرسة',
     'head' => 'المدير',
-    'stm1' => 'يجب وضع أقل من 15 طالب في كل مدرسة',
+    'stm1' => 'يجب وضع أقل من 18 طالب في كل مدرسة',
     'Leader' => 'قائد المجموعة',
     'leader' => 'قائد المجموعة',
     'assign_leader' => 'تعيين القائد',
@@ -94,6 +95,7 @@ return [
     'control' => 'الكنترول',
     'faculty supervisor' => 'مشرف الكلية',
     'majors' => 'الأقسام',
+    'major' => 'القسم',
     'school' => 'School',
     'student_attend' => 'حضور الطالب',
     'student_grades' => 'درجات الطالب',
@@ -109,4 +111,8 @@ return [
     'You Aren\'t Allowed To See That Information' => 'انت غير مصرح لك اظهار محتويات الصفحة الرئيسية',
     'save' => 'حفظ',
     'exit' => 'إغلاق',
+    'Add to a school' => 'أضف إلى مدرسة',
+    'school students' => 'طلاب المدرسة',
+    'Not Found' => 'لا يوجد',
+    'school' => 'المدرسة',
 ];

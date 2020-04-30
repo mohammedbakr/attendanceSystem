@@ -4,11 +4,11 @@
 
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>@lang('site.Add student to a school')</h1>
+            <h1>@lang('site.Add to a school')</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.notenrolled') }}"> @lang('site.students not enrolled')</a></li>
+                <li><a href="{{ route('dashboard.notenrolled') }}"> @lang('site.notenrolled')</a></li>
                 <li class="active">@lang('site.edit')</li>
             </ol>
         </section>
@@ -34,10 +34,10 @@
                             <select name="school_id" class="form-control">
                                 <option value="">@lang('site.schools')</option>
                                 @foreach ($schools as $school)
-                                    @if($school->students_count() <= 15)
+                                    @if($school->students_count() < 18)
                                          <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
                                     @else
-                                         <option value="" disabled>{{ $school->name }}</option>
+                                    <option class="text-danger" value="" disabled>{{ $school->name }} مكتملة</option>
                                     @endif
 
                                 @endforeach
