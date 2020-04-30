@@ -73,46 +73,75 @@
             }
         }
 
-        .header {
-        border-top: 4px solid #83B2DC;
-        border-bottom: 4px solid #316897;
+      .header {
         padding: 10px 0;
-        background-color: #E6EFFB;
+        margin: 10px
       }
-      .header img {
-        width: 60px;
-        height: 60px;
-        vertical-align: middle;
+      .header .cover {
+        background-color: #8cbeea;
+        padding: 70px 20px;
+        position: relative;
+      }
+      .header .cover .name {
+        position: relative;
+        top: 65px;
+        right: 10%;
+      }
+      .header .cover .name h4 {
+        color: #000;
+      }
+      .header .data {
+        background-color: #EEE;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header .data .college {
+        position: relative;
+        right: 10%;
+      }
+      .header .data .logout-signature {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .header .data .logout-signature .logout {
         margin-right: 10px;
       }
-      .header span {
-        display: inline-block;
-        color: #575bba;
+      .header .data .logout-signature .logout a {
+        font: inherit;
+        padding: 0.5rem 1rem;
+        background: #dd4b39;
+        border: 1px solid #d73925;
+        color: white;
+        border-radius: 6px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+        cursor: pointer;
+        transition: all .3s ease;
       }
-      .header span h4 {
-        display: inline-block;
+      .header .data .logout-signature .logout a:hover {
+        background: #c13725;
+        border: 1px solid #841a0c;
       }
-      .header span h4:last-child {
-        display: inline-block;
-        color: #b8041c;
+      .header .data .logout-signature .signature p {
+        margin: 0;
       }
-      .header button {
-        float: left;
-        margin-left: 10px;
+      .header img {
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+        border-radius: 50%;
+        position: absolute;
+        top: 70%;
       }
-      .header div.float-left {
-        display: inline-block;
-        color: #000;
-        vertical-align: bottom;
-        margin-top: 10px;
-        margin-left: 10px;
-      }
+
       .header div.float-right:last-child span {
         color: #575bba;
       }
       aside {
         border-left: 4px solid #316897;
-        /* height: 430px; */
       }
       aside .my-navtabs-v {
         border: 1px solid #CCC;
@@ -141,7 +170,80 @@
           border-bottom: 4px solid #316897;
         }
       }
+      .school-sec {
+        background: #FFF;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        padding: 20px;
+        margin: 10px auto;
+      }
+      @media (max-width: 575.98px) {
+        aside {
+          border-left: none;
+          border-bottom: 4px solid #316897;
+        }
+        .header .cover .name {
+          right: 28%;
+        }
+        .header .data .college {
+          right: -13%;
+        }
+        .header .data {
+          flex-direction: column;
+        }
+        .header .data {
+          padding: 5px 20px;
+        }
+        .header .data .logout-signature {
+          width: 100%;
+          padding: 10px;
+          justify-content: space-between;
+          margin-top: 10px;
+        }
+      }
 
+      @media (min-width: 576px) and (max-width: 767.98px) {
+        aside {
+          border-left: none;
+          border-bottom: 4px solid #316897;
+        }
+        .header .cover .name {
+          right: 22%;
+        }
+        .header .data .college {
+          right: -21%;
+        }
+        .header .data {
+          flex-direction: column;
+        }
+        .header .data {
+          padding: 5px 20px;
+        }
+        .header .data .logout-signature {
+          width: 100%;
+          padding: 10px;
+          justify-content: space-between;
+          margin-top: 10px;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        .header .cover .name {
+          right: 16.5%;
+        }
+        .header .data .college {
+          right: 16.5%;
+        }
+      }
+
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        .header .cover .name {
+          right: 12%;
+        }
+        .header .data .college {
+          right: 12%;
+        }
+      }
     </style>
 
 </head>
@@ -151,29 +253,26 @@
 @include('partials._errors')
 <div class="header">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9">
-        <img class="img-thumbnail img-rounded" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
-        <span>
-          <h4>{{auth()->user()->name}}</h4>
-          <h4>{{auth()->user()->major}}</h4>
-        </span>
+    <div class="cover">
+      <img class="img-thumbnail img-rounded" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
+      <div class="name">
+        <h4><strong>{{auth()->user()->name}}</strong></h4>
       </div>
-      <div class="col-sm-3">
-        <div class="row">
-          <div class="col-sm-12">
-            <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">@lang('site.logout')</a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-          </div>
-          <div class="col-sm-12">
-            <div class="float-left">
-              <p>All Right Reserved &copy; <span>Damietta University</span></p>
-            </div>
-          </div>
+    </div>
+    <div class="data">
+      <div class="college">
+        <h4><strong>{{auth()->user()->major}}</strong></h4>
+      </div>
+      <div class="logout-signature">
+        <div class="logout">
+          <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">@lang('site.logout')</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+        </div>
+        <div class="signature">
+          <p>All Right Reserved &copy; <span style="color: #316897;"><strong>Damietta University</strong></span></p>
         </div>
       </div>
     </div>
@@ -338,8 +437,10 @@
 
           </div><!-- end of attendance -->
 
+          {{-- Start School --}}
           <div class="tab-pane fade" id="registry">
-            @if (!auth()->user()->school_id)
+            <div class="school-sec">
+              @if (!auth()->user()->school_id)
             <form action="{{ route('students.update', auth()->user()->id) }}" method="post">
 
               {{ csrf_field() }}
@@ -363,10 +464,11 @@
 
             </form><!-- end of form -->
             @else
-            School Name : {{ auth()->user()->school()->first()->name }}
+            <strong>School Name</strong> : {{ auth()->user()->school()->first()->name }}
             @endif
-
+            </div>
           </div><!-- end of schools -->
+          {{-- End of School --}}
 
         </div>
       </main>
