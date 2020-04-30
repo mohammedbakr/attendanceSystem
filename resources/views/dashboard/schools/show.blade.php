@@ -85,7 +85,7 @@
 
                 </div><!-- end of box body -->
 
-                @if (auth()->user()->type == 'super')
+                @if (auth()->user()->type == 'super' || auth()->user()->type == 'faculty supervisor')
                 <form action="{{ route('dashboard.schools.update', $school->id ) }}" method="post"  class="pull-left">
 
                     {{ csrf_field() }}
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> @lang('site.ass_Leader')</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> @lang('site.assign_leader')</button>
                     </div>
 
                 </form><!-- end of form -->

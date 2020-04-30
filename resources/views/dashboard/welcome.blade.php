@@ -13,7 +13,7 @@
         </ol>
     </section>
 
-    @if (auth()->user()->type == 'super')
+    @if (auth()->user()->type == 'super' || auth()->user()->type == 'faculty supervisor')
     <section class="content">
 
         <div class="row">

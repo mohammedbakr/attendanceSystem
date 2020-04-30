@@ -6,6 +6,7 @@
 
 Auth::routes(['register' => false]);
 
+Route::redirect('/','dashboard');
 //student login system
 Route::GET('student/home', 'StudentController@index')->name('student.index');
 Route::get('students/attendance/{student}', 'StudentController@showAttendance')->name('showattendance');

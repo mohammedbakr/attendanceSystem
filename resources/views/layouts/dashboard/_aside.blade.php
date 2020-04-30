@@ -21,7 +21,8 @@
                 </a>
             </li>
 
-            @if (auth()->user()->type != 'head master' && auth()->user()->type != 'head assistant') @if (auth()->user()->hasPermission('read_students'))
+            @if (auth()->user()->type != 'head master' && auth()->user()->type != 'head assistant')
+             @if (auth()->user()->hasPermission('read_students'))
 
             <li class="treeview">
                 <a href="#">

@@ -179,7 +179,6 @@
   </div>
 </div>
 
-<h1 class="text-center" style="color:red; margin-top: 10px;">Welcome Student {{auth()->user()->name}}</h1>
 @include('partials._session')
 @include('partials._errors')
 <div class="header">
@@ -189,8 +188,7 @@
         <img class="img-thumbnail" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
         <span>
           <h4>{{auth()->user()->name}}</h4>
-          &nbsp;
-          <h4>Four Year - Information And Tecnology - Faculty Of Engineering</h4>
+          <h4>{{auth()->user()->major}}</h4>
         </span>
       </div>
       <div class="col-sm-3">
@@ -205,7 +203,7 @@
           </div>
           <div class="col-sm-12">
             <div class="float-left">
-              <p>All Right Reserved &copy; <span>Mansoura University</span></p>
+              <p>All Right Reserved &copy; <span>Damietta University</span></p>
             </div>
           </div>
         </div>

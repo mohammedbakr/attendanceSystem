@@ -105,5 +105,7 @@ return [
     'add_degree' => 'add_degree',
     'stm2' => 'You can not give more than 15 degrees',
     'stm3' => 'You can not give more than 20 degrees',
+    'save' => 'Save',
+    'exit' => 'Close',
     'You Aren\'t Allowed To See That Information' => 'You Aren\'t Allowed To See That Information',
 ];

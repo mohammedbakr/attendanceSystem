@@ -24,9 +24,9 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         @if(auth()->user()->type == 'head master' || auth()->user()->type == 'head assistant')
-                             <h5 class="modal-title" id="exampleModalLabel">@lang('site.add_degree')<span style="color:red"> (@lang('stm2'))</span></h5>
+                             <h5 class="modal-title" id="exampleModalLabel">@lang('site.add_degree')<span style="color:red"> (@lang('site.stm2'))</span></h5>
                         @else
-                          <h5 class="modal-title" id="exampleModalLabel">@lang('site.add_degree')<span style="color:red"> (@lang('stm3'))</span></h5>
+                          <h5 class="modal-title" id="exampleModalLabel">@lang('site.add_degree')<span style="color:red"> (@lang('site.stm3'))</span></h5>
                         @endif
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
