@@ -336,7 +336,7 @@
         @if ($student->attendances->count() == 0)
         <p class="bbadge badge-pill badge-primary">عدد أيام الحضور <span class="badge badge-light">0</span></p>
         @else
-        <p>عدد أيام الحضور {{$student_attendance}} من أصل {{$student->attendances->count()}}</p>
+        <p>عدد أيام الحضور <span class="badge badge-light">{{$student_attendance}}</span> من أصل <span class="badge badge-light">{{$student->attendances->count()}}</span></p>
         @endif
       </div>
       <button type="button" class="btn btn-info" data-toggle="modal"

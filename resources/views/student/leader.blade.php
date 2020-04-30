@@ -400,9 +400,9 @@
                                             <td>{{$attendance->created_at->format('l , j/M/Y')}}</td>
                                             <td>
                                                 @if ($attendance->attended == 1)
-                                                <div class="label label-success"> <i class="fa fa-check"></i> Yes</div>
+                                                <div class="label label-success"> <i class="fa fa-check"></i> نعم</div>
                                                 @else
-                                                <div class="label label-danger"><i class="fa fa-times"></i> No </div>
+                                                <div class="label label-danger"><i class="fa fa-times"></i> لا </div>
                                                 @endif
                                             </td>
                                         </tr>
@@ -427,8 +427,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{auth()->user()->school()->first()->name}} @lang('site.school
-                                            students')</th>
+                                        <th>@lang('site.school students')</th>
                                         <th>@lang('site.action')</th>
                                     </tr>
                                 </thead>
