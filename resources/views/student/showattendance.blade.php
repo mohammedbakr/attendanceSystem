@@ -74,8 +74,7 @@
         }
 
       .header {
-        padding: 10px 0;
-        margin: 10px
+        margin-bottom: 15px;
       }
       .header .cover {
         background-color: #8cbeea;
@@ -83,6 +82,7 @@
         position: relative;
       }
       .header .cover .name {
+        display: flex;
         position: relative;
         top: 65px;
         right: 10%;
@@ -303,28 +303,26 @@
 @include('partials._session')
 @include('partials._errors')
 <div class="header">
-  <div class="container-fluid">
-    <div class="cover">
-      <img class="img-thumbnail img-rounded" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
-      <div class="name">
-        <h4><strong>{{auth()->user()->name}}</strong></h4>
-      </div>
+  <div class="cover">
+    <img class="img-thumbnail img-rounded" src="{{ asset('images/avatar-profile.jpg') }}" alt="Profile Picture">
+    <div class="name">
+      <h4><strong>{{auth()->user()->name}}</strong></h4>
     </div>
-    <div class="data">
-      <div class="college">
-        <h4><strong>{{auth()->user()->major}}</strong></h4>
+  </div>
+  <div class="data">
+    <div class="college">
+      <h4><strong>{{auth()->user()->major}}</strong></h4>
+    </div>
+    <div class="logout-signature">
+      <div class="logout">
+        <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">@lang('site.logout')</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
       </div>
-      <div class="logout-signature">
-        <div class="logout">
-          <a href="{{ route('logout') }}" class="btn btn-danger btn-flat" onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">@lang('site.logout')</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-          </form>
-        </div>
-        <div class="signature">
-          <p>All Right Reserved &copy; <span style="color: #316897;"><strong>Damietta University</strong></span></p>
-        </div>
+      <div class="signature">
+        <p>All Right Reserved &copy; <span style="color: #316897;"><strong>Damietta University</strong></span></p>
       </div>
     </div>
   </div>
