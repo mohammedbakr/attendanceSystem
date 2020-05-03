@@ -68,7 +68,7 @@
         <div class="container mt-3">
             <h1 class="page-header text-center" style="margin-top: 20px;">
                 <B><span style="color: #f06b2c;">نظام   </span></B>
-                <B><span style="color: #1595c2;"></span> لإدارة الحضور و الغياب</span></B>
+                <B><span style="color: #1595c2;"></span> لإدارة  شئون الطلاب </span></B>
             </h1>
             <br>
             <!-- Nav tabs -->
