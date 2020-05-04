@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,6 +15,9 @@ class Student extends Authenticatable
         'name', 'email', 'password','major','school_id','type'
     ];
     
+    protected $visible = [
+        'name', 'email','major','created_at'
+    ];
 
     public function getNameAttribute($value)
     {
@@ -37,5 +39,6 @@ class Student extends Authenticatable
 
         return $this->hasMany(Attendance::class);
     }
+
 
 }//end of model

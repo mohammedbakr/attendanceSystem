@@ -34,6 +34,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::get('schools/agent/create/{school}', 'SchoolController@getAgent')->name('getAgent');
             Route::put('schools/agent/create/{school}', 'SchoolController@addAgent')->name('addAgent');
 
+            //excel routes
+            Route::get('dashboard/students/majors/diploma/export', 'StudentController@export')->name('export');
+            Route::get('importExportView', 'StudentController@importExportView');
+            Route::post('import', 'StudentController@import')->name('import');
         });//end of dashboard routes
     });
 

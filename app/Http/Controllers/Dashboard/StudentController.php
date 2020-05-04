@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Dashboard;
 use App\Attendance;
 use App\Student;
 use App\School;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Exports\StudentsExport;
+use App\Imports\StudentsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
@@ -309,13 +312,24 @@ class StudentController extends Controller
 
     }//end of update
 
-    // public function destroy(Student $student)
-    // {
-    //     $student->delete();
-    //     session()->flash('success', __('site.deleted_successfully'));
-    //     return redirect()->back();
 
-    // }//end of destroy
-
+    public function importExportView()
+    {
+       return view('dashboard.students.majors.diploma');
+    }
+   
+  
+    public function export() 
+    {
+        return Excel::download(new StudentsExport, 'students.xlsx');
+    }
+   
+  
+    public function import() 
+    {
+        Excel::import(new StudentsImport,request()->file('file'));
+           
+        return back();
+    }
 
 }//end of controller

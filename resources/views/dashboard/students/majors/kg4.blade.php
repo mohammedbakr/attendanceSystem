@@ -45,6 +45,12 @@
                         </div>
                     </form><!-- end of form -->
 
+                    <form action="{{ route('dashboard.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="file" style="margin-top:10px">
+                        <button class="btn btn-success" style="margin-top:20px">رفع ملف الطلاب<i class="fa fa-upload"></i></button>
+                        <a class="btn btn-warning" href="{{ route('dashboard.export') }}" style="margin-top:20px;margin-right:5px"> تحميل الطلاب <i class="fa fa-download"></i></a>
+                    </form>
                 </div><!-- end of box header -->
 
                 <div class="box-body">
@@ -70,8 +76,11 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->email }}</td>
-                                    <td>{{ $student->school->name }}</td>
-                                   
+                                    @if(empty($student->school->name))
+                                    <td>ليس مسًجل</td>
+                                   @else 
+                                     <td>{{ $student->school->name }}</td>
+                                    @endif                                   
                                     <td>
                                         <a href="{{ route('dashboard.students.show', $student->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> @lang('site.show')</a>
 
